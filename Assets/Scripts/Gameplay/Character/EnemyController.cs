@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AttackController attackController;
     [SerializeField] private bool isCanAttack;
 
+    private bool _isMoveBlock = false;
     private bool _isTakeDamage = false;
 
     private void Start()
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        
+        if(_isMoveBlock) return;
     }
 
     private bool CheckPlayerInRadius()
@@ -149,12 +150,12 @@ public class EnemyController : MonoBehaviour
 
     private void BlockMove()
     {
-        isMoveBlock = true;
+        _isMoveBlock = true;
     }
 
     private void AllowMove()
     {
-        isMoveBlock = false;
+        _isMoveBlock = false;
     }
 
     private void SetColor(Color color)
