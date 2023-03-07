@@ -9,8 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AttackController attackController;
     [SerializeField] private bool isCanAttack;
 
-    private bool isMoveBlock = false;
-    private bool isTakeDamage = false;
+    private bool _isTakeDamage = false;
 
     private void Start()
     {
@@ -111,10 +110,10 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if(isTakeDamage)
+        if(_isTakeDamage)
             return;
 
-        isTakeDamage = true;
+        _isTakeDamage = true;
         enemy.hp -= amount;
         BlockMove();
 
