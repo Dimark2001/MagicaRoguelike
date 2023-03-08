@@ -137,7 +137,7 @@ Transform:
   m_Children:
   - {fileID: 758057947789466820}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &758057948014679387
 MeshFilter:
@@ -257,14 +257,17 @@ MonoBehaviour:
   navMeshAgent: {fileID: 758057948014679388}
   characterRenderer: {fileID: 758057948014679386}
   projectilePrefabs:
-  - {fileID: 4195275547390147093, guid: ac2121eda38810e40b169ca4eadc50a0, type: 3}
+  - {fileID: 2385851995619288849, guid: 0440df749a5a3cc439dcdf741eb0dd58, type: 3}
   meleeWeaponPrefabs: []
   protectionsPrefab:
-  - {fileID: 5063612546759602527, guid: d0f2fd4d180717648b424a896e4f3aae, type: 3}
+  - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
   hp: 100
-  timeLastShoot: 0
-  timeShoot: 0
+  attackCooldown: 2
+  protectionCooldown: 3
   isKnockBack: 0
+  timeShoot: 0
+  blockProtection: 0
+  blockAttack: 0
   moveInput: {fileID: -9104053697072104961, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
   look: {fileID: -5834991259008968540, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
   attack: {fileID: 3900299500062929689, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
@@ -272,6 +275,7 @@ MonoBehaviour:
   characterMovement: {fileID: 758057948014679385}
   rangeAttack: {fileID: 7418840785907523280}
   protection: {fileID: 1729228732110796470}
+  timeInvulnerability: 0.2
 --- !u!114 &758057948014679385
 MonoBehaviour:
   m_ObjectHideFlags: 0

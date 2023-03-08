@@ -1,6 +1,8 @@
+using System;
 using DG.Tweening;
 using Gameplay.Weapon;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ProtectionWeapon : Weapon
 {
@@ -8,6 +10,7 @@ public class ProtectionWeapon : Weapon
     [SerializeField] private float endValue;
     [SerializeField] private float duration;
     [SerializeField] private float speed;
+    [SerializeField] private NavMeshObstacle obstacle;
     private bool _isMove;
     private Vector3 _defScale;
     private void Awake()
@@ -15,14 +18,21 @@ public class ProtectionWeapon : Weapon
         _defScale = transform.localScale;
         transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         _isMove = true;
+        obstacle.enabled = false;
         transform.DOScale(_defScale, duration).OnComplete(() =>
         {
+            obstacle.enabled = true;
             _isMove = false;
         });
         
         Invoke(nameof(DestroyProjectile), lifeTime);
     }
-    
+
+    private void OnDestroy()
+    {
+        
+    }
+
     private void Update()
     {
         if(_isMove)

@@ -13,7 +13,8 @@ namespace Gameplay.Weapon
             {
                 if (other.TryGetComponent(out Player player))
                 {
-                    //player.TakeDamage(dmg);
+                    player.KnockBack(player.transform.position - transform.position);
+                    player.TakeDamage(dmg);
                 }
             
                 DestroyProjectile();

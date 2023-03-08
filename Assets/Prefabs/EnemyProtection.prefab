@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 7058451688877590743}
   - component: {fileID: 1707405095}
   m_Layer: 0
-  m_Name: EnemyRange
+  m_Name: EnemyProtection
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,10 +158,10 @@ MonoBehaviour:
   rb: {fileID: 6468161018779150663}
   navMeshAgent: {fileID: 4572509016191607053}
   characterRenderer: {fileID: 7844890693369444466}
-  projectilePrefabs:
-  - {fileID: 1212964894489536752, guid: 115a961547409214bb987642ae7478c2, type: 3}
+  projectilePrefabs: []
   meleeWeaponPrefabs: []
-  protectionsPrefab: []
+  protectionsPrefab:
+  - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
   hp: 100
   attackCooldown: 2
   protectionCooldown: 3
@@ -188,7 +188,9 @@ MonoBehaviour:
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 7155828901931649450}
-  isCanAttack: 1
+  protectionController: {fileID: 0}
+  isCanAttack: 0
+  isCanProtection: 1
 --- !u!114 &7155828901931649450
 MonoBehaviour:
   m_ObjectHideFlags: 0

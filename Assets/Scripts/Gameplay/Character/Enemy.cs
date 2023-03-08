@@ -8,6 +8,7 @@ public class Enemy : BaseCharacter
     [SerializeField] public float force;
     [SerializeField] public float stoppingDistance;
     [SerializeField] public int dmg;
-
+    
     [SerializeField] public float timeToDeath;
+    [SerializeField] public float timeKnockBack;
 }

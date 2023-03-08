@@ -5,19 +5,21 @@ using UnityEngine.AI;
 
 public abstract class BaseCharacter : MonoBehaviour
 {
-    [SerializeField] public Rigidbody rb;
-    [SerializeField] public NavMeshAgent navMeshAgent;
-    [SerializeField] public Renderer characterRenderer;
-    [SerializeField] public Weapon[] projectilePrefabs;
-    [SerializeField] public Weapon[] meleeWeaponPrefabs;
-    [SerializeField] public Weapon[] protectionsPrefab;
-    private Weapon _weaponPrefab;
-
-    [SerializeField] public int hp;    
-    [HideInInspector] public float timeLastShoot;
+    public Rigidbody rb;
+    public NavMeshAgent navMeshAgent;
+    public Renderer characterRenderer;
+    public Weapon[] projectilePrefabs;
+    public Weapon[] meleeWeaponPrefabs;
+    public Weapon[] protectionsPrefab;
+    
+    public int hp;    
+    public float attackCooldown;
+    public float protectionCooldown;
+    public bool isKnockBack = false;
     [HideInInspector] public float timeShoot = 0;
 
-    public bool isKnockBack = false;
+
+    private Weapon _weaponPrefab;
 
     public void SetWeaponPrefab(Weapon[] weapons, int index)
     {

@@ -7,7 +7,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private AttackController attackController;
+    [SerializeField] private AttackController protectionController;
     [SerializeField] private bool isCanAttack;
+    [SerializeField] private bool isCanProtection;
+
 
     private bool _isMoveBlock = false;
     private bool _isTakeDamage = false;
@@ -21,12 +24,50 @@ public class EnemyController : MonoBehaviour
             else if(enemy.meleeWeaponPrefabs.Length != 0)
                 enemy.SetWeaponPrefab(enemy.meleeWeaponPrefabs);
         }
-        
     }
 
     private void Update()
     {
         if(_isMoveBlock) return;
+        
+        if (CheckPlayerInRadius())
+        {
+            EnemyMoveToPlayer();
+        }
+        else
+        {
+            EnemyStay();
+        }
+        
+        if (enemy.timeShoot > 0)
+        {
+            enemy.timeShoot -= Time.deltaTime;
+        }
+        else
+        {
+            if (CheckPlayerInRadius())
+            {
+                enemy.timeShoot = enemy.attackCooldown;
+                if (isCanAttack)
+                {
+                    if(enemy.projectilePrefabs.Length != 0)
+                        enemy.SetWeaponPrefab(enemy.projectilePrefabs);
+                    else if(enemy.meleeWeaponPrefabs.Length != 0)
+                        enemy.SetWeaponPrefab(enemy.meleeWeaponPrefabs);
+                }
+                PerformAttack();
+            }
+        }
+        
+        if (isCanProtection)
+        {
+            if (CheckProjectileInRadius())
+            {
+                if(enemy.protectionsPrefab.Length != 0)
+                    enemy.SetWeaponPrefab(enemy.protectionsPrefab);
+                PerformProtection();
+            }
+        }
     }
 
     private bool CheckPlayerInRadius()
@@ -38,6 +79,24 @@ public class EnemyController : MonoBehaviour
             foreach (var hitCollider in hitColliders)
             {
                 if (hitCollider.CompareTag("Player"))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+    
+    private bool CheckProjectileInRadius()
+    {
+        if (Physics.CheckSphere(transform.position, enemy.stoppingDistance))
+        {
+            var hitColliders = Physics.OverlapSphere(transform.position, enemy.stoppingDistance);
+
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag("PlayerProjectile"))
                 {
                     return true;
                 }
@@ -81,7 +140,7 @@ public class EnemyController : MonoBehaviour
             var target = LevelManager.Instance.player.transform;
             var position = transform.position;
             var dir = target.position - position;
-            Physics.Raycast(position, dir, out var hit, enemy.stoppingDistance);
+            Physics.Raycast(position, dir, out var hit, enemy.radiusAgro);
             if (hit.transform == target)
             {
                 return true;
@@ -89,6 +148,11 @@ public class EnemyController : MonoBehaviour
             
             return false;
         }
+    }
+
+    private void PerformProtection()
+    {
+        
     }
 
     private void EnemyStay()
@@ -125,9 +189,19 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            StartCoroutine(nameof(ReturnNormalState));
         }
     }
-
+    
+    private IEnumerator ReturnNormalState()
+    {
+        yield return new WaitForSeconds(enemy.timeKnockBack);
+        enemy.isKnockBack = false; 
+        _isTakeDamage = false; 
+        enemy.rb.isKinematic = true;
+        AllowMove();
+    }
+    
     private IEnumerator DestroyEnemy()
     {
         BlockMove();
