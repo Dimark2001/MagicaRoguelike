@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 4572509016191607053}
   - component: {fileID: 6468161018779150663}
   - component: {fileID: 6608127202779258271}
-  - component: {fileID: 4465282008427450044}
-  - component: {fileID: 7155828901931649450}
+  - component: {fileID: 171982567957370391}
   - component: {fileID: 7058451688877590743}
   - component: {fileID: 1707405095}
   m_Layer: 0
@@ -173,7 +172,7 @@ MonoBehaviour:
   dmg: 10
   timeToDeath: 1
   timeKnockBack: 1
---- !u!114 &4465282008427450044
+--- !u!114 &171982567957370391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,27 +181,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5138474615367253612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5bc68aebcee104887eb84274030b76, type: 3}
+  m_Script: {fileID: 11500000, guid: f21db1269a7831f48b43abf635ee9241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
-  attackController: {fileID: 7155828901931649450}
+  attackController: {fileID: 0}
   protectionController: {fileID: 0}
-  isCanAttack: 1
+  isCanAttack: 0
   isCanProtection: 0
---- !u!114 &7155828901931649450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138474615367253612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44ce80763b9f07479853efcf333c60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  explotanoRad: 20
 --- !u!114 &7058451688877590743
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
+    [SerializeField] protected Enemy enemy;
     [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private AttackController attackController;
     [SerializeField] private AttackController protectionController;
@@ -27,9 +27,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(_isMoveBlock) return;
+        
+        RotateEnemy(LevelManager.Instance.player.transform.position);
         
         if (CheckPlayerInRadius())
         {
@@ -69,6 +71,11 @@ public class EnemyController : MonoBehaviour
                 PerformProtection();
             }
         }
+    }
+    
+    private void RotateEnemy(Vector3 angle)
+    {
+        transform.LookAt(angle);
     }
 
     private bool CheckPlayerInRadius()
@@ -171,11 +178,10 @@ public class EnemyController : MonoBehaviour
         characterMovement.StopMovement(enemy.navMeshAgent);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
         {
-
             var dir = -transform.forward;
             KnockBack(dir);
             
@@ -212,8 +218,8 @@ public class EnemyController : MonoBehaviour
         enemy.rb.isKinematic = true;
         AllowMove();
     }
-    
-    private IEnumerator DestroyEnemy()
+
+    protected IEnumerator DestroyEnemy()
     {
         BlockMove();
         EnemyStay();

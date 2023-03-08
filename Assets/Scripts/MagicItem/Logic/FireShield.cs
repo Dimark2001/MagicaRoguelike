@@ -7,9 +7,6 @@ public class FireShield : Items
 {
     protected override void ActivateItem()
     {
-        //сжигает снаряды
-        EventGameManager.Instance.SampleEvent += A;
-        print(this.name);
     }
 
     void A(int a)

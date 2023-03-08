@@ -148,6 +148,7 @@ namespace Gameplay.Character
             isKnockBack = true;
             rb.isKinematic = false;
             rb.AddForce(dir.normalized * 10, ForceMode.Impulse);
+            StartCoroutine(ReturnNormalState());
         }
         
         private void KillPlayer()
