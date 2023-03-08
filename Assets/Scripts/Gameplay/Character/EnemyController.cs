@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using Gameplay.Character;
 using UnityEngine;
 
@@ -54,8 +55,8 @@ public class EnemyController : MonoBehaviour
                         enemy.SetWeaponPrefab(enemy.projectilePrefabs);
                     else if(enemy.meleeWeaponPrefabs.Length != 0)
                         enemy.SetWeaponPrefab(enemy.meleeWeaponPrefabs);
+                    PerformAttack();
                 }
-                PerformAttack();
             }
         }
         
@@ -140,7 +141,7 @@ public class EnemyController : MonoBehaviour
             var target = LevelManager.Instance.player.transform;
             var position = transform.position;
             var dir = target.position - position;
-            Physics.Raycast(position, dir, out var hit, enemy.radiusAgro);
+            Physics.Raycast(position, dir, out var hit, enemy.stoppingDistance);
             if (hit.transform == target)
             {
                 return true;
@@ -152,7 +153,17 @@ public class EnemyController : MonoBehaviour
 
     private void PerformProtection()
     {
-        
+        if(protectionController == null)
+            return;
+        if(!isCanProtection) return;
+
+        isCanProtection = false;
+        protectionController.PerformProtection();
+        var inVal = 0f;
+        DOTween.To(() => inVal, x => inVal = x, 1, enemy.protectionCooldown).OnComplete(() =>
+        {
+            isCanProtection = true;
+        });
     }
 
     private void EnemyStay()
@@ -168,7 +179,7 @@ public class EnemyController : MonoBehaviour
             var dir = -transform.forward;
             KnockBack(dir);
             
-            //player.TakeDamage(enemy.dmg);
+            player.TakeDamage(enemy.dmg);
             StartCoroutine(nameof(DestroyEnemy));
         }
     }

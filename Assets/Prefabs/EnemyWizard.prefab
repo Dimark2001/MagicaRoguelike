@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 7058451688877590743}
   - component: {fileID: 1707405095}
   m_Layer: 0
-  m_Name: EnemyRange
+  m_Name: EnemyWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5138474615367253612}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -162,7 +162,7 @@ MonoBehaviour:
   - {fileID: 1212964894489536752, guid: 115a961547409214bb987642ae7478c2, type: 3}
   meleeWeaponPrefabs: []
   protectionsPrefab: []
-  hp: 100
+  hp: 10
   attackCooldown: 2
   protectionCooldown: 3
   isKnockBack: 0
@@ -188,7 +188,9 @@ MonoBehaviour:
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 7155828901931649450}
+  protectionController: {fileID: 0}
   isCanAttack: 1
+  isCanProtection: 0
 --- !u!114 &7155828901931649450
 MonoBehaviour:
   m_ObjectHideFlags: 0
