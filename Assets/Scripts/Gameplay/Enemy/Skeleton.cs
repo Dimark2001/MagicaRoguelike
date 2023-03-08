@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Character;
@@ -5,34 +6,25 @@ using UnityEngine;
 
 public class Skeleton : EnemyController
 {
+    [SerializeField] private int explotanoDmg;
     [SerializeField] private float explotanoRad;
-    
+    [SerializeField] private float forceExp;
+
+    private void OnDestroy()
+    {
+        var abilityManager = AbilityManager.Instance;
+        Instantiate(abilityManager.vfxExplotano, transform);
+        var circle = Instantiate(abilityManager.vfxCircle, transform);
+        circle.transform.localScale = new Vector3(explotanoRad, explotanoRad, explotanoRad);
+        var ex = Instantiate(abilityManager.explotano, transform);
+        ex.GetComponent<Explotano>().CreateExplotano(explotanoDmg, explotanoRad, forceExp);
+    }
+
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Player player))
+        if (other.CompareTag("Player"))
         {
-            Explosion();
-            StartCoroutine(nameof(DestroyEnemy));
-        }
-    }
-    
-    private void Explosion()
-    {
-        var others = Physics.OverlapSphere(transform.position, explotanoRad);
-        
-        foreach (var other in others)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                player.KnockBack(transform.position - player.transform.position);
-                player.TakeDamage(base.enemy.dmg);
-            }
-            if (other.TryGetComponent(out EnemyController enemy))
-            {
-                if(enemy != this)
-                    enemy.KnockBack(-transform.forward);
-                enemy.TakeDamage(base.enemy.dmg);
-            }
+            DestroyEnemy();
         }
     }
 }

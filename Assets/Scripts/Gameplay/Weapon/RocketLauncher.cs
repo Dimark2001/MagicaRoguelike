@@ -6,6 +6,7 @@ public class RocketLauncher : ProjectileWeapon
     [SerializeField] private float explosionRadius;
     [SerializeField] private AnimationCurve speedCurve;
     private float time = 0;
+    
     protected override void OnTriggerEnter(Collider other)
     {
         Explosion(); 
@@ -28,12 +29,12 @@ public class RocketLauncher : ProjectileWeapon
         {
             if (other.TryGetComponent(out Player player))
             {
-                player.KnockBack(player.transform.position - transform.position);
+                //player.KnockBack(player.transform.position - transform.position);
                 player.TakeDamage(dmg);
             }
             if (other.TryGetComponent(out EnemyController enemy))
             {
-                enemy.KnockBack(enemy.transform.position - transform.position);
+                //enemy.KnockBack(enemy.transform.position - transform.position);
                 enemy.TakeDamage(dmg);
             }
         }

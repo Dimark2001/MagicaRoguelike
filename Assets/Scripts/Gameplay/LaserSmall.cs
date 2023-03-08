@@ -1,9 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LaserSmall : ProjectileWeapon
 {
-    [SerializeField] private List<GameObject> vfxEffects;
+    [SerializeField] private float forceKnockBack;
+    void Start()
+    {
+        EventGameManager.Instance.OnProjectileSpawn?.Invoke(this.gameObject);
+    }
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
@@ -11,10 +16,16 @@ public class LaserSmall : ProjectileWeapon
         {
             if (other.TryGetComponent(out EnemyController enemy))
             {
-                EventGameManager.Instance.OnProjectileCollision?.Invoke(transform);
-                enemy.KnockBack(transform.forward);
+                enemy.KnockBack(transform.forward, forceKnockBack);
                 enemy.TakeDamage(dmg);
+                DestroyProjectile();
             }
         }
+    }
+
+    protected override void DestroyProjectile()
+    {
+        EventGameManager.Instance.OnProjectileCollision?.Invoke(transform);
+        base.DestroyProjectile();
     }
 }

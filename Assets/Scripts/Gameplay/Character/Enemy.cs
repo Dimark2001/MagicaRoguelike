@@ -2,7 +2,7 @@ using Gameplay.Character;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : BaseCharacter
+public class Enemy : MonoBehaviour
 {
     [SerializeField] public float radiusAgro;
     [SerializeField] public float force;

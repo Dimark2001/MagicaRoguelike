@@ -48,3 +48,4 @@ MonoBehaviour:
   iconItem: {fileID: 0}
   description: 
   type: 
+  vfxEffect: {fileID: 6930510193063315079, guid: ac1eb58333177014ca6f8c95cc1a7273, type: 3}

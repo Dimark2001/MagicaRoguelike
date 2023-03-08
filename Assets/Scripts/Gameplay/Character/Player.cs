@@ -122,7 +122,7 @@ namespace Gameplay.Character
             });
         }
         
-        public void TakeDamage(int amount)
+        public override void TakeDamage(int amount)
         {
             if(_isTakeDamage)
                 return;
@@ -140,14 +140,14 @@ namespace Gameplay.Character
             }
         }
         
-        public void KnockBack(Vector3 dir)
+        public override void KnockBack(Vector3 dir, float force)
         {
             if(isKnockBack)
                 return;
 
             isKnockBack = true;
             rb.isKinematic = false;
-            rb.AddForce(dir.normalized * 10, ForceMode.Impulse);
+            rb.AddForce(dir.normalized * force, ForceMode.Impulse);
             StartCoroutine(ReturnNormalState());
         }
         

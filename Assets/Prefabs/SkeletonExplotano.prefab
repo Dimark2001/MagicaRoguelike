@@ -154,23 +154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc12580349dfac4bb6ff0e233ab14ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6468161018779150663}
-  navMeshAgent: {fileID: 4572509016191607053}
-  characterRenderer: {fileID: 7844890693369444466}
-  projectilePrefabs:
-  - {fileID: 5844352286734205072, guid: e7786581f2dab4341a743d9428810873, type: 3}
-  meleeWeaponPrefabs: []
-  protectionsPrefab: []
-  hp: 10
-  attackCooldown: 2
-  protectionCooldown: 3
-  isKnockBack: 0
-  timeShoot: 0
   radiusAgro: 20
   force: 100
   stoppingDistance: 1
   dmg: 10
-  timeToDeath: 1
+  timeToDeath: 0
   timeKnockBack: 1
 --- !u!114 &171982567957370391
 MonoBehaviour:
@@ -184,13 +172,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21db1269a7831f48b43abf635ee9241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  characterRenderer: {fileID: 0}
+  timeShoot: 0
+  projectilePrefabs: []
+  meleeWeaponPrefabs: []
+  protectionsPrefab: []
+  hp: 1
+  attackCooldown: 0
+  protectionCooldown: 0
+  isKnockBack: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 0}
   protectionController: {fileID: 0}
   isCanAttack: 0
   isCanProtection: 0
-  explotanoRad: 20
+  explotanoDmg: 5
+  explotanoRad: 2
+  forceExp: 5
 --- !u!114 &7058451688877590743
 MonoBehaviour:
   m_ObjectHideFlags: 0

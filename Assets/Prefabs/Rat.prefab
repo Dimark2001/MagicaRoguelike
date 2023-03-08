@@ -155,20 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc12580349dfac4bb6ff0e233ab14ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6468161018779150663}
-  navMeshAgent: {fileID: 4572509016191607053}
-  characterRenderer: {fileID: 7844890693369444466}
-  projectilePrefabs: []
-  meleeWeaponPrefabs: []
-  protectionsPrefab: []
-  hp: 1
-  attackCooldown: 0
-  protectionCooldown: 0
-  isKnockBack: 0
-  timeShoot: 0
   radiusAgro: 20
   force: 3
-  stoppingDistance: 0
+  stoppingDistance: 5
   dmg: 5
   timeToDeath: 1
   timeKnockBack: 1
@@ -184,6 +173,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5bc68aebcee104887eb84274030b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 6468161018779150663}
+  navMeshAgent: {fileID: 4572509016191607053}
+  characterRenderer: {fileID: 7844890693369444466}
+  projectilePrefabs: []
+  meleeWeaponPrefabs: []
+  protectionsPrefab: []
+  hp: 1
+  attackCooldown: 0
+  protectionCooldown: 0
+  isKnockBack: 0
+  timeShoot: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 0}

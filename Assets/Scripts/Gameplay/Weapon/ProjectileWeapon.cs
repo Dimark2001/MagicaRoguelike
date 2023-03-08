@@ -1,11 +1,15 @@
 using System;
+using DG.Tweening;
 using Gameplay.Weapon;
 using UnityEngine;
 
 public abstract class ProjectileWeapon : Weapon
 {
+    [SerializeField] private float timeToDestroy;
+    
     [SerializeField] protected float lifeTime;
     [SerializeField] protected float speed;
+    [SerializeField] protected GameObject visual;
     
     [SerializeField] private bool isShootThroughWall;
     
@@ -33,8 +37,15 @@ public abstract class ProjectileWeapon : Weapon
         }
     }
 
-    protected void DestroyProjectile()
+    protected virtual void DestroyProjectile()
     {
-        Destroy(gameObject);
+        visual.SetActive(false);
+        transform.GetComponent<Collider>().enabled = false;
+        speed = 0;
+        var inVal = 0f;
+        DOTween.To(() => inVal, x => inVal = x, 1, timeToDestroy).OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
     }
 }

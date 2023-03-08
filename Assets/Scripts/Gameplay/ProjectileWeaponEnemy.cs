@@ -5,6 +5,7 @@ namespace Gameplay.Weapon
 {
     public class ProjectileWeaponEnemy : ProjectileWeapon
     {
+        [SerializeField] private float forceKnockBack;
         protected override void OnTriggerEnter(Collider other)
         {
             base.OnTriggerEnter(other);
@@ -13,7 +14,7 @@ namespace Gameplay.Weapon
             {
                 if (other.TryGetComponent(out Player player))
                 {
-                    player.KnockBack(player.transform.position - transform.position);
+                    player.KnockBack(player.transform.position - transform.position, forceKnockBack);
                     player.TakeDamage(dmg);
                 }
             
