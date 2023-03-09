@@ -1114,13 +1114,13 @@ MonoBehaviour:
   - {fileID: 504811037268301019, guid: 522c7a6f7dd795e479b7ae9fe0c71e9c, type: 3}
   - {fileID: 7493667248689186318, guid: 532e46c189d601644a215376079094eb, type: 3}
   - {fileID: 2087545250491653681, guid: e12ea6a939fa4e74685550ddc3394688, type: 3}
-  - {fileID: 4158365213384275419, guid: 3c13282ea2fa30242b4cc8cb89f0d2c8, type: 3}
+  - {fileID: 6582405448999872893, guid: a035c7058628f3e44ba743dbd83275fd, type: 3}
   explotano: {fileID: 2377666424703624547, guid: af660f83ab9147e42b0d8300e0f78498, type: 3}
   meteoriteRain: {fileID: 2377666424703624547, guid: 69486b8c588e79448a8b3e34448f8384, type: 3}
   circularSaw: {fileID: 8151361513950055292, guid: 782fa8da18c96ce48870d500104a5659, type: 3}
   autoAim: {fileID: 2377666424703624547, guid: d588323168b8be147ba94d55e8f5c090, type: 3}
   auraNegativeGravity: {fileID: 2377666424703624547, guid: bf72bb95ec6fa3c4396a92256f0a8f98, type: 3}
-  gravityShield: {fileID: 2377666424703624547, guid: 7b6afb7b0b50bd746805d53ea5185286, type: 3}
+  gravityShield: {fileID: 0}
   vampireTouch: {fileID: 0}
   toxicPuddle: {fileID: 2377666424703624547, guid: d59e9960d3bb0b14a99b411cc8872e05, type: 3}
   vfxExplotano: {fileID: 8255215019295333937, guid: 88b7ea9bbfb6acb4cbb93e232791659e, type: 3}
@@ -1164,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1786025502
 Transform:
   m_ObjectHideFlags: 0
