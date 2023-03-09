@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using DG.Tweening;
 using Gameplay.Character;
 using UnityEngine;
@@ -25,9 +26,9 @@ public class EnemyController : BaseCharacter
         
         if (isCanAttack)
         {
-            if(projectilePrefabs.Length != 0)
+            if(projectilePrefabs.Count != 0)
                 SetWeaponPrefab(projectilePrefabs);
-            else if(meleeWeaponPrefabs.Length != 0)
+            else if(meleeWeaponPrefabs.Count != 0)
                 SetWeaponPrefab(meleeWeaponPrefabs);
         }
     }
@@ -58,9 +59,9 @@ public class EnemyController : BaseCharacter
                 timeShoot = attackCooldown;
                 if (isCanAttack)
                 {
-                    if(projectilePrefabs.Length != 0)
+                    if(projectilePrefabs.Count != 0)
                         SetWeaponPrefab(projectilePrefabs);
-                    else if(meleeWeaponPrefabs.Length != 0)
+                    else if(meleeWeaponPrefabs.Count != 0)
                         SetWeaponPrefab(meleeWeaponPrefabs);
                     PerformAttack();
                 }
@@ -71,7 +72,7 @@ public class EnemyController : BaseCharacter
         {
             if (CheckProjectileInRadius())
             {
-                if(protectionsPrefab.Length != 0)
+                if(protectionsPrefab.Count != 0)
                     SetWeaponPrefab(protectionsPrefab);
                 PerformProtection();
             }
@@ -200,7 +201,9 @@ public class EnemyController : BaseCharacter
     {
         if(_isTakeDamage)
             return;
-
+        if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
+            return;
+        
         _isTakeDamage = true;
         hp -= amount;
         BlockMove();
@@ -244,7 +247,9 @@ public class EnemyController : BaseCharacter
     {
         if(isKnockBack)
             return;
-
+        if(immunityList.Contains(ImmunityType.KnockBack))
+            return;
+        
         isKnockBack = true;
         rb.isKinematic = false;
         rb.AddForce(dir.normalized * force, ForceMode.Impulse);

@@ -71,11 +71,6 @@ public class BossTest : EnemyController
         attackController.PerformAttack();
     }
 
-    protected override void PerformProtection()
-    {
-        base.PerformProtection();
-    }
-
     private Vector3 GetRandomPos()
     {
         return new Vector3(Random.insideUnitCircle.x * 10, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * 10);
@@ -90,11 +85,5 @@ public class BossTest : EnemyController
         var vfx = Instantiate(AbilityManager.Instance.vfxMeteoriteRain);
         vfx.transform.position = playerPos;
         vfx.transform.localScale = new Vector3(1, 1, 1) * meteoriteRainRad / 4;
-    }
-
-    public override void TakeDamage(int amount, DamageType type)
-    {
-        if(type is DamageType.Explosion or DamageType.Fire) return;
-        base.TakeDamage(amount, type);
     }
 }

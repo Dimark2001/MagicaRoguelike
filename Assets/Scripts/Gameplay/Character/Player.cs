@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
@@ -126,7 +127,9 @@ namespace Gameplay.Character
         {
             if(_isTakeDamage)
                 return;
-        
+            if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
+                return;
+
             _isTakeDamage = true;
             hp -= amount;
         
@@ -144,7 +147,9 @@ namespace Gameplay.Character
         {
             if(isKnockBack)
                 return;
-
+            if(immunityList.Contains(ImmunityType.KnockBack))
+                return;
+            
             isKnockBack = true;
             rb.isKinematic = false;
             rb.AddForce(dir.normalized * force, ForceMode.Impulse);

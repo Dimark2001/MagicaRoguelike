@@ -8,3 +8,15 @@
     Touch,
     Explosion
 }
+
+public enum ImmunityType
+{
+    Magical,
+    Physical,
+    Ability,
+    Fire,
+    Poison,
+    Touch,
+    Explosion,
+    KnockBack
+}
