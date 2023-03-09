@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public class AutoAim : Items
+public class AutoAimItem : Items
 {
     protected override void Start()
     {

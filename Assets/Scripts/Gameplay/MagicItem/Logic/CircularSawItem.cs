@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CircularSaw : Items
+public class CircularSawItem : Items
 {
     protected override void Start()
     {

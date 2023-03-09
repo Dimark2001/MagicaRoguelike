@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireShield : Items
+public class FireShieldItem : Items
 {
     [SerializeField] private GameObject vfxEffect;
 

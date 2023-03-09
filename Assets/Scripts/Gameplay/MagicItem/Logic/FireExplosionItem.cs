@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireExplotion : Items
+public class FireExplosionItem : Items
 {
     public int dmg;
     public float rad;
