@@ -1,4 +1,4 @@
-public class Shield : ProtectionWeapon
+public class ShieldProtection : ProtectionWeapon
 {
     
 }

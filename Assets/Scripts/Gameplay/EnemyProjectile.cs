@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gameplay.Weapon
 {
-    public class ProjectileWeaponEnemy : ProjectileWeapon
+    public class EnemyProjectile : ProjectileWeapon
     {
         [SerializeField] private float forceKnockBack;
         protected override void OnTriggerEnter(Collider other)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserSmall : ProjectileWeapon
+public class PlayerProjectile : ProjectileWeapon
 {
     [SerializeField] private float forceKnockBack;
     void Start()
