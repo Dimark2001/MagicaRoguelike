@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839261815012633830}
-  - component: {fileID: 2797125827051728098}
+  - component: {fileID: 4158365213384275419}
   m_Layer: 0
-  m_Name: Item_AutoAim
+  m_Name: Item_GravityShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2797125827051728098
+--- !u!114 &4158365213384275419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2930533748806612958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ba9f9de8040427458a448b8288b8b7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 51d281eed7ac7ec4181bcb661420b336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 

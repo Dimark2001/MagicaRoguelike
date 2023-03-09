@@ -16,6 +16,8 @@ public class AbilityManager : Singleton<AbilityManager>
     public GameObject circularSaw;
     public GameObject autoAim;
     public GameObject auraNegativeGravity;
+    public GameObject gravityShield;
+    public GameObject vampireTouch;
 
     [Header("VFX")] 
     public GameObject vfxExplotano;

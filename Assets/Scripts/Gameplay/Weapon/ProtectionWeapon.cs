@@ -13,7 +13,8 @@ public class ProtectionWeapon : Weapon
     [SerializeField] private NavMeshObstacle obstacle;
     private bool _isMove;
     private Vector3 _defScale;
-    private void Awake()
+
+    protected virtual void Awake()
     {
         _defScale = transform.localScale;
         transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
