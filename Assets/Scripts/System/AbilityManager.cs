@@ -18,12 +18,14 @@ public class AbilityManager : Singleton<AbilityManager>
     public GameObject auraNegativeGravity;
     public GameObject gravityShield;
     public GameObject vampireTouch;
+    public GameObject toxicPuddle;
 
     [Header("VFX")] 
     public GameObject vfxExplotano;
     public GameObject vfxSkeletonExplotano;
     public GameObject vfxCircle;
     public GameObject vfxMeteoriteRain;
+    public GameObject vfxPoisonPuddle;
 
     public void GiveRandomItem()
     {

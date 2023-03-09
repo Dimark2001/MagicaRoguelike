@@ -205,11 +205,12 @@ MonoBehaviour:
   protectionsPrefab: []
   immunityList: 
   hp: 100
-  attackCooldown: 2
+  attackCooldown: 0.5
   protectionCooldown: 0
   isKnockBack: 0
   characterMovement: {fileID: 932595131249918985}
-  rad: 5
+  argoRad: 5
+  rad: 1
 --- !u!4 &5041405467392445462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2184914995557527618, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}

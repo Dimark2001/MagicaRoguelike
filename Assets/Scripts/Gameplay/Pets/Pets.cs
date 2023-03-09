@@ -7,9 +7,9 @@ using UnityEngine.AI;
 
 public class Pets : BaseCharacter
 {
-    [SerializeField] private CharacterMovement characterMovement;
-    [SerializeField] private float rad;
-    private bool _isCanAttack;
+    [SerializeField] protected CharacterMovement characterMovement;
+    [SerializeField] private float argoRad;
+    protected bool _isCanAttack;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class Pets : BaseCharacter
     
     protected Transform FindEnemyInRadius()
     {
-        var hitColliders = Physics.OverlapSphere(transform.position, rad);
+        var hitColliders = Physics.OverlapSphere(transform.position, argoRad);
 
         foreach (var hitCollider in hitColliders)
         {
