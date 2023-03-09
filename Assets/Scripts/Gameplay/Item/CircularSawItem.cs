@@ -8,21 +8,17 @@ public class CircularSawItem : Items
 {
     protected override void Start()
     {
-        EventGameManager.Instance.OnProjectileSpawn += Activate;
+        EventGameManager.Instance.OnProjectileSpawn += ActivateItem;
     }
 
     protected override void OnDisable()
     {
-        EventGameManager.Instance.OnProjectileSpawn -= Activate;
+        EventGameManager.Instance.OnProjectileSpawn -= ActivateItem;
     }
 
-    protected override void ActivateItem()
+    protected override void ActivateItem(GameObject projectile)
     {
-        print("hmm");
-    }
-
-    void Activate(GameObject projectile)
-    {
+        
         var abilityManager = AbilityManager.Instance;
         var a = new Vector3(0, Random.Range(0f, 360f), 0);
         Instantiate(abilityManager.circularSaw, projectile.transform.position,Quaternion.Euler(a), LevelManager.Instance.dynamicContainer);

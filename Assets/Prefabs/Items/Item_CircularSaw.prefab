@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2930533748806612958
+--- !u!1 &2958532897132325316
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 839261815012633830}
-  - component: {fileID: 7493667248689186318}
+  - component: {fileID: 5827937294046189874}
+  - component: {fileID: 3868362671855861415}
   m_Layer: 0
-  m_Name: FireShield
+  m_Name: Item_CircularSaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &839261815012633830
+--- !u!4 &5827937294046189874
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2930533748806612958}
+  m_GameObject: {fileID: 2958532897132325316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.787673, y: 3.647213, z: -10.835196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7493667248689186318
+--- !u!114 &3868362671855861415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2930533748806612958}
+  m_GameObject: {fileID: 2958532897132325316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1796fa54bd772a541af8e46f04fd5792, type: 3}
+  m_Script: {fileID: 11500000, guid: c27cdc4f84d5589448455387c5bb4ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
   iconItem: {fileID: 0}
   description: 
   type: 
-  vfxEffect: {fileID: 6930510193063315079, guid: ac1eb58333177014ca6f8c95cc1a7273, type: 3}

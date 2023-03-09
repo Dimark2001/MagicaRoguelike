@@ -11,26 +11,21 @@ public class FireExplosionItem : Items
 
     protected override void Start()
     {
-        EventGameManager.Instance.OnProjectileCollision += Activate;
+        EventGameManager.Instance.OnProjectileCollision += ActivateItem;
     }
 
     protected override void OnDisable()
     {
-        EventGameManager.Instance.OnProjectileCollision -= Activate;
+        EventGameManager.Instance.OnProjectileCollision -= ActivateItem;
     }
 
-    protected override void ActivateItem()
-    {
-        print("hmm");
-    }
-
-    void Activate(Transform t)
+    protected override void ActivateItem(GameObject GOob)
     {
         var abilityManager = AbilityManager.Instance;
-        Instantiate(abilityManager.vfxExplotano, t);
-        var circle = Instantiate(abilityManager.vfxCircle, t);
+        Instantiate(abilityManager.vfxExplotano, GOob.transform);
+        var circle = Instantiate(abilityManager.vfxCircle, GOob.transform);
         circle.transform.localScale = new Vector3(rad, rad, rad);
-        var ex = Instantiate(abilityManager.explotano, t);
+        var ex = Instantiate(abilityManager.explotano, GOob.transform);
         ex.GetComponent<Explotano>().CreateExplotano(dmg, rad, forceExp);
     }
 }

@@ -9,19 +9,15 @@ public class FireShieldItem : Items
 
     protected override void Start()
     {
-        EventGameManager.Instance.OnProjectileSpawn += Activate;
+        EventGameManager.Instance.OnProjectileSpawn += ActivateItem;
     }
 
     protected override void OnDisable()
     {
-        EventGameManager.Instance.OnProjectileSpawn -= Activate;
-    }
-    protected override void ActivateItem()
-    {
-        print("зачем это вообще нужно???");
+        EventGameManager.Instance.OnProjectileSpawn -= ActivateItem;
     }
 
-    void Activate(GameObject obj)
+    protected override void ActivateItem(GameObject obj)
     {
         Instantiate(vfxEffect, obj.transform);
     }

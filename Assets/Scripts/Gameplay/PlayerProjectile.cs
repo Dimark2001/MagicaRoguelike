@@ -23,7 +23,7 @@ public class PlayerProjectile : ProjectileWeapon
 
     protected override void DestroyProjectile()
     {
-        EventGameManager.Instance.OnProjectileCollision?.Invoke(transform);
+        EventGameManager.Instance.OnProjectileCollision?.Invoke(gameObject);
         base.DestroyProjectile();
     }
 }
