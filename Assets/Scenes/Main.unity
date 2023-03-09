@@ -1120,7 +1120,7 @@ MonoBehaviour:
   circularSaw: {fileID: 8151361513950055292, guid: 782fa8da18c96ce48870d500104a5659, type: 3}
   autoAim: {fileID: 2377666424703624547, guid: d588323168b8be147ba94d55e8f5c090, type: 3}
   auraNegativeGravity: {fileID: 2377666424703624547, guid: bf72bb95ec6fa3c4396a92256f0a8f98, type: 3}
-  gravityShield: {fileID: 0}
+  gravityShield: {fileID: 2377666424703624547, guid: 7b6afb7b0b50bd746805d53ea5185286, type: 3}
   vampireTouch: {fileID: 0}
   toxicPuddle: {fileID: 2377666424703624547, guid: d59e9960d3bb0b14a99b411cc8872e05, type: 3}
   vfxExplotano: {fileID: 8255215019295333937, guid: 88b7ea9bbfb6acb4cbb93e232791659e, type: 3}
