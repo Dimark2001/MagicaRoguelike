@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<BaseCharacter> enemyPrefabs;
     [SerializeField] private float range = 100.0f;
+    [SerializeField] private float timeToSpawn;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, 10).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, timeToSpawn).OnComplete(() =>
         {
             SpawnEnemy(LevelManager.Instance.player.transform.position);
             Spawn();

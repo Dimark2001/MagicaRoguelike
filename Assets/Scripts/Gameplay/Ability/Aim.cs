@@ -9,14 +9,8 @@ public class Aim : MonoBehaviour
     [SerializeField] private float radAim;
 
     private Transform _target;
-
-    private void Awake()
-    {
-        var hitColliders = Physics.OverlapSphere(transform.position, radAim);
-        _target = hitColliders.ToList().Find(col => col.TryGetComponent(out Enemy enemyController))?.transform;
-    }
-
-    void Update()
+    
+    void FixedUpdate()
     {
         if(_target == null)
             FindTarget();

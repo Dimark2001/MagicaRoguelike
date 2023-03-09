@@ -139,7 +139,7 @@ namespace Gameplay.Character
             }
             else
             {
-                StartCoroutine(nameof(ReturnNormalState));
+                ReturnNormalState();
             }
         }
         
@@ -149,11 +149,11 @@ namespace Gameplay.Character
                 return;
             if(immunityList.Contains(ImmunityType.KnockBack))
                 return;
-            
+            BlockInput();
             isKnockBack = true;
             rb.isKinematic = false;
             rb.AddForce(dir.normalized * force, ForceMode.Impulse);
-            StartCoroutine(ReturnNormalState());
+            ReturnNormalState();
         }
         
         private void KillPlayer()
@@ -169,15 +169,24 @@ namespace Gameplay.Character
     
         private void UnBlockInput()
         {
+            if (_blockInputCount <= 0)
+            {
+                _blockInputCount = 0;
+                return;
+            }
             _blockInputCount--;
         }
         
-        private IEnumerator ReturnNormalState()
+        private void ReturnNormalState()
         {
-            yield return new WaitForSeconds(timeInvulnerability);
-            isKnockBack = false; 
-            _isTakeDamage = false; 
-            rb.isKinematic = true;
+            var inVal = 0f;
+            DOTween.To(() => inVal, x => inVal = x, 1, protectionCooldown).OnComplete(() =>
+            {
+                UnBlockInput();
+                isKnockBack = false; 
+                _isTakeDamage = false; 
+                rb.isKinematic = true;
+            });
         }
     }
 }

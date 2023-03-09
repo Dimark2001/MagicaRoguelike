@@ -179,7 +179,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 0}
   timeShoot: 0
   projectilePrefabs:
-  - {fileID: 1212964894489536752, guid: 115a961547409214bb987642ae7478c2, type: 3}
+  - {fileID: 5532456158879859508, guid: cdd3c942424ac3740b489024f40c7c59, type: 3}
   meleeWeaponPrefabs: []
   protectionsPrefab:
   - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}

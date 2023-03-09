@@ -9,12 +9,15 @@ public abstract class ProjectileWeapon : Weapon
     
     [SerializeField] protected float lifeTime;
     [SerializeField] protected float speed;
+    [SerializeField] protected float speedLimit;
     [SerializeField] protected GameObject visual;
-    
     [SerializeField] private bool isShootThroughWall;
+
+    protected Rigidbody Rb;
     
-    private void Start()
+    private void Awake()
     {
+        Rb = GetComponent<Rigidbody>();
         Invoke(nameof(DestroyProjectile), lifeTime);
     }
 
@@ -25,7 +28,8 @@ public abstract class ProjectileWeapon : Weapon
 
     protected virtual void Move()
     {
-        transform.Translate(0, 0, Time.deltaTime * speed, Space.Self);
+        if(Rb.velocity.magnitude < speedLimit || Rb.velocity.normalized != transform.forward.normalized)
+            Rb.AddForce(transform.forward * speed, ForceMode.Force);
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -41,7 +45,7 @@ public abstract class ProjectileWeapon : Weapon
     {
         visual.SetActive(false);
         transform.GetComponent<Collider>().enabled = false;
-        speed = 0;
+        Rb.isKinematic = true;
         var inVal = 0f;
         DOTween.To(() => inVal, x => inVal = x, 1, timeToDestroy).OnComplete(() =>
         {

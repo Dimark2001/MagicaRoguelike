@@ -30,7 +30,6 @@ public class AbilityManager : Singleton<AbilityManager>
             var a = Random.Range(0, l);
             playerItemsList.Add(itemsList[a]);
             itemsList.Remove(itemsList[a]);
-            print(a);
             Instantiate(playerItemsList[playerItemsList.Count() - 1], transform);
         }
     }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5765535116772502638
+--- !u!1001 &3616549218826965331
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2321819990513803673, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ee43f848829ab34799a0b84a454213e, type: 2}
+      objectReference: {fileID: 2100000, guid: cc40f1b9a8fbd6642ad5b1f7b08366e7, type: 2}
     - target: {fileID: 2385851995619288845, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -58,50 +58,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2385851995619288850, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_Name
-      value: CircularSaw
+      value: EnemyProjectile
       objectReference: {fileID: 0}
-    - target: {fileID: 4158859069586017440, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 4558426366461124836, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4558426366461124836, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
+    - target: {fileID: 2385851995619288850, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
+      propertyPath: m_TagString
+      value: EnemyProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
---- !u!1 &3600131694190987780 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7058678934453544554, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
-  m_PrefabInstance: {fileID: 5765535116772502638}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8151361513950055292 stripped
+--- !u!1 &1381672586486658625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2385851995619288850, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
-  m_PrefabInstance: {fileID: 5765535116772502638}
+  m_PrefabInstance: {fileID: 3616549218826965331}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-9168434678096594010
+--- !u!114 &5532456158879859508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8151361513950055292}
+  m_GameObject: {fileID: 1381672586486658625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c072741b60518c40afefc2bd6f39155, type: 3}
+  m_Script: {fileID: 11500000, guid: acc1df85eeda9d84caea86cace263c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 25
+  dmg: 10
   timeToDestroy: 0
-  lifeTime: 100
-  speed: 5
-  speedLimit: 30
-  visual: {fileID: 3600131694190987780}
+  lifeTime: 10
+  speed: 10
+  speedLimit: 10
+  visual: {fileID: 6036485196868958009}
   isShootThroughWall: 0
-  forceKnockBack: 20
+  forceKnockBack: 10
+--- !u!1 &6036485196868958009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7058678934453544554, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
+  m_PrefabInstance: {fileID: 3616549218826965331}
+  m_PrefabAsset: {fileID: 0}
