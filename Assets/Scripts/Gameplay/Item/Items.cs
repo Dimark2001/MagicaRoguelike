@@ -12,5 +12,5 @@ public abstract class Items : MonoBehaviour
     protected abstract void Start();
     protected abstract void OnDisable();
 
-    protected abstract void ActivateItem(GameObject gameO);
+    protected abstract void ActivateItem(GameObject obj);
 }
