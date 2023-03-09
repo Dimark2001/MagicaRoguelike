@@ -9,5 +9,8 @@ public abstract class Items : MonoBehaviour
     public string description;
     public string type;
 
+    protected abstract void Start();
+    protected abstract void OnDisable();
+
     protected abstract void ActivateItem();
 }

@@ -13,7 +13,7 @@ public class AbilityManager : Singleton<AbilityManager>
     [Header("AbilityEffect")]
     public GameObject explotano;
     public GameObject meteoriteRain;
-    public GameObject circularSaw;
+    public GameObject autoAim;
 
     [Header("VFX")] 
     public GameObject vfxExplotano;

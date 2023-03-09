@@ -7,12 +7,12 @@ public class FireShield : Items
 {
     [SerializeField] private GameObject vfxEffect;
 
-    private void Start()
+    protected override void Start()
     {
         EventGameManager.Instance.OnProjectileSpawn += Activate;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         EventGameManager.Instance.OnProjectileSpawn -= Activate;
     }
