@@ -48,6 +48,6 @@ MonoBehaviour:
   iconItem: {fileID: 0}
   description: 
   type: 
-  dmg: -10
-  rad: 5
+  dmg: 10
+  rad: 3
   forceExp: 5

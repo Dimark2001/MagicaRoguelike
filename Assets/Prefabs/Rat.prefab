@@ -160,7 +160,7 @@ MonoBehaviour:
   stoppingDistance: 5
   dmg: 5
   timeToDeath: 1
-  timeKnockBack: 1
+  timeKnockBack: 0.2
 --- !u!114 &4465282008427450044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   rb: {fileID: 6468161018779150663}
   navMeshAgent: {fileID: 4572509016191607053}
   characterRenderer: {fileID: 7844890693369444466}
+  timeShoot: 0
   projectilePrefabs: []
   meleeWeaponPrefabs: []
   protectionsPrefab: []
@@ -183,7 +184,6 @@ MonoBehaviour:
   attackCooldown: 0
   protectionCooldown: 0
   isKnockBack: 0
-  timeShoot: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 0}

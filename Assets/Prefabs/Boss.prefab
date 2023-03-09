@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 4572509016191607053}
   - component: {fileID: 6468161018779150663}
   - component: {fileID: 6608127202779258271}
-  - component: {fileID: 4465282008427450044}
-  - component: {fileID: 7155828901931649450}
+  - component: {fileID: 3135775950503462610}
   - component: {fileID: 7058451688877590743}
   - component: {fileID: 1707405095}
-  - component: {fileID: 557718060539434695}
+  - component: {fileID: 7627004011314543877}
+  - component: {fileID: 7663826339624232408}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -156,13 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc12580349dfac4bb6ff0e233ab14ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusAgro: 50
+  radiusAgro: 20
   force: 3
   stoppingDistance: 10
   dmg: 5
   timeToDeath: 1
-  timeKnockBack: 1
---- !u!114 &4465282008427450044
+  timeKnockBack: 0.2
+--- !u!114 &3135775950503462610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,38 +171,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 5138474615367253612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5bc68aebcee104887eb84274030b76, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c0feb65902dbe1418d2006afbfd8e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   navMeshAgent: {fileID: 0}
   characterRenderer: {fileID: 0}
   timeShoot: 0
-  projectilePrefabs: []
+  projectilePrefabs:
+  - {fileID: 1212964894489536752, guid: 115a961547409214bb987642ae7478c2, type: 3}
   meleeWeaponPrefabs: []
-  protectionsPrefab: []
+  protectionsPrefab:
+  - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
   hp: 100
-  attackCooldown: 0
-  protectionCooldown: 0
+  attackCooldown: 1
+  protectionCooldown: 5
   isKnockBack: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
-  attackController: {fileID: 7155828901931649450}
-  protectionController: {fileID: 557718060539434695}
+  attackController: {fileID: 7627004011314543877}
+  protectionController: {fileID: 7663826339624232408}
   isCanAttack: 1
   isCanProtection: 1
---- !u!114 &7155828901931649450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138474615367253612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44ce80763b9f07479853efcf333c60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  timeToCastRain: 5
+  meteoriteRainDmg: 100
+  meteoriteRainRad: 5
+  meteoriteRainDuration: 2
+  meteoriteCooldown: 5
 --- !u!114 &7058451688877590743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +222,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf86e7cd90c8d24b8e665d3d4a03df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &557718060539434695
+--- !u!114 &7627004011314543877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138474615367253612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44ce80763b9f07479853efcf333c60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7663826339624232408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

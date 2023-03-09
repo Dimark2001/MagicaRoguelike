@@ -16,6 +16,7 @@ public class AbilityManager : Singleton<AbilityManager>
 
     [Header("VFX")] 
     public GameObject vfxExplotano;
+    public GameObject vfxSkeletonExplotano;
     public GameObject vfxCircle;
     public GameObject vfxMeteoriteRain;
 

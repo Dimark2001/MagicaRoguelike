@@ -15,7 +15,7 @@ namespace Gameplay.Weapon
                 if (other.TryGetComponent(out Player player))
                 {
                     player.KnockBack(player.transform.position - transform.position, forceKnockBack);
-                    player.TakeDamage(dmg);
+                    player.TakeDamage(dmg, DamageType.Magical);
                 }
             
                 DestroyProjectile();

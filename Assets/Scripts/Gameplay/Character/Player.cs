@@ -122,7 +122,7 @@ namespace Gameplay.Character
             });
         }
         
-        public override void TakeDamage(int amount)
+        public override void TakeDamage(int amount, DamageType type)
         {
             if(_isTakeDamage)
                 return;

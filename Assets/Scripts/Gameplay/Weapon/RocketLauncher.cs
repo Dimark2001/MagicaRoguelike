@@ -30,12 +30,12 @@ public class RocketLauncher : ProjectileWeapon
             if (other.TryGetComponent(out Player player))
             {
                 //player.KnockBack(player.transform.position - transform.position);
-                player.TakeDamage(dmg);
+                player.TakeDamage(dmg, DamageType.Explosion);
             }
             if (other.TryGetComponent(out EnemyController enemy))
             {
                 //enemy.KnockBack(enemy.transform.position - transform.position);
-                enemy.TakeDamage(dmg);
+                enemy.TakeDamage(dmg, DamageType.Explosion);
             }
         }
     }

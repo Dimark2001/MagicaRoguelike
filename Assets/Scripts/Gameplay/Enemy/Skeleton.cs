@@ -13,7 +13,7 @@ public class Skeleton : EnemyController
     private void OnDestroy()
     {
         var abilityManager = AbilityManager.Instance;
-        Instantiate(abilityManager.vfxExplotano, transform);
+        Instantiate(abilityManager.vfxSkeletonExplotano, transform);
         var circle = Instantiate(abilityManager.vfxCircle, transform);
         circle.transform.localScale = new Vector3(explotanoRad, explotanoRad, explotanoRad);
         var ex = Instantiate(abilityManager.explotano, transform);

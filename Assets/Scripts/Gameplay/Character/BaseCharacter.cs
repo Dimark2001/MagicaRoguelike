@@ -39,6 +39,6 @@ public abstract class BaseCharacter : MonoBehaviour
         return (T)_weaponPrefab;
     }
 
-    public abstract void TakeDamage(int dmg);
+    public abstract void TakeDamage(int dmg, DamageType type);
     public abstract void KnockBack(Vector3 dir, float force);
 }

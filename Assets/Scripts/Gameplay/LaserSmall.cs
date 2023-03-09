@@ -17,7 +17,7 @@ public class LaserSmall : ProjectileWeapon
             if (other.TryGetComponent(out EnemyController enemy))
             {
                 enemy.KnockBack(transform.forward, forceKnockBack);
-                enemy.TakeDamage(dmg);
+                enemy.TakeDamage(dmg, DamageType.Magical);
                 DestroyProjectile();
             }
         }

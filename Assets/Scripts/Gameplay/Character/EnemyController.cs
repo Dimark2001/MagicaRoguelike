@@ -10,14 +10,13 @@ public class EnemyController : BaseCharacter
     [SerializeField] protected CharacterMovement characterMovement;
     [SerializeField] protected AttackController attackController;
     [SerializeField] protected AttackController protectionController;
-    [SerializeField] private bool isCanAttack;
+    [SerializeField] protected bool isCanAttack;
     [SerializeField] private bool isCanProtection;
-
 
     private bool _isMoveBlock = false;
     private bool _isTakeDamage = false;
 
-    private void Start()
+    protected virtual void Awake()
     {
         characterMovement = GetComponent<CharacterMovement>();
         rb = GetComponent<Rigidbody>();
@@ -84,7 +83,7 @@ public class EnemyController : BaseCharacter
         transform.LookAt(angle);
     }
 
-    private bool CheckPlayerInRadius()
+    protected bool CheckPlayerInRadius()
     {
         if (Physics.CheckSphere(transform.position, enemy.radiusAgro))
         {
@@ -120,7 +119,7 @@ public class EnemyController : BaseCharacter
         return false;
     }
 
-    private void EnemyMoveToPlayer()
+    protected void EnemyMoveToPlayer()
     {
         if (LevelManager.Instance.player == null)
         {
@@ -133,7 +132,7 @@ public class EnemyController : BaseCharacter
         characterMovement.MovementToTheSelectionPosition(playerPos, enemy.stoppingDistance, navMeshAgent);
     }
 
-    private void PerformAttack()
+    protected virtual void PerformAttack()
     {
         if(attackController == null)
             return;
@@ -164,7 +163,7 @@ public class EnemyController : BaseCharacter
         }
     }
 
-    private void PerformProtection()
+    protected virtual void PerformProtection()
     {
         if(protectionController == null)
             return;
@@ -179,9 +178,10 @@ public class EnemyController : BaseCharacter
         });
     }
 
-    private void EnemyStay()
+    protected void EnemyStay()
     {
-        characterMovement.StopMovement(navMeshAgent);
+        if(navMeshAgent != null)
+            characterMovement.StopMovement(navMeshAgent);
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -191,12 +191,12 @@ public class EnemyController : BaseCharacter
             var dir = -transform.forward;
             KnockBack(dir, enemy.force);
             
-            player.TakeDamage(enemy.dmg);
+            player.TakeDamage(enemy.dmg, DamageType.Touch);
             StartCoroutine(nameof(DestroyEnemy));
         }
     }
 
-    public override void TakeDamage(int amount)
+    public override void TakeDamage(int amount, DamageType type)
     {
         if(_isTakeDamage)
             return;
@@ -247,7 +247,7 @@ public class EnemyController : BaseCharacter
 
         isKnockBack = true;
         rb.isKinematic = false;
-        rb.AddForce(dir * force, ForceMode.Impulse);
+        rb.AddForce(dir.normalized * force, ForceMode.Impulse);
     }
 
     private void BlockMove()
