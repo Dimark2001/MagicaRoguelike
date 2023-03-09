@@ -256,16 +256,17 @@ MonoBehaviour:
   rb: {fileID: 758057948014679366}
   navMeshAgent: {fileID: 758057948014679388}
   characterRenderer: {fileID: 758057948014679386}
+  timeShoot: 0
   projectilePrefabs:
   - {fileID: 2385851995619288849, guid: 0440df749a5a3cc439dcdf741eb0dd58, type: 3}
   meleeWeaponPrefabs: []
   protectionsPrefab:
   - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
+  immunityList: 
   hp: 100
   attackCooldown: 2
   protectionCooldown: 3
   isKnockBack: 0
-  timeShoot: 0
   blockProtection: 0
   blockAttack: 0
   moveInput: {fileID: -9104053697072104961, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
