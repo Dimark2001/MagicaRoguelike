@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 
 public class CircularSaw : Items
 {
-    private void Start()
+    protected override void Start()
     {
         EventGameManager.Instance.OnProjectileSpawn += Activate;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         EventGameManager.Instance.OnProjectileSpawn -= Activate;
     }
