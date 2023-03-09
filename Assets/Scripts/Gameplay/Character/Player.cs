@@ -24,6 +24,7 @@ namespace Gameplay.Character
         
         private Plane _plane;
         private Camera _camera;
+        [HideInInspector] public bool isVampireAbility = false;
 
 
         private void Awake()
@@ -123,13 +124,14 @@ namespace Gameplay.Character
             });
         }
         
-        public override void TakeDamage(int amount, DamageType type)
+        public override void TakeDamage(int amount, DamageType type, Weapon.Weapon source)
         {
             if(_isTakeDamage)
                 return;
             if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
                 return;
-
+            if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
+                GetHp(source.dmg);
             _isTakeDamage = true;
             hp -= amount;
         
@@ -140,6 +142,19 @@ namespace Gameplay.Character
             else
             {
                 ReturnNormalState();
+            }
+        }
+
+        public void GetHp(int count)
+        {
+            hp += count;
+        }
+
+        public void VimpaireHeal(int count)
+        {
+            if (isVampireAbility)
+            {
+                GetHp(count);
             }
         }
         

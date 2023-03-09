@@ -99,9 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 25
   timeToDestroy: 0
-  lifeTime: 100
+  lifeTime: 1000
   speed: 5
   speedLimit: 30
   visual: {fileID: 3600131694190987780}
   isShootThroughWall: 0
   forceKnockBack: 20
+  forceKnock: 0

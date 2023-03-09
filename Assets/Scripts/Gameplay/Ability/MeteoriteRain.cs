@@ -22,7 +22,7 @@ public class MeteoriteRain : MonoBehaviour
                 {
                     if (other.TryGetComponent(out BaseCharacter baseCharacter))
                     {
-                        baseCharacter.TakeDamage((int)perSecond, DamageType.Explosion);
+                        baseCharacter.TakeDamage((int)perSecond, DamageType.Explosion, null);
                     }
                 }
             }

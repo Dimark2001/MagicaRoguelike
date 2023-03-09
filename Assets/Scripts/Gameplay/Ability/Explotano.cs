@@ -11,7 +11,7 @@ public class Explotano : MonoBehaviour
             if (other.TryGetComponent(out BaseCharacter baseCharacter))
             {
                 baseCharacter.KnockBack(baseCharacter.transform.position - transform.position, force);
-                baseCharacter.TakeDamage(dmg, DamageType.Explosion);
+                baseCharacter.TakeDamage(dmg, DamageType.Explosion, null);
             }
         }
     }

@@ -5,10 +5,14 @@ using DG.Tweening;
 using Gameplay.Character;
 using UnityEngine;
 
-public class CircularProjectile : ProjectileWeapon
+public class CircularProjectile : PlayerProjectile
 {
-    [SerializeField] private float forceKnockBack;
+    [SerializeField] private float forceKnock;
     private bool _isDmgPlayer = false;
+    protected override void Start()
+    {
+        
+    }
 
     protected override void Move()
     {
@@ -20,24 +24,15 @@ public class CircularProjectile : ProjectileWeapon
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
-        if (other.CompareTag("Enemy"))
-        {
-            if (other.TryGetComponent(out EnemyController enemy))
-            {
-                enemy.KnockBack(transform.forward, forceKnockBack);
-                enemy.TakeDamage(dmg, DamageType.Physical);
-                DestroyProjectile();
-            }
-        }
         if (_isDmgPlayer && other.CompareTag("Player"))
         {
             if (other.TryGetComponent(out Player player))
             {
-                player.KnockBack(transform.forward, forceKnockBack);
-                player.TakeDamage(dmg, DamageType.Physical);
+                player.KnockBack(transform.forward, forceKnock);
+                player.TakeDamage(dmg, DamageType.Physical, this);
             }
             
-            DestroyProjectile();
+            DestroyProjectile();//вызывает событие, которого здесь не должно быть
         }
     }
 
@@ -48,4 +43,9 @@ public class CircularProjectile : ProjectileWeapon
             _isDmgPlayer = true;
         }
     }
+    // protected override void DestroyProjectile()
+    // {
+    //     // EventGameManager.Instance.OnProjectileCollision?.Invoke(gameObject);
+    //     //base.DestroyProjectile();
+    // }
 }

@@ -4,6 +4,6 @@ namespace Gameplay.Weapon
 {
     public abstract class Weapon : MonoBehaviour
     {
-        [SerializeField] protected int dmg;
+        [SerializeField] public int dmg;
     }
 }

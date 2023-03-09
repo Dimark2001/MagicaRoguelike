@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using DG.Tweening;
 using Gameplay.Character;
+using Gameplay.Weapon;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -192,18 +193,19 @@ public class EnemyController : BaseCharacter
             var dir = -transform.forward;
             KnockBack(dir, enemy.force);
             
-            player.TakeDamage(enemy.dmg, DamageType.Touch);
+            player.TakeDamage(enemy.dmg, DamageType.Touch, null);
             StartCoroutine(nameof(DestroyEnemy));
         }
     }
 
-    public override void TakeDamage(int amount, DamageType type)
+    public override void TakeDamage(int amount, DamageType type, Weapon source)
     {
         if(_isTakeDamage)
             return;
         if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
             return;
-        
+        if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
+            LevelManager.Instance.player.GetHp(source.dmg);
         _isTakeDamage = true;
         hp -= amount;
         BlockMove();

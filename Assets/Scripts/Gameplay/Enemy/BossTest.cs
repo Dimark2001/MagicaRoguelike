@@ -56,7 +56,7 @@ public class BossTest : EnemyController
     {
         if (other.TryGetComponent(out Player player))
         {
-            player.TakeDamage(enemy.dmg, DamageType.Touch);
+            player.TakeDamage(enemy.dmg, DamageType.Touch, null);
             player.KnockBack(-transform.position + player.transform.position, 20);
             var inVal = 0f;
             DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>

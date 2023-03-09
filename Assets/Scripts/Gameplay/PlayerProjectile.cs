@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerProjectile : ProjectileWeapon
 {
     [SerializeField] private float forceKnockBack;
-    void Start()
+    protected virtual void Start()
     {
         EventGameManager.Instance.OnProjectileSpawn?.Invoke(this.gameObject);
     }
@@ -15,7 +15,7 @@ public class PlayerProjectile : ProjectileWeapon
             if (other.TryGetComponent(out EnemyController enemy))
             {
                 enemy.KnockBack(transform.forward, forceKnockBack);
-                enemy.TakeDamage(dmg, DamageType.Magical);
+                enemy.TakeDamage(dmg, DamageType.Magical, this);
                 DestroyProjectile();
             }
         }
