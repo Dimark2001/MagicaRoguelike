@@ -105,6 +105,7 @@ MonoBehaviour:
   speed: 20
   visual: {fileID: 7058678934453544554}
   isShootThroughWall: 0
+  forceKnockBack: 0
 --- !u!54 &6111861994228088667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!135 &460973020559308025
 SphereCollider:

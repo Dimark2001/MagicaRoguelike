@@ -8,12 +8,13 @@ public class FireExplotion : Items
     public int dmg;
     public float rad;
     public float forceExp;
-    private void Start()
+
+    protected override void Start()
     {
         EventGameManager.Instance.OnProjectileCollision += Activate;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         EventGameManager.Instance.OnProjectileCollision -= Activate;
     }

@@ -236,6 +236,7 @@ public class EnemyController : BaseCharacter
         BlockMove();
         EnemyStay();
         var inVal = 0f;
+        Destroy(enemy);
         DOTween.To(() => inVal, x => inVal = x, 1, enemy.timeToDeath).OnComplete(() =>
         {
             Destroy(navMeshAgent);
