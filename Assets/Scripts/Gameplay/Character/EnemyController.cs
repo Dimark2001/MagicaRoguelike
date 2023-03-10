@@ -15,7 +15,7 @@ public class EnemyController : BaseCharacter
     [SerializeField] protected bool isCanAttack;
     [SerializeField] private bool isCanProtection;
 
-    private bool _isMoveBlock = false;
+    private int _isMoveBlock = 0;
     private bool _isTakeDamage = false;
 
     protected virtual void Awake()
@@ -36,7 +36,7 @@ public class EnemyController : BaseCharacter
 
     protected virtual void Update()
     {
-        if(_isMoveBlock) return;
+        if(_isMoveBlock != 0) return;
         if(LevelManager.Instance.player == null) return;
         RotateEnemy(LevelManager.Instance.player.transform.position);
         
@@ -217,14 +217,34 @@ public class EnemyController : BaseCharacter
         }
         else
         {
-            ReturnNormalState();
+            ReturnNormalState(enemy.timeKnockBack);
         }
     }
+
+    public void ElectricStun(float duration)
+    {
+        if(immunityList.Any(el => el == ImmunityType.Electric)) return;
+        
+        BlockMove();
+        characterMovement.StopMovement(navMeshAgent);
+        var a = Instantiate(AbilityManager.Instance.vfxLightningAura, transform);
+        var inVal = 0f;
+        DOTween.To(() => inVal, x => inVal = x, 1, duration).OnComplete(() =>
+        {        
+            DestroyThis(a);
+            AllowMove();
+        });
+    }
+
+    private void DestroyThis(GameObject thisObject)
+    {
+        Destroy(thisObject);
+    }
     
-    private void ReturnNormalState()
+    private void ReturnNormalState(float duration)
     {
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, enemy.timeKnockBack).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, duration).OnComplete(() =>
         {
             isKnockBack = false; 
             _isTakeDamage = false; 
@@ -242,7 +262,7 @@ public class EnemyController : BaseCharacter
         DOTween.To(() => inVal, x => inVal = x, 1, enemy.timeToDeath).OnComplete(() =>
         {
             Destroy(navMeshAgent);
-            Destroy(this);
+            Destroy(gameObject);
         });
     }
 
@@ -260,12 +280,12 @@ public class EnemyController : BaseCharacter
 
     private void BlockMove()
     {
-        _isMoveBlock = true;
+        _isMoveBlock++;
     }
 
     private void AllowMove()
     {
-        _isMoveBlock = false;
+        _isMoveBlock--;
     }
 
     private void SetColor(Color color)

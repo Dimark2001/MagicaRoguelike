@@ -6,7 +6,8 @@
     Fire,
     Poison,
     Touch,
-    Explosion
+    Explosion,
+    Electric
 }
 
 public enum ImmunityType
@@ -18,5 +19,6 @@ public enum ImmunityType
     Poison,
     Touch,
     Explosion,
-    KnockBack
+    KnockBack,
+    Electric
 }

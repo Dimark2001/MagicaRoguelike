@@ -8,7 +8,8 @@ using UnityEngine.AI;
 public class Pets : BaseCharacter
 {
     [SerializeField] protected CharacterMovement characterMovement;
-    [SerializeField] private float argoRad;
+    [SerializeField] protected float argoRad;
+    [SerializeField] protected int dmg;
     protected bool _isCanAttack;
 
     private void Awake()

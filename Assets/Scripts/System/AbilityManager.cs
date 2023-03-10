@@ -27,6 +27,7 @@ public class AbilityManager : Singleton<AbilityManager>
     public GameObject vfxMeteoriteRain;
     public GameObject vfxPoisonPuddle;
     public GameObject vfxLightningAura;
+    public GameObject vfxLightningTouch;
 
     public void GiveRandomItem()
     {

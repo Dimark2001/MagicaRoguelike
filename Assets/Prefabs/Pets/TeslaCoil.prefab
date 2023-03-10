@@ -142,6 +142,49 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8639752117988648580}
   m_SourcePrefab: {fileID: 100100000, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}
+--- !u!1 &4563563176921061658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5394242342401558585, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}
+  m_PrefabInstance: {fileID: 8469364703701340451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1437811813049710628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563563176921061658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ec17b7fcdca494a9f5db5c6d50c21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1860923201817341424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563563176921061658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4daf715fe1d4489499815e98b20c8f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  characterRenderer: {fileID: 0}
+  timeShoot: 0
+  projectilePrefabs: []
+  meleeWeaponPrefabs: []
+  protectionsPrefab: []
+  immunityList: 
+  hp: 0
+  attackCooldown: 0
+  protectionCooldown: 0
+  isKnockBack: 0
+  characterMovement: {fileID: 0}
+  argoRad: 0
 --- !u!4 &7771905431155827041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2184914995557527618, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}

@@ -5,7 +5,7 @@ public class Slime : Pets
 {
     [SerializeField] private float rad;
 
-    protected virtual void Update()
+    protected override void Update()
     {
         if(LevelManager.Instance.player == null) return;
         
