@@ -22,3 +22,14 @@ public enum ImmunityType
     KnockBack,
     Electric
 }
+
+public enum ChestType
+{
+    Rare,
+    Common
+}
+public enum PriceType
+{
+    Gold,
+    Blood
+}
