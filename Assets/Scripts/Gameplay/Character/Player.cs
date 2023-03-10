@@ -17,6 +17,7 @@ namespace Gameplay.Character
         [SerializeField] private CharacterMovement characterMovement;
         [SerializeField] private AttackController rangeAttack;
         [SerializeField] private AttackController protection;
+        [SerializeField] private Animator playerAnim;
         [SerializeField] public float timeInvulnerability;
 
         private int _blockInputCount = 0;
@@ -54,6 +55,7 @@ namespace Gameplay.Character
 
         private void Update()
         {
+            playerAnim.SetInteger("Speed", (int)navMeshAgent.velocity.magnitude);
             if(_blockInputCount != 0) return;
         
             RotatePlayer(GetMouseAngle());
@@ -96,12 +98,16 @@ namespace Gameplay.Character
             if(_blockInputCount != 0) return;
             if(blockAttack) return;
             blockAttack = true;
-            
-            Debug.Log("Attack");
+            playerAnim.SetBool("Attack", true);
             SetWeaponPrefab(projectilePrefabs);
             rangeAttack.PerformAttack();
             
             var inVal = 0f;
+            DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>
+            {
+                playerAnim.SetBool("Attack", false);
+            });
+
             DOTween.To(() => inVal, x => inVal = x, 1, attackCooldown).OnComplete(() =>
             {
                 blockAttack = false;
@@ -173,8 +179,9 @@ namespace Gameplay.Character
         
         private void KillPlayer()
         {
-            Destroy(this);
+            playerAnim.SetTrigger("Dead");
             Destroy(navMeshAgent);
+            Destroy(this);
         }
 
         private void BlockInput()

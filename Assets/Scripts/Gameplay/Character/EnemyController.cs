@@ -212,7 +212,6 @@ public class EnemyController : BaseCharacter
 
         if (hp <= 0)
         {
-            SetColor(Color.gray);
             DestroyEnemy();
         }
         else
@@ -261,8 +260,8 @@ public class EnemyController : BaseCharacter
         Destroy(enemy);
         DOTween.To(() => inVal, x => inVal = x, 1, enemy.timeToDeath).OnComplete(() =>
         {
-            Destroy(navMeshAgent);
-            Destroy(gameObject);
+            BlockMove();
+            DeadBodyCleaner.Instance.enemyBody.Add(gameObject);
         });
     }
 
@@ -286,10 +285,5 @@ public class EnemyController : BaseCharacter
     private void AllowMove()
     {
         _isMoveBlock--;
-    }
-
-    private void SetColor(Color color)
-    {
-        characterRenderer.material.color = color;
     }
 }

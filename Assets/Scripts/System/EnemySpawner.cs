@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,17 +20,19 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
+        if(LevelManager.Instance.GetPlayerPos() == Vector3.zero) return;
+        
         var inVal = 0f;
         DOTween.To(() => inVal, x => inVal = x, 1, timeToSpawn).OnComplete(() =>
         {
-            SpawnEnemy(LevelManager.Instance.player.transform.position);
+            SpawnEnemy(LevelManager.Instance.GetPlayerPos());
             Spawn();
         });
     }
 
     public void SpawnEnemy(Vector3 pos)
     {
-        var parent = LevelManager.Instance.dynamicContainer;
+        var parent = DeadBodyCleaner.Instance.transform;
         foreach (var enemyPrefab in enemyPrefabs)
         {
             tryAgain:

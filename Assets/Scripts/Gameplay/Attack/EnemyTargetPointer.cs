@@ -14,6 +14,7 @@ public class EnemyTargetPointer : TargetPointer
 
     public override Vector3 GetTargetPosition()
     {
+        if (LevelManager.Instance.player == null) return Vector3.zero;
         var targetPosition = LevelManager.Instance.player.transform.position;
         return targetPosition;
     }
