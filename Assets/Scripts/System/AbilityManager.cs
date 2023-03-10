@@ -30,7 +30,20 @@ public class AbilityManager : Singleton<AbilityManager>
     public GameObject vfxLightningAura;
     public GameObject vfxLightningTouch;
 
-    public void GiveRandomItem()
+    public void GiveRandomItem(ChestType chestType)
+    {
+        switch (chestType)
+        {
+            case ChestType.Rare:
+                GetRareItem();
+                break;
+            default:
+                print("предметы кончились, ожидайте доставку");
+                break;
+        }
+    }
+
+    void GetRareItem()
     {
         var l = itemsList.Count;
         if (l > 0)
