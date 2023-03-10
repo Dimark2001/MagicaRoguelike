@@ -6,7 +6,7 @@ public class ImmunityItem : Items
     [SerializeField] public ImmunityType immunityType;
     protected override void Start()
     {
-        
+        ActivateItem(null);
     }
 
     protected override void OnDisable()

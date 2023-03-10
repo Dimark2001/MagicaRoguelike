@@ -9,6 +9,7 @@ public class AbilityManager : Singleton<AbilityManager>
     [Header("Items")]
     public List<Items> playerItemsList;
     public List<Items> itemsList;
+    public List<Pets> petsList;
 
     [Header("AbilityEffect")]
     public GameObject explotano;

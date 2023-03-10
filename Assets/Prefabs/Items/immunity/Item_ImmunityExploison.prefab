@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7211557557134398700}
   - component: {fileID: 4254832945375033354}
   m_Layer: 0
-  m_Name: Item_ImmunityPetDamage
+  m_Name: Item_ImmunityExploison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,4 +48,4 @@ MonoBehaviour:
   iconItem: {fileID: 0}
   description: 
   type: 
-  immunityType: 0
+  immunityType: 6

@@ -48,4 +48,4 @@ MonoBehaviour:
   iconItem: {fileID: 0}
   description: 
   type: 
-  immunityType: 0
+  immunityType: 3
