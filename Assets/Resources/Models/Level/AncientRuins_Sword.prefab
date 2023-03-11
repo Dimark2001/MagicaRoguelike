@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 129619175305552769}
   - component: {fileID: 2513491289505406249}
   - component: {fileID: -7558069802465100443}
+  - component: {fileID: 7862439428523987715}
+  - component: {fileID: 8709233765053982572}
   m_Layer: 0
   m_Name: AncientRuins_Sword
   m_TagString: Untagged
@@ -99,3 +101,32 @@ MonoBehaviour:
   chestType: 0
   priceType: 1
   price: 0
+--- !u!208 &7862439428523987715
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5932862534677487775}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.80100006, y: 0.40800002, z: 2.936}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0, z: -0.002}
+  m_TimeToStationary: 0.5
+--- !u!65 &8709233765053982572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5932862534677487775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.25, z: 5.8726954}
+  m_Center: {x: -0.0010258555, y: -0.0000054836287, z: -0.002423883}
