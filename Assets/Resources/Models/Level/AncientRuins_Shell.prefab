@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7131353641629103054}
   - component: {fileID: 375095729743016964}
   - component: {fileID: 4504276372031635412}
+  - component: {fileID: 7964275932200776304}
+  - component: {fileID: 3274968058135661110}
   m_Layer: 0
   m_Name: AncientRuins_Shell
   m_TagString: Untagged
@@ -83,3 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7964275932200776304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476737580951051482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.8, y: 3, z: 2.991146}
+  m_Center: {x: -0.005317452, y: -0.019098524, z: 0.0015814353}
+--- !u!208 &3274968058135661110
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476737580951051482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.9250002, y: 1.144, z: 1.496}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.0050000004, y: -0.019000001, z: 0.002}
+  m_TimeToStationary: 0.5
