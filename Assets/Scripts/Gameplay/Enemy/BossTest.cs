@@ -24,6 +24,8 @@ public class BossTest : EnemyController
 
     protected override void Update()
     {
+        if(IsMoveBlock != 0) return;
+        
         if (timeShoot > 0)
         {
             timeShoot -= Time.deltaTime;

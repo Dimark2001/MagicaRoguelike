@@ -15,8 +15,8 @@ public class EnemyController : BaseCharacter
     [SerializeField] protected bool isCanAttack;
     [SerializeField] private bool isCanProtection;
 
-    private int _isMoveBlock = 0;
-    private bool _isTakeDamage = false;
+    protected int IsMoveBlock = 0;
+    protected bool IsTakeDamage = false;
 
     protected virtual void Awake()
     {
@@ -36,7 +36,7 @@ public class EnemyController : BaseCharacter
 
     protected virtual void Update()
     {
-        if(_isMoveBlock != 0) return;
+        if(IsMoveBlock != 0) return;
         if(LevelManager.Instance.player == null) return;
         RotateEnemy(LevelManager.Instance.player.transform.position);
         
@@ -87,18 +87,11 @@ public class EnemyController : BaseCharacter
 
     protected bool CheckPlayerInRadius()
     {
-        if (Physics.CheckSphere(transform.position, enemy.radiusAgro))
-        {
-            var hitColliders = Physics.OverlapSphere(transform.position, enemy.radiusAgro);
-
-            foreach (var hitCollider in hitColliders)
-            {
-                if (hitCollider.CompareTag("Player"))
-                {
-                    return true;
-                }
-            }
-        }
+        var lm = LevelManager.Instance;
+        if (lm.GetPlayerPos() == Vector3.zero)
+            return false;
+        if(Vector3.Distance(transform.position, lm.GetPlayerPos()) <= enemy.radiusAgro)
+            return true;
 
         return false;
     }
@@ -200,13 +193,13 @@ public class EnemyController : BaseCharacter
 
     public override void TakeDamage(int amount, DamageType type, Weapon source)
     {
-        if(_isTakeDamage)
+        if(IsTakeDamage)
             return;
         if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
             return;
         if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
             LevelManager.Instance.player.GetHp(source.dmg);
-        _isTakeDamage = true;
+        IsTakeDamage = true;
         hp -= amount;
         BlockMove();
 
@@ -246,7 +239,7 @@ public class EnemyController : BaseCharacter
         DOTween.To(() => inVal, x => inVal = x, 1, duration).OnComplete(() =>
         {
             isKnockBack = false; 
-            _isTakeDamage = false; 
+            IsTakeDamage = false; 
             rb.isKinematic = true;
             AllowMove();
         });
@@ -279,11 +272,11 @@ public class EnemyController : BaseCharacter
 
     private void BlockMove()
     {
-        _isMoveBlock++;
+        IsMoveBlock++;
     }
 
     private void AllowMove()
     {
-        _isMoveBlock--;
+        IsMoveBlock--;
     }
 }

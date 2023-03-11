@@ -19497,7 +19497,7 @@ GameObject:
   - component: {fileID: 797784518864179116}
   - component: {fileID: 5796355061092580784}
   m_Layer: 0
-  m_Name: Magic circle
+  m_Name: Magic circle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
