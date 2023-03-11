@@ -179,12 +179,14 @@ MonoBehaviour:
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 
-  hp: 0
-  attackCooldown: 0
+  hp: 10
+  attackCooldown: 1
   protectionCooldown: 0
   isKnockBack: 0
-  characterMovement: {fileID: 0}
-  argoRad: 0
+  characterMovement: {fileID: -1437811813049710628}
+  argoRad: 10
+  dmg: 1
+  durationStun: 2
 --- !u!4 &7771905431155827041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2184914995557527618, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}

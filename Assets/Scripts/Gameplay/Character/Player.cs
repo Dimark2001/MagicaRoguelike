@@ -202,7 +202,7 @@ namespace Gameplay.Character
         private void ReturnNormalState()
         {
             var inVal = 0f;
-            DOTween.To(() => inVal, x => inVal = x, 1, protectionCooldown).OnComplete(() =>
+            DOTween.To(() => inVal, x => inVal = x, 1, timeInvulnerability).OnComplete(() =>
             {
                 UnBlockInput();
                 isKnockBack = false; 
