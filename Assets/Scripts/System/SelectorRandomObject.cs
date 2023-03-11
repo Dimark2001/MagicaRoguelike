@@ -7,7 +7,7 @@ public class SelectorRandomObject : MonoBehaviour
 {
     [SerializeField] private List<GameObject> prefabs;
     [SerializeField] private bool noObject;
-    void Start()
+    void Awake()
     {
         if(transform.childCount > 0)
             Destroy(transform.GetChild(0).gameObject);

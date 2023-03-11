@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9078246569069994719
+--- !u!1 &4321776018884633418
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4841938314051537535}
-  - component: {fileID: 6780138195155407357}
-  - component: {fileID: 5363371439070204728}
-  - component: {fileID: 771681609254311629}
+  - component: {fileID: 8002999545150946381}
+  - component: {fileID: 4715237386743546993}
+  - component: {fileID: 6959893314092440951}
   m_Layer: 0
-  m_Name: AncientRuins_Rock3
+  m_Name: AncientRuins_Rock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4841938314051537535
+--- !u!4 &8002999545150946381
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9078246569069994719}
+  m_GameObject: {fileID: 4321776018884633418}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.7951505, z: 0}
+  m_LocalPosition: {x: 0, y: 1.241662, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6780138195155407357
+--- !u!33 &4715237386743546993
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9078246569069994719}
-  m_Mesh: {fileID: 5367184931492316870, guid: eb5ab4410d3bf724aa1d5fd2463c6c44, type: 3}
---- !u!23 &5363371439070204728
+  m_GameObject: {fileID: 4321776018884633418}
+  m_Mesh: {fileID: 6998837594020275010, guid: eb5ab4410d3bf724aa1d5fd2463c6c44, type: 3}
+--- !u!23 &6959893314092440951
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9078246569069994719}
+  m_GameObject: {fileID: 4321776018884633418}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,18 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &771681609254311629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9078246569069994719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e019f0d97ae2924796129e499477421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chestType: 1
-  priceType: 0
-  price: 0

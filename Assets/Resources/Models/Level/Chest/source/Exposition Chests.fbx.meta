@@ -6,7 +6,27 @@ ModelImporter:
   - first:
       74: -2115358016900431323
     second: Exposition Animation
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_Chests_Add_ons
+    second: {fileID: 2100000, guid: 6b740ca7dc8442a4dad19a6f0d52bf5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_Golden_Chest
+    second: {fileID: 2100000, guid: cf6f06cfdb86bab4ca1c2d1571d04f6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_Magic_Chest
+    second: {fileID: 2100000, guid: c1ef37f98c6abce418c2c68838ea3d39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_Silver_Chest
+    second: {fileID: 2100000, guid: ff5b8ac95e0abcf4a83ef8b523a00160, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
