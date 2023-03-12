@@ -67,43 +67,62 @@ public class AbilityManager : Singleton<AbilityManager>
             EventGameManager.Instance.OnGetItem?.Invoke(playerItemsList[playerItemsList.Count-1].itemName);
         }
     }
+
     [Button("GetCommonItem")]
     private void GetCommonItem()
     {
-        var val = Enum.GetValues(typeof(CommonReward));
-        var r = (CommonReward)val.GetValue(Random.Range(0, val.Length));
         var pl = LevelManager.Instance;
-        EventGameManager.Instance.OnGetItem?.Invoke(r.ToString());
-        switch (r)
-        {
-            case CommonReward.Speed:
-                pl.player.navMeshAgent.speed+=0.5f;
-                break;
-            case CommonReward.Dmg:
-                pl.player.increaseDmg += 5;
-                break;
-            case CommonReward.Hp:
-                pl.player.maxHp += 10;
-                pl.player.GetHp(100);
-                break;
-            case CommonReward.HpRegen:
-                break;
-            case CommonReward.AttackCooldown:
-                pl.player.AttackCooldown -= 0.3f;
-                break;
-            case CommonReward.ProtectionCooldown:
-                pl.player.ProtectionCooldown -= 0.3f;
-                break;
-            case CommonReward.SpeedProjectile:
-                pl.player.increaseSpeedProjectile += 0.3f;
-                break;
-            case CommonReward.LifeTimeProtect:
-                pl.player.increaseLifeTime += 0.3f;
-                break;
-            case CommonReward.RadExplosion:
-                break;
-        }
+        pl.player.navMeshAgent.speed+=0.2f;
+        
+        pl.player.increaseDmg += 1;
+
+        pl.player.maxHp += 1;
+        pl.player.GetHp(10);
+        
+        pl.player.AttackCooldown -= 0.1f;
+        
+        pl.player.ProtectionCooldown -= 0.1f;
+        
+        pl.player.increaseSpeedProjectile += 0.2f;
+        
+        pl.player.increaseLifeTime += 0.2f;
     }
+    // private void GetCommonItem()
+    // {
+    //     var val = Enum.GetValues(typeof(CommonReward));
+    //     var r = (CommonReward)val.GetValue(Random.Range(0, val.Length));
+    //     var pl = LevelManager.Instance;
+    //     EventGameManager.Instance.OnGetItem?.Invoke(r.ToString());
+    //     switch (r)
+    //     {
+    //         case CommonReward.Speed:
+    //             pl.player.navMeshAgent.speed+=0.5f;
+    //             break;
+    //         case CommonReward.Dmg:
+    //             pl.player.increaseDmg += 5;
+    //             break;
+    //         case CommonReward.Hp:
+    //             pl.player.maxHp += 10;
+    //             pl.player.GetHp(100);
+    //             break;
+    //         case CommonReward.HpRegen:
+    //             break;
+    //         case CommonReward.AttackCooldown:
+    //             pl.player.AttackCooldown -= 0.3f;
+    //             break;
+    //         case CommonReward.ProtectionCooldown:
+    //             pl.player.ProtectionCooldown -= 0.3f;
+    //             break;
+    //         case CommonReward.SpeedProjectile:
+    //             pl.player.increaseSpeedProjectile += 0.3f;
+    //             break;
+    //         case CommonReward.LifeTimeProtect:
+    //             pl.player.increaseLifeTime += 0.3f;
+    //             break;
+    //         case CommonReward.RadExplosion:
+    //             break;
+    //     }
+    // }
 }
 
 public enum CommonReward
