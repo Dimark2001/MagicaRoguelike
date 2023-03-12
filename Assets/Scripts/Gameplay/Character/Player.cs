@@ -16,7 +16,7 @@ namespace Gameplay.Character
         public bool blockProtection;
         public bool blockAttack;
         
-        [SerializeField] private InputActionReference moveInput, look, attack, strongAttack;
+        [SerializeField] private InputActionReference moveInput, look, attack, strongAttack, pauseInput;
         [SerializeField] private CharacterMovement characterMovement;
         [SerializeField] private AttackController rangeAttack;
         [SerializeField] private AttackController protection;
@@ -52,6 +52,7 @@ namespace Gameplay.Character
             Instance = this;
             attack.action.performed += Attack;
             strongAttack.action.performed += Protection;
+            pauseInput.action.performed += OnPause;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -63,12 +64,18 @@ namespace Gameplay.Character
             _virtualCamera.Follow = transform;
         }
 
+        private void OnPause(InputAction.CallbackContext obj)
+        {
+            EventGameManager.Instance.OnPause?.Invoke();
+        }
+
         private void OnEnable()
         {
             look.action.Enable();
             moveInput.action.Enable();
             attack.action.Enable();
             strongAttack.action.Enable();
+            pauseInput.action.Enable();
         }
 
         private void OnDisable()
@@ -77,7 +84,9 @@ namespace Gameplay.Character
             moveInput.action.Disable();
             attack.action.Disable();
             strongAttack.action.Disable();
+            pauseInput.action.Disable();
         }
+        
 
         private void Update()
         {

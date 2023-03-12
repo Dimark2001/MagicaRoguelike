@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes.Test;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -16,6 +17,6 @@ public class EventGameManager : Singleton<EventGameManager>
     public Action OnBossSpawn;
     public Action<EnemyController> OnBossHpChange;
     public Action OnBossDead;
-    public Action OnReset;
+    public Action OnPause;
     public Action OnPlayerDead;
 }
