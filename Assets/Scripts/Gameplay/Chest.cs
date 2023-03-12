@@ -31,13 +31,25 @@ public class Chest : MonoBehaviour
     {
         if (!isOpen && isActive )
         {
-            if(priceType == PriceType.Gold && price <= LevelManager.Instance.Coins)
+            if (priceType == PriceType.Gold && price <= LevelManager.Instance.Coins)
+            {
                 LevelManager.Instance.Coins -= price;
-            if(priceType == PriceType.Blood)
+                OpenChest();
+            }
+
+            if (priceType == PriceType.Blood)
+            {
                 LevelManager.Instance.player.TakeDamage(price, DamageType.Ability, null);
-            AbilityManager.Instance.GiveRandomItem(chestType);
-            isActive = false;
-            isOpen = true;
+                OpenChest();
+            }
         }
+    }
+
+    void OpenChest()
+    {
+        AbilityManager.Instance.GiveRandomItem(chestType);     
+        isActive = false;
+        isOpen = true;
+        EventGameManager.Instance.OnCoinChange?.Invoke();
     }
 }
