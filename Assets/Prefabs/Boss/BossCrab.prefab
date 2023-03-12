@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 4572509016191607053}
   - component: {fileID: 6468161018779150663}
   - component: {fileID: 6608127202779258271}
-  - component: {fileID: 3135775950503462610}
   - component: {fileID: 7058451688877590743}
   - component: {fileID: 1707405095}
   - component: {fileID: 7627004011314543877}
   - component: {fileID: 7663826339624232408}
+  - component: {fileID: 8479533055995551512}
   m_Layer: 0
   m_Name: BossCrab
   m_TagString: Enemy
@@ -162,43 +162,6 @@ MonoBehaviour:
   dmg: 5
   timeToDeath: 1
   timeKnockBack: 0.2
---- !u!114 &3135775950503462610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138474615367253612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0feb65902dbe1418d2006afbfd8e1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  navMeshAgent: {fileID: 0}
-  characterRenderer: {fileID: 0}
-  timeShoot: 0
-  projectilePrefabs:
-  - {fileID: 5532456158879859508, guid: cdd3c942424ac3740b489024f40c7c59, type: 3}
-  meleeWeaponPrefabs: []
-  protectionsPrefab:
-  - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
-  immunityList: 060000000300000007000000
-  hp: 100
-  attackCooldown: 1
-  protectionCooldown: 5
-  isKnockBack: 0
-  enemy: {fileID: 6608127202779258271}
-  characterMovement: {fileID: 7058451688877590743}
-  attackController: {fileID: 7627004011314543877}
-  protectionController: {fileID: 7663826339624232408}
-  isCanAttack: 1
-  isCanProtection: 1
-  timeToCastRain: 5
-  meteoriteRainDmg: 100
-  meteoriteRainRad: 5
-  meteoriteRainDuration: 2
-  meteoriteCooldown: 5
 --- !u!114 &7058451688877590743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,3 +210,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3d072334c273d47b50e99c1b9c35c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8479533055995551512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138474615367253612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6e7a25d81cd7f4b8df96ffdd621376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  characterRenderer: {fileID: 0}
+  timeShoot: 0
+  projectilePrefabs: []
+  meleeWeaponPrefabs: []
+  protectionsPrefab: []
+  immunityList: 
+  hp: 0
+  _attackCooldown: 2
+  _protectionCooldown: 3
+  isKnockBack: 0
+  enemy: {fileID: 0}
+  characterMovement: {fileID: 0}
+  attackController: {fileID: 0}
+  protectionController: {fileID: 0}
+  isCanAttack: 0
+  isCanProtection: 0
+  timeToCastRain: 0
+  meteoriteRainDmg: 0
+  meteoriteRainRad: 0
+  meteoriteRainDuration: 0
+  meteoriteCooldown: 0

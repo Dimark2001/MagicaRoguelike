@@ -34,7 +34,7 @@ public class BossCrab : EnemyController
             {
                 if (hp > _maxHp / 2)
                 {
-                    timeShoot = attackCooldown;
+                    timeShoot = AttackCooldown;
                     SetWeaponPrefab(projectilePrefabs);
                     PerformAttack();
                 }
