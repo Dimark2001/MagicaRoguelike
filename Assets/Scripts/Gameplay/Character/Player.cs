@@ -144,10 +144,13 @@ namespace Gameplay.Character
         {
             projectilePrefabs.First().dmg += increaseDmg;
             projectilePrefabs.First().speed += increaseSpeedProjectile;
+            increaseDmg = 0;
+            increaseSpeedProjectile = 0;
         }
         void IncreaseProtection()
         {
             protectionsPrefab.First().lifeTime += increaseLifeTime;
+            increaseLifeTime = 0;
         }
     
         private void Protection(InputAction.CallbackContext obj)
@@ -171,10 +174,8 @@ namespace Gameplay.Character
         {
             if(_isTakeDamage)
                 return;
-            if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
+            if (immunityList.Any(immunity => type.ToString() == immunity.ToString()))
                 return;
-            if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
-                GetHp(source.dmg);
             _isTakeDamage = true;
             Hp -= amount;
             EventGameManager.Instance.OnPlayerHpChange?.Invoke();
@@ -198,7 +199,7 @@ namespace Gameplay.Character
         {
             if (isVampireAbility)
             {
-                GetHp(count);
+                GetHp((int)count/10);
             }
         }
 

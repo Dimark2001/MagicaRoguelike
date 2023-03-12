@@ -41,7 +41,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     {
         var inVal = 0f;
         itemText.text = itemName;
-        DOTween.To(() => inVal, x => inVal = x, 1, 2).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, 4).OnComplete(() =>
         {
             itemText.text = "";
         });
