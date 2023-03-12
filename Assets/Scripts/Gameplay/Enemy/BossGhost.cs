@@ -4,14 +4,9 @@ using DG.Tweening;
 using Gameplay.Character;
 using UnityEngine;
 
-public class BossCrab : EnemyController
+public class BossGhost : EnemyController
 {
-    [SerializeField] private float timeToCastRain;
-    [SerializeField] private int meteoriteRainDmg;
-    [SerializeField] private float meteoriteRainRad;
-    [SerializeField] private float meteoriteRainDuration;
-    [SerializeField] private float meteoriteCooldown;
-
+    [SerializeField] private float timeToCast;
     private int _maxHp;
 
     protected override void Awake()
@@ -29,41 +24,52 @@ public class BossCrab : EnemyController
             timeShoot -= Time.deltaTime;
         }
         else
-        {
-            if (CheckPlayerInRadius())
+        { 
+            timeShoot = AttackCooldown;
+            
+            MoveToRandomPoint();
+            if (navMeshAgent.velocity.magnitude <= 0.1f)
             {
-                if (hp > _maxHp / 2)
-                {
-                    timeShoot = AttackCooldown;
-                    SetWeaponPrefab(projectilePrefabs);
-                    PerformAttack();
-                }
-                else
-                {
-                    timeShoot = meteoriteCooldown;
-                    for (var i = 0; i < 9; i++)
-                    {
-                        Laser(GetRandomPos() + LevelManager.Instance.player.transform.position);
-                    }
-                    SetWeaponPrefab(protectionsPrefab);
-                    PerformProtection();
-                }
+                Attack();
             }
         }
     }
 
+    private void Attack()
+    {
+        CreateVampireCircle();
+        var inVal = 0f;
+        DOTween.To(() => inVal, x => inVal = x, 1, timeToCast).OnComplete(() =>
+        {
+            PerformAttack();
+            Invoke(nameof(PerformAttack), 0.2f);
+            Invoke(nameof(PerformAttack), 0.4f);
+        });
+    }
+
+    private void CreateVampireCircle()
+    {
+        
+    }
+
+    private void MoveToRandomPoint()
+    {
+        characterMovement.MovementToTheSelectionPosition(GetRandomPos(), 0, navMeshAgent);
+    }
+
+    protected override void EnemyMoveToPlayer()
+    {
+        
+    }
+
+    protected override void RotateEnemy(Vector3 angle)
+    {
+        
+    }
+
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Player player))
-        {
-            player.TakeDamage(enemy.dmg, DamageType.Touch, null);
-            player.KnockBack(-transform.position + player.transform.position, 20);
-            var inVal = 0f;
-            DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>
-            {
-                Laser(LevelManager.Instance.player.transform.position);
-            });
-        }
+        
     }
 
     protected override void PerformAttack()
@@ -75,6 +81,8 @@ public class BossCrab : EnemyController
     {
         return new Vector3(Random.insideUnitCircle.x * 10, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * 10);
     }
+    
+    
 
     private void Laser(Vector3 pos)
     {
