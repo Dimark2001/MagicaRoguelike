@@ -85,6 +85,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     
     public void RestartGame()
     {
+        LevelManager.Instance.Coins = 0;
         AbilityManager.Instance.ResetItem();
         Player.Instance.Hp = Player.Instance.maxHp;
         EnemySpawner.Instance.ResetTime();

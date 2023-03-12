@@ -3108,9 +3108,6 @@ MonoBehaviour:
   dif3: 300
   dif4: 400
   dif5: 500
-  dif6: 700
-  dif7: 900
-  dif8: 900
 --- !u!1 &1847072167
 GameObject:
   m_ObjectHideFlags: 0

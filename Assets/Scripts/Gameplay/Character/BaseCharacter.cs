@@ -35,13 +35,13 @@ public abstract class BaseCharacter : MonoBehaviour
     {
         get
         {
-            if(attackCooldown > 0.5) return attackCooldown;
-            return 0.5f;
+            if(attackCooldown > 0.2) return attackCooldown;
+            return 0.2f;
         } 
         set
         {
-            if (value > 0.5f) attackCooldown = value;
-            else attackCooldown = 0.5f;
+            if (value > 0.2f) attackCooldown = value;
+            else attackCooldown = 0.2f;
         }
     }
 
