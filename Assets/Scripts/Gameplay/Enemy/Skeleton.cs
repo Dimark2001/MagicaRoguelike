@@ -12,6 +12,7 @@ public class Skeleton : EnemyController
 
     private void OnDestroy()
     {
+        print("explosion");
         var abilityManager = AbilityManager.Instance;
         Instantiate(abilityManager.vfxSkeletonExplotano, transform);
         var circle = Instantiate(abilityManager.vfxCircle, transform);
