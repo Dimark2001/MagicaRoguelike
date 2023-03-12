@@ -224,6 +224,7 @@ namespace Gameplay.Character
         
         private void KillPlayer()
         {
+            EventGameManager.Instance.OnPlayerDead?.Invoke();
             _isAnim = false;
             playerAnim.SetTrigger("Dead");
             BlockInput();

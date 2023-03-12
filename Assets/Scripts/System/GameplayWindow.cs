@@ -19,6 +19,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     [SerializeField] private InputActionReference pauseInput;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject gameOver;
     
     private bool _isPause = false;
     private void Start()
@@ -37,6 +38,8 @@ public class GameplayWindow : Singleton<GameplayWindow>
         pauseInput.action.performed += Pause;
         if(LevelManager.Instance.currentLevel == 0)
             EnterGame();
+
+        eventGameManager.OnPlayerDead += () => { gameOver.SetActive(true);};
     }
 
     private void OnEnable()
@@ -68,6 +71,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     public void EnterGame()
     {
         pauseMenu.SetActive(false);
+        gameOver.SetActive(false);
         menu.SetActive(true);
         Time.timeScale = 0;
     }
