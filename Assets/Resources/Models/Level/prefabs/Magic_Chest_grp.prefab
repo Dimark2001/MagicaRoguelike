@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestType: 0
   priceType: 0
-  price: 0
+  price: 50
 --- !u!208 &3485081660606198399
 NavMeshObstacle:
   m_ObjectHideFlags: 0

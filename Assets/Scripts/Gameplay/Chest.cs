@@ -31,7 +31,10 @@ public class Chest : MonoBehaviour
     {
         if (!isOpen && isActive && price <= LevelManager.Instance.Coins)
         {
-            LevelManager.Instance.Coins -= price;
+            if(priceType == PriceType.Gold)
+                LevelManager.Instance.Coins -= price;
+            if(priceType == PriceType.Blood)
+                LevelManager.Instance.player.Hp -= price;
             AbilityManager.Instance.GiveRandomItem(chestType);
             isActive = false;
             isOpen = true;

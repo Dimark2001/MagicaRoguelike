@@ -10967,6 +10967,10 @@ PrefabInstance:
       propertyPath: hp
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 758057948014679388, guid: 7bed70100fae63444a7d2edde4ed8784, type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 758057948014679390, guid: 7bed70100fae63444a7d2edde4ed8784, type: 3}
       propertyPath: m_Name
       value: Player

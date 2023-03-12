@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestType: 1
   priceType: 0
-  price: 0
+  price: 5
 --- !u!65 &4439365926183904741
 BoxCollider:
   m_ObjectHideFlags: 0
