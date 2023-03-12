@@ -104,11 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aaf2b47bc1bfe64faad5d891078d386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
+  dmg: 13
   lifeTime: 10
   endValue: 0
   duration: 0
-  speed: 15
+  speed: 38.200012
   timeToDestroy: 0.2
   visual: {fileID: 6491144515007559947}
   isShootThroughWall: 0
