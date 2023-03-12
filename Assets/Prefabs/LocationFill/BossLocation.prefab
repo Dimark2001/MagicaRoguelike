@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f983e53783f90b74c9347c8d8f65d182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossList: []
+  bossList:
+  - {fileID: 8479533055995551512, guid: 87b3822e2a6fe1345b4d16d25de62651, type: 3}
   portal: {fileID: 8816158425655604331}
 --- !u!135 &4826683994368233844
 SphereCollider:
@@ -57,7 +58,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4782783137032808809}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
@@ -71,7 +72,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7622588618444492323}
-  - component: {fileID: 7490506389878425817}
   - component: {fileID: 110905933316850436}
   m_Layer: 0
   m_Name: portalToNextLevel
@@ -96,20 +96,6 @@ Transform:
   m_Father: {fileID: 9075247065599226914}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7490506389878425817
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8816158425655604331}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.06
-  m_Height: 0.2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &110905933316850436
 MonoBehaviour:
   m_ObjectHideFlags: 0

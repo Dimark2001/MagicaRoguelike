@@ -6136,7 +6136,7 @@ GameObject:
   - component: {fileID: 959839634}
   m_Layer: 0
   m_Name: Terrain_0_0_ed25f104-d663-41e4-8b35-7628d41aa084
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7018,7 +7018,7 @@ GameObject:
   - component: {fileID: 1048019057}
   m_Layer: 0
   m_Name: TerrainGroup_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11496,12 +11496,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 171315267873698576, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
       propertyPath: bossList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 171315267873698576, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
       propertyPath: bossList.Array.data[0]
       value: 
-      objectReference: {fileID: 3135775950503462610, guid: be9bd58de9050794285536ced0253bc4, type: 3}
+      objectReference: {fileID: 8479533055995551512, guid: 87b3822e2a6fe1345b4d16d25de62651, type: 3}
     - target: {fileID: 171315267873698576, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
       propertyPath: bossList.Array.data[1]
       value: 
@@ -11733,7 +11733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1786025502
 Transform:
   m_ObjectHideFlags: 0

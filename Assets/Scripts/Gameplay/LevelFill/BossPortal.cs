@@ -11,7 +11,8 @@ public class BossPortal : MonoBehaviour
     private bool _isBoss = false;
     private void Awake()
     {
-        for (int i = 0; i < bossList.Count; i++) {
+        for (int i = 0; i < bossList.Count; i++) 
+        {
             var temp = bossList[i];
             int randomIndex = Random.Range(i, bossList.Count);
             bossList[i] = bossList[randomIndex];
@@ -25,6 +26,7 @@ public class BossPortal : MonoBehaviour
         _boss = Instantiate(bossList.First(), transform.position, Quaternion.identity);
         bossList.Remove(bossList.First());
         GetComponent<Collider>().enabled = false;
+        EventGameManager.Instance.OnBossSpawn?.Invoke();
     }
 
     private void Update()
@@ -45,6 +47,7 @@ public class BossPortal : MonoBehaviour
 
     private void SpawnPortal()
     {
+        EventGameManager.Instance.OnBossDead?.Invoke();
         portal.SetActive(true);
     }
 }
