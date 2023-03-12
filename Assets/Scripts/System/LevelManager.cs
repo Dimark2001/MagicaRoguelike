@@ -10,8 +10,20 @@ public class LevelManager : Singleton<LevelManager>
     public GameObject portal;
     public int currentLevel = 0;
 
-    public int coins;
+    [SerializeField] private int _coins;
 
+    public int Coins
+    {
+        get
+        {
+            return _coins;
+        }
+        set
+        {
+            if (value >= 0) _coins = value;
+            else _coins = 0;
+        }
+    }
     protected override void Awake()
     {
         base.Awake();

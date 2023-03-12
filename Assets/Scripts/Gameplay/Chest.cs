@@ -9,11 +9,32 @@ public class Chest : MonoBehaviour
     [SerializeField] private ChestType chestType;
     [SerializeField] private PriceType priceType;
     [SerializeField] private int price;
+    
+    private bool isOpen = false;
+    private bool isActive = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            isActive = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isActive = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (!isOpen && isActive && price <= LevelManager.Instance.Coins)
+        {
+            LevelManager.Instance.Coins -= price;
             AbilityManager.Instance.GiveRandomItem(chestType);
+            isActive = false;
+            isOpen = true;
         }
     }
 }

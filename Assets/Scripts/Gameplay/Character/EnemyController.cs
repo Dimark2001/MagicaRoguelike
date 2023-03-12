@@ -248,6 +248,8 @@ public class EnemyController : BaseCharacter
 
     protected void DestroyEnemy()
     {
+        LevelManager.Instance.Coins += coinCount;
+        
         BlockMove();
         EnemyStay();
         var inVal = 0f;

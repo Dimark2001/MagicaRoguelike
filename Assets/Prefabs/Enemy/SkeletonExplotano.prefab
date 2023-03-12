@@ -179,9 +179,10 @@ MonoBehaviour:
   projectilePrefabs: []
   meleeWeaponPrefabs: []
   protectionsPrefab: []
+  immunityList: 
   hp: 1
-  attackCooldown: 0
-  protectionCooldown: 0
+  _attackCooldown: 2
+  _protectionCooldown: 3
   isKnockBack: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
@@ -189,6 +190,7 @@ MonoBehaviour:
   protectionController: {fileID: 0}
   isCanAttack: 0
   isCanProtection: 0
+  coinCount: 5
   explotanoDmg: 5
   explotanoRad: 2
   forceExp: 5

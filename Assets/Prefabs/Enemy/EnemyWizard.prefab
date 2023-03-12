@@ -191,6 +191,7 @@ MonoBehaviour:
   protectionController: {fileID: 0}
   isCanAttack: 1
   isCanProtection: 0
+  coinCount: 10
 --- !u!114 &7155828901931649450
 MonoBehaviour:
   m_ObjectHideFlags: 0
