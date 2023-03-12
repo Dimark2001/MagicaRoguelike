@@ -14,7 +14,7 @@ public class FireExplosionItem : Items
         EventGameManager.Instance.OnProjectileCollision += ActivateItem;
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
         EventGameManager.Instance.OnProjectileCollision -= ActivateItem;
     }

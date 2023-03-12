@@ -9,7 +9,7 @@ public class GravityShieldItem : Items
         EventGameManager.Instance.OnProtected += ActivateItem;
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
         EventGameManager.Instance.OnProtected -= ActivateItem;
     }

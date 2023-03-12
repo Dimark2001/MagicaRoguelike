@@ -1,7 +1,6 @@
-﻿namespace Gameplay.Weapon.Ability
+﻿using UnityEngine;
+
+public abstract class Ability : MonoBehaviour
 {
-    public class Ability
-    {
-        
-    }
+    
 }

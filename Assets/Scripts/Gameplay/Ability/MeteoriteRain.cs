@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class MeteoriteRain : MonoBehaviour
+public class MeteoriteRain : Ability
 {
     public void CreateMeteoriteRain(int dmg, float rad, float duration)
     {

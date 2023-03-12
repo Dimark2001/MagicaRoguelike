@@ -16,4 +16,5 @@ public class EventGameManager : Singleton<EventGameManager>
     public Action OnBossSpawn;
     public Action<EnemyController> OnBossHpChange;
     public Action OnBossDead;
+    public Action OnReset;
 }

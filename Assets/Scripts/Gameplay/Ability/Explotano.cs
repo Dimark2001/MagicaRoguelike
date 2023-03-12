@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Explotano : MonoBehaviour
+public class Explotano : Ability
 {
     public void CreateExplotano(int dmg, float rad, float force)
     {

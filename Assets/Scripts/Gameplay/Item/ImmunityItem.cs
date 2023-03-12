@@ -9,7 +9,7 @@ public class ImmunityItem : Items
         ActivateItem(null);
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
     }
 

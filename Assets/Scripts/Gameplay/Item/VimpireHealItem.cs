@@ -7,7 +7,7 @@ public class VimpireHealItem : Items
         ActivateItem(null);
     }
 
-    protected override void OnDisable(){}
+    protected override void OnDestroy(){}
 
     protected override void ActivateItem(GameObject obj)
     {
