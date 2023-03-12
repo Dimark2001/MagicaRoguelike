@@ -116,7 +116,7 @@ MonoBehaviour:
   immunityList: 
   maxHp: 100
   hp: 100
-  attackCooldown: 2
+  attackCooldown: 1.5
   protectionCooldown: 3
   isKnockBack: 0
   blockProtection: 0
@@ -190,6 +190,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 758057948014679391}
     m_Modifications:
+    - target: {fileID: 1121047496057440, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830797229530566, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890493464866982, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1953271650171834, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
       propertyPath: m_Name
       value: PolyArtWizardMaskTintMat

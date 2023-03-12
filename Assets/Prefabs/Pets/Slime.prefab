@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6370518548187687038, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -171,12 +171,14 @@ MonoBehaviour:
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 
+  maxHp: 0
   hp: 100
   attackCooldown: 0.5
-  protectionCooldown: 0
+  protectionCooldown: 0.5
   isKnockBack: 0
   characterMovement: {fileID: 932595131249918985}
   argoRad: 5
+  dmg: 0
   rad: 1
 --- !u!4 &5041405467392445462 stripped
 Transform:

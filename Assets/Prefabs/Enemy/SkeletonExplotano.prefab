@@ -242,7 +242,7 @@ MonoBehaviour:
   radiusAgro: 20
   force: 100
   stoppingDistance: 1
-  dmg: 10
+  dmg: 4
   timeToDeath: 0
   timeKnockBack: 1
 --- !u!114 &171982567957370391
@@ -274,6 +274,7 @@ MonoBehaviour:
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 0}
   protectionController: {fileID: 0}
+  animator: {fileID: 0}
   isCanAttack: 0
   isCanProtection: 0
   coinCount: 2

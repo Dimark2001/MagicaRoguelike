@@ -17,7 +17,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float globalTime;
     [SerializeField] private bool pause;
     [SerializeField] private int lvlDifficulty = 100;
-
+    [SerializeField] private int dif0;
+    [SerializeField] private int dif1;
+    [SerializeField] private int dif2;
+    [SerializeField] private int dif3;
+    [SerializeField] private int dif4;
+    [SerializeField] private int dif5;
+    [SerializeField] private int dif6;
+    [SerializeField] private int dif7;
+    [SerializeField] private int dif8;
     private void Start()
     {
         Spawn();
@@ -29,26 +37,24 @@ public class EnemySpawner : MonoBehaviour
         
         globalTime += Time.deltaTime;
 
-        if (globalTime >= 10 && globalTime < 30 && lvlDifficulty != 1)
+        if (globalTime >= dif0 && globalTime < dif1 && lvlDifficulty != 1)
             lvlDifficulty = 0;
-        if (globalTime >= 30 && globalTime < 60 && lvlDifficulty != 3)
+        if (globalTime >= dif1 && globalTime < dif2 && lvlDifficulty != 3)
             lvlDifficulty = 2;
-        if (globalTime >= 60 && globalTime < 120 && lvlDifficulty != 5)
+        if (globalTime >= dif2 && globalTime < dif3 && lvlDifficulty != 5)
             lvlDifficulty = 4;
-        if (globalTime >= 120 && globalTime < 160 && lvlDifficulty !=7)
+        if (globalTime >= dif3 && globalTime < dif4 && lvlDifficulty !=7)
             lvlDifficulty = 6;
-        if (globalTime >= 160 && globalTime < 200 && lvlDifficulty !=9)
+        if (globalTime >= dif4 && globalTime < dif5 && lvlDifficulty !=9)
             lvlDifficulty = 8;
-        if (globalTime >= 200 && globalTime < 280 && lvlDifficulty != 11)
+        if (globalTime >= dif5 && globalTime < dif6 && lvlDifficulty != 11)
             lvlDifficulty = 10;
-        if (globalTime >= 280 && globalTime < 400 && lvlDifficulty != 13)
+        if (globalTime >= dif6 && globalTime < dif7 && lvlDifficulty != 13)
             lvlDifficulty = 12;
-        if (globalTime >= 400 && globalTime < 500 && lvlDifficulty != 15)
+        if (globalTime >= dif7 && globalTime < dif8 && lvlDifficulty != 15)
             lvlDifficulty = 14;
-        if (globalTime >= 500)
+        if (globalTime >= dif8)
             lvlDifficulty = 16;
-        if (globalTime >= 600)
-            lvlDifficulty = 18;
     }
 
     private void Spawn()

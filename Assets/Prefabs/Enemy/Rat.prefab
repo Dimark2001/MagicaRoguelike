@@ -158,7 +158,7 @@ MonoBehaviour:
   radiusAgro: 20
   force: 3
   stoppingDistance: 5
-  dmg: 5
+  dmg: 2
   timeToDeath: 1
   timeKnockBack: 0.2
 --- !u!114 &4465282008427450044
@@ -181,14 +181,16 @@ MonoBehaviour:
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 
+  maxHp: 0
   hp: 1
-  _attackCooldown: 2
-  _protectionCooldown: 3
+  attackCooldown: 2
+  protectionCooldown: 3
   isKnockBack: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 0}
   protectionController: {fileID: 0}
+  animator: {fileID: 0}
   isCanAttack: 0
   isCanProtection: 0
   coinCount: 1

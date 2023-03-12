@@ -12022,8 +12022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: []
   availableEnemy:
-  - {fileID: 4465282008427450044, guid: e582fdc3aa4842842a827204319bd63f, type: 3}
   - {fileID: 4465282008427450044, guid: 62752cecb6da3dd41b033cc11ea9774a, type: 3}
+  - {fileID: 4465282008427450044, guid: e582fdc3aa4842842a827204319bd63f, type: 3}
   - {fileID: 171982567957370391, guid: 39b92f6b425c4414289fb480345b047c, type: 3}
   - {fileID: 4465282008427450044, guid: 5c55903a09fb68145a4607d61386b04e, type: 3}
   - {fileID: 8479533055995551512, guid: 87b3822e2a6fe1345b4d16d25de62651, type: 3}
@@ -12033,6 +12033,15 @@ MonoBehaviour:
   globalTime: 0
   pause: 0
   lvlDifficulty: 100
+  dif0: 10
+  dif1: 30
+  dif2: 60
+  dif3: 120
+  dif4: 200
+  dif5: 280
+  dif6: 400
+  dif7: 500
+  dif8: 700
 --- !u!1001 &1790645123
 PrefabInstance:
   m_ObjectHideFlags: 0

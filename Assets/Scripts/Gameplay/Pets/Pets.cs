@@ -17,6 +17,18 @@ public class Pets : BaseCharacter
         _isCanAttack = true;
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        transform.parent = AbilityManager.Instance.transform;
+    }
+
+    private void OnEnable()
+    {
+        var inVal = 0f;
+        navMeshAgent.enabled = false;
+        DOTween.To(() => inVal, x => inVal = x, 1, 0.2f).OnComplete(() =>
+        {
+            transform.position = LevelManager.Instance.GetPlayerPos();
+            navMeshAgent.enabled = true;
+        });
     }
 
     public override void TakeDamage(int dmg, DamageType type, Weapon source)

@@ -9,6 +9,7 @@ public class CircularProjectile : PlayerProjectile
 {
     [SerializeField] private float forceKnock;
     private bool _isDmgPlayer = false;
+    [SerializeField] private float rot;
     protected override void Start()
     {
         
@@ -16,11 +17,14 @@ public class CircularProjectile : PlayerProjectile
 
     protected override void Move()
     {
+        visual.transform.Rotate(new Vector3(0,visual.transform.rotation.eulerAngles.y,0) + new Vector3(0,rot,0));
         if (Vector3.Distance(LevelManager.Instance.player.transform.position, transform.position) >= 5)
             transform.LookAt(LevelManager.Instance.player.transform);
         base.Move();
     }
-
+    
+    
+    
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);

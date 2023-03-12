@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6370518548187687038, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2184914995557527618, guid: 13efa7a00fed08b4d8e8775a2de8f336, type: 3}
@@ -179,9 +183,10 @@ MonoBehaviour:
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 
+  maxHp: 10
   hp: 10
   attackCooldown: 1
-  protectionCooldown: 0
+  protectionCooldown: 0.5
   isKnockBack: 0
   characterMovement: {fileID: -1437811813049710628}
   argoRad: 10

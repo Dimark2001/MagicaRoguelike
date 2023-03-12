@@ -12,6 +12,7 @@ public class TeslaCoil : Pets
         
         if (_isCanAttack)
         {
+            characterMovement.MovementToTheSelectionPosition(LevelManager.Instance.player.transform.position, navMeshAgent.stoppingDistance, navMeshAgent);
             if (FindEnemyInRadius() != null)
             {
                 UseAbility(FindEnemyInRadius());
