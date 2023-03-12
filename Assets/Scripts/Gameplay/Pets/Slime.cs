@@ -25,7 +25,7 @@ public class Slime : Pets
         vfx.transform.position = transform.position;
         vfx.transform.localScale = new Vector3(rad, rad, rad)/4;
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown*4).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown*8).OnComplete(() =>
         {
             Destroy(puddle);
             Destroy(vfx);

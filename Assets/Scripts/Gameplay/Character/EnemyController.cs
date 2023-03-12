@@ -38,7 +38,7 @@ public class EnemyController : BaseCharacter
 
     protected virtual void Update()
     {
-        if(animator != null) animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+        if(animator != null) animator.SetInteger("Speed", (int)navMeshAgent.velocity.magnitude);
         if(IsMoveBlock != 0) return;
         if(LevelManager.Instance.player == null) return;
         RotateEnemy(LevelManager.Instance.player.transform.position);
