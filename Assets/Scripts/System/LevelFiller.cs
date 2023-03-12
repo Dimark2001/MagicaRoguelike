@@ -14,6 +14,7 @@ public class LevelFiller : Singleton<LevelFiller>
     [SerializeField] private int countRare;
     void Start()
     {
+        if(chestSpawnPositions.Count == 0) return;
         print("chest spawn");
         Begin();
     }

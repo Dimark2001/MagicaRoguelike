@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 2321819990513803673, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2656ffd617a68d949a7600cc66478917, type: 2}
+      objectReference: {fileID: 2100000, guid: 5d4782f4e33dd1742ae045021d08f62e, type: 2}
     - target: {fileID: 2385851995619288845, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   lifeTime: 10
   endValue: 0
   duration: 0
-  speed: 20
+  speed: 15
   timeToDestroy: 0.2
   visual: {fileID: 6491144515007559947}
   isShootThroughWall: 0

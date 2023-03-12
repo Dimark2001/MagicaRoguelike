@@ -49,6 +49,13 @@ public class AbilityManager : Singleton<AbilityManager>
             case ChestType.Common:
                 GetCommonItem();
                 break;
+            case ChestType.Another:
+                var a = Random.Range(0,2);
+                if(a == 0)
+                    GetRareItem();
+                else
+                    GetCommonItem();
+                break;
             default:
                 print("предметы кончились, ожидайте доставку");
                 break;

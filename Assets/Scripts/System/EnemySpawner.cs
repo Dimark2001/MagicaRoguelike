@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
@@ -33,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if(LevelManager.Instance.currentLevel == 0) return;
         if(pause) return;
         
         globalTime += Time.deltaTime;
@@ -64,21 +62,25 @@ public class EnemySpawner : MonoBehaviour
         switch (lvlDifficulty)
         {
             case 0:
+                timeToSpawn = 4;
                 lvlDifficulty++;
                 AddEnemyInList(0, 2);
                 break;
             case 2:
+                timeToSpawn = 6;
                 lvlDifficulty++;
                 AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);
                 break;
             case 4:
+                timeToSpawn = 10;
                 lvlDifficulty++;
                 AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);
                 AddEnemyInList(2, 1);
                 break;
             case 6:
+                timeToSpawn = 15;
                 lvlDifficulty++;
                 AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);
@@ -86,6 +88,7 @@ public class EnemySpawner : MonoBehaviour
                 AddEnemyInList(3, 1);
                 break;
             case 8:
+                timeToSpawn = 19;
                 lvlDifficulty++;
                 AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);

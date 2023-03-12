@@ -175,6 +175,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8492081418836279363, guid: 106866395a102c648ad9c7419b3741ac, type: 3}
+      propertyPath: chestSpawnPositions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492081418836279363, guid: 106866395a102c648ad9c7419b3741ac, type: 3}
+      propertyPath: chestSpawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1176475935}
+    - target: {fileID: 8492081418836279363, guid: 106866395a102c648ad9c7419b3741ac, type: 3}
+      propertyPath: chestSpawnPositions.Array.data[1]
+      value: 
+      objectReference: {fileID: 311864610}
+    - target: {fileID: 8492081418836279363, guid: 106866395a102c648ad9c7419b3741ac, type: 3}
+      propertyPath: chestSpawnPositions.Array.data[2]
+      value: 
+      objectReference: {fileID: 110840749}
     - target: {fileID: 8492081418836279365, guid: 106866395a102c648ad9c7419b3741ac, type: 3}
       propertyPath: m_Name
       value: LevelFiller

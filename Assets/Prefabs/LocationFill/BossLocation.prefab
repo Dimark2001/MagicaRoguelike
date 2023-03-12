@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossList:
+  - {fileID: 3135775950503462610, guid: be9bd58de9050794285536ced0253bc4, type: 3}
   - {fileID: 8479533055995551512, guid: 87b3822e2a6fe1345b4d16d25de62651, type: 3}
   portal: {fileID: 8816158425655604331}
 --- !u!135 &4826683994368233844

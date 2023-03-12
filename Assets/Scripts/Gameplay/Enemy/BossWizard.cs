@@ -6,7 +6,7 @@ using Gameplay.Character;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossTest : EnemyController
+public class BossWizard : EnemyController
 {
     [SerializeField] private float timeToCastRain;
     [SerializeField] private int meteoriteRainDmg;
@@ -25,6 +25,7 @@ public class BossTest : EnemyController
     protected override void Update()
     {
         if(IsMoveBlock != 0) return;
+        transform.LookAt(LevelManager.Instance.GetPlayerPos());
         
         if (timeShoot > 0)
         {
@@ -34,7 +35,7 @@ public class BossTest : EnemyController
         {
             if (CheckPlayerInRadius())
             {
-                if (Hp > _maxHp / 2)
+                if (Hp > _maxHp / 1.5f)
                 {
                     timeShoot = AttackCooldown;
                     SetWeaponPrefab(projectilePrefabs);
@@ -43,7 +44,7 @@ public class BossTest : EnemyController
                 else
                 {
                     timeShoot = meteoriteCooldown;
-                    for (var i = 0; i < 9; i++)
+                    for (var i = 0; i < 5; i++)
                     {
                         MeteoriteRain(GetRandomPos() + LevelManager.Instance.player.transform.position);
                     }
@@ -51,7 +52,18 @@ public class BossTest : EnemyController
                     PerformProtection();
                 }
             }
+            else
+            {
+                MoveToRandomPoint();
+            }
         }
+    }
+    
+    private void MoveToRandomPoint()
+    {
+        var a = new Vector3(Random.insideUnitCircle.x * 2, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * 2);
+        characterMovement.MovementOnDirection(a, navMeshAgent);
+        transform.LookAt(a);
     }
 
     protected override void OnTriggerEnter(Collider other)

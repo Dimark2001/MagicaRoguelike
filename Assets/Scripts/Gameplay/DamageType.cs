@@ -26,7 +26,8 @@ public enum ImmunityType
 public enum ChestType
 {
     Rare,
-    Common
+    Common,
+    Another
 }
 public enum PriceType
 {

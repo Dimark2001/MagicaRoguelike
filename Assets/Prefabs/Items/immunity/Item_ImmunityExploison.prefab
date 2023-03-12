@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d69db622174f768e7e079f92b404ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: PetDamage Immunity
+  itemName: Explosion Immunity
   iconItem: {fileID: 0}
   description: 
   type: 
