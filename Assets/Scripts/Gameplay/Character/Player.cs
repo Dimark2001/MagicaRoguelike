@@ -22,6 +22,7 @@ namespace Gameplay.Character
 
         private int _blockInputCount = 0;
         private bool _isTakeDamage;
+        private bool _isAnim = true;
         
         private Plane _plane;
         private Camera _camera;
@@ -67,6 +68,7 @@ namespace Gameplay.Character
 
         private void Update()
         {
+            if(!_isAnim) return;
             playerAnim.SetInteger("Speed", (int)navMeshAgent.velocity.magnitude);
             if(_blockInputCount != 0) return;
         
@@ -208,9 +210,11 @@ namespace Gameplay.Character
         
         private void KillPlayer()
         {
+            _isAnim = false;
             playerAnim.SetTrigger("Dead");
+            BlockInput();
+            GetComponent<Collider>().enabled = false;
             Destroy(navMeshAgent);
-            Destroy(this);
         }
 
         private void BlockInput()
