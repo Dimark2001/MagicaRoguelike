@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class PortalToNextLevel : MonoBehaviour
 {
     private bool _isLastStage = false;
+    
     public void Update()
     {
         if(!transform.gameObject.activeSelf) return;
@@ -18,6 +19,7 @@ public class PortalToNextLevel : MonoBehaviour
             if (lm.currentLevel == 6)
             {
                 lm.currentLevel = 1;
+                LevelManager.Instance.Coins = 0;
                 SceneManager.LoadScene(lm.currentLevel);
                 return;
             }
@@ -27,6 +29,7 @@ public class PortalToNextLevel : MonoBehaviour
                 lm.currentLevel = Random.Range(1, 5);
             else
                 lm.currentLevel++;
+            LevelManager.Instance.Coins = 0;
             SceneManager.LoadScene(lm.currentLevel);
         }
     }
