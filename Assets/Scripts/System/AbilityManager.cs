@@ -64,6 +64,7 @@ public class AbilityManager : Singleton<AbilityManager>
             playerItemsList.Add(itemsList[a]);
             itemsList.Remove(itemsList[a]);
             Instantiate(playerItemsList[playerItemsList.Count() - 1], transform);
+            EventGameManager.Instance.OnGetItem?.Invoke(playerItemsList[playerItemsList.Count-1].itemName);
         }
     }
     [Button("GetCommonItem")]
@@ -72,7 +73,7 @@ public class AbilityManager : Singleton<AbilityManager>
         var val = Enum.GetValues(typeof(CommonReward));
         var r = (CommonReward)val.GetValue(Random.Range(0, val.Length));
         var pl = LevelManager.Instance;
-        print(r);
+        EventGameManager.Instance.OnGetItem?.Invoke(r.ToString());
         switch (r)
         {
             case CommonReward.Speed:

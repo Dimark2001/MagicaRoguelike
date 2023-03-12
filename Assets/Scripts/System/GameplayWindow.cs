@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     [SerializeField] private Canvas canvas;
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private Scrollbar hpScrollbar;
     [SerializeField] private Scrollbar bossHpScrollbar;
     private void Start()
@@ -18,10 +20,28 @@ public class GameplayWindow : Singleton<GameplayWindow>
         eventGameManager.OnBossSpawn += BossHpActive;
         eventGameManager.OnBossHpChange += UpdateBossHp;
         eventGameManager.OnBossDead += BossHpDeActive;
+        eventGameManager.OnGetItem += ShowGetItem;
         UpdateCoin();
         UpdateHp();
     }
 
+    private void OnDisable()
+    {
+        var eventGameManager = EventGameManager.Instance;
+        eventGameManager.OnCoinChange -= UpdateCoin;
+        eventGameManager.OnPlayerHpChange -= UpdateHp;
+        eventGameManager.OnBossSpawn -= BossHpActive;
+        eventGameManager.OnBossHpChange -= UpdateBossHp;
+        eventGameManager.OnBossDead -= BossHpDeActive;
+        eventGameManager.OnGetItem -= ShowGetItem;
+    }
+
+    private void ShowGetItem(string itemName)
+    {
+        // DOTween.To(() => inVal, x => inVal = x, dmg, duration).OnUpdate(() =>
+        // {
+        itemText.text = itemName;
+    }
     private void UpdateHp()
     {
         var lm = LevelManager.Instance;
