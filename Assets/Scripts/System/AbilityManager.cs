@@ -99,21 +99,23 @@ public class AbilityManager : Singleton<AbilityManager>
     [Button("GetCommonItem")]
     private void GetCommonItem()
     {
+        print("count");
+        EventGameManager.Instance.OnGetItem?.Invoke("Increase base characteristic");
         var pl = LevelManager.Instance;
-        pl.player.navMeshAgent.speed+=0.2f;
+        pl.player.navMeshAgent.speed += 0.3f;
         
-        pl.player.increaseDmg += 1;
+        pl.player.increaseDmg += 3;
 
-        pl.player.maxHp += 1;
-        pl.player.GetHp(10);
+        pl.player.maxHp += 5;
+        pl.player.GetHp(20);
         
-        pl.player.AttackCooldown -= 0.1f;
+        pl.player.AttackCooldown -= 0.4f;
         
-        pl.player.ProtectionCooldown -= 0.1f;
+        pl.player.ProtectionCooldown -= 0.2f;
         
-        pl.player.increaseSpeedProjectile += 0.2f;
+        pl.player.increaseSpeedProjectile += 0.5f;
         
-        pl.player.increaseLifeTime += 0.2f;
+        pl.player.increaseLifeTime += 0.4f;
     }
     // private void GetCommonItem()
     // {
