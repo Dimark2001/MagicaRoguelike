@@ -63,7 +63,7 @@ public class Pets : BaseCharacter
         print(enemy.name);
         _isCanAttack = false;
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, attackCooldown).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown).OnComplete(() =>
         {
             _isCanAttack = true;
         });

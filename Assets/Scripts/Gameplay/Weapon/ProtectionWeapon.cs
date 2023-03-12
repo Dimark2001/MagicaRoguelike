@@ -6,10 +6,6 @@ using UnityEngine.AI;
 
 public class ProtectionWeapon : Weapon
 {
-    [SerializeField] protected float lifeTime;
-    [SerializeField] private float endValue;
-    [SerializeField] private float duration;
-    [SerializeField] private float speed;
     [SerializeField] private NavMeshObstacle obstacle;
     private bool _isMove;
     private Vector3 _defScale;

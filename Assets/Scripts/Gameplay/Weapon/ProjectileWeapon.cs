@@ -6,17 +6,15 @@ using UnityEngine;
 public abstract class ProjectileWeapon : Weapon
 {
     [SerializeField] private float timeToDestroy;
-    
-    [SerializeField] protected float lifeTime;
-    [SerializeField] protected float speed;
-    [SerializeField] protected float speedLimit;
     [SerializeField] protected GameObject visual;
     [SerializeField] private bool isShootThroughWall;
+    protected float speedLimit;
 
     protected Rigidbody Rb;
     
     private void Awake()
     {
+        speedLimit = speed;
         Rb = GetComponent<Rigidbody>();
         Invoke(nameof(DestroyProjectile), lifeTime);
     }
