@@ -12,12 +12,16 @@ public class LevelFiller : Singleton<LevelFiller>
     [SerializeField] private List<Transform> chestSpawnPositions;
     [SerializeField] private int countCommon;
     [SerializeField] private int countRare;
+    void Start()
+    {
+        print("chest spawn");
+        Begin();
+    }
 
-    public void Start()
+    void Begin()
     {
         chestSpawnPositions = new List<Transform>();
-        DontDestroyOnLoad(gameObject);
-
+        
         var points = FindObjectsOfType<Point>().Select(point => point.transform).ToList();
         chestSpawnPositions.AddRange(points);
         SpawnChest(countRare, rareChestTemplate);

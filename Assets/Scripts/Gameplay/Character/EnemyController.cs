@@ -246,7 +246,7 @@ public class EnemyController : BaseCharacter
         });
     }
 
-    protected void DestroyEnemy()
+    protected virtual void DestroyEnemy()
     {
         LevelManager.Instance.Coins += coinCount;
         

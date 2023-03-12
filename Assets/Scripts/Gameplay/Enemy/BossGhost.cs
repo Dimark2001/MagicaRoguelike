@@ -40,7 +40,6 @@ public class BossGhost : EnemyController
     private void Attack()
     {
         transform.LookAt(LevelManager.Instance.GetPlayerPos());
-        CreateVampireCircle();
         var inVal = 0f;
         DOTween.To(() => inVal, x => inVal = x, 1, timeToCast).OnComplete(() =>
         {
@@ -48,11 +47,6 @@ public class BossGhost : EnemyController
             Invoke(nameof(PerformAttack), 0.2f);
             Invoke(nameof(PerformAttack), 0.4f);
         });
-    }
-
-    private void CreateVampireCircle()
-    {
-        
     }
 
     private void MoveToRandomPoint()
@@ -91,12 +85,5 @@ public class BossGhost : EnemyController
     {
         base.TakeDamage(amount, type, source);
         EventGameManager.Instance.OnBossHpChange?.Invoke(this);
-    }
-
-    private void Laser(Vector3 pos)
-    {
-        var playerPos = pos;
-        var attack = Instantiate(AbilityManager.Instance.meteoriteRain);
-        
     }
 }

@@ -37,8 +37,6 @@ public class AbilityManager : Singleton<AbilityManager>
     protected override void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject);
-
     }
 
     public void GiveRandomItem(ChestType chestType)
@@ -84,7 +82,7 @@ public class AbilityManager : Singleton<AbilityManager>
                 pl.player.increaseDmg += 5;
                 break;
             case CommonReward.Hp:
-                // pl.player.hp
+                pl.player.maxHp += 10;
                 break;
             case CommonReward.HpRegen:
                 break;

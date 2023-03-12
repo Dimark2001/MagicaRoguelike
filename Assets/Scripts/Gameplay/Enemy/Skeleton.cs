@@ -10,8 +10,9 @@ public class Skeleton : EnemyController
     [SerializeField] private float explotanoRad;
     [SerializeField] private float forceExp;
 
-    private void OnDestroy()
+    protected override void DestroyEnemy()
     {
+        base.DestroyEnemy();
         print("explosion");
         var abilityManager = AbilityManager.Instance;
         Instantiate(abilityManager.vfxSkeletonExplotano, transform);

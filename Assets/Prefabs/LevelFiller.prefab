@@ -46,11 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rareChestTemplate: {fileID: 8167497803579212277, guid: 973058462e0a6724ca0059a2b3b19620, type: 3}
   commonChestTemplate: {fileID: 8167497803579212277, guid: 871e779c5e08e3d42813798fcf563cca, type: 3}
-  chestSpawnPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  chestSpawnPositions: []
   countCommon: 2
   countRare: 1

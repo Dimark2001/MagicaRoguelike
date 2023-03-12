@@ -22,6 +22,7 @@ public class BossPortal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!other.CompareTag("Player")) return;
         if(bossList.Count == 0) return;
         _boss = Instantiate(bossList.First(), transform.position, Quaternion.identity);
         bossList.Remove(bossList.First());

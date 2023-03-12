@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7155828901931649450}
   - component: {fileID: 7058451688877590743}
   - component: {fileID: 1707405095}
+  - component: {fileID: -4279362271572686577}
   m_Layer: 0
   m_Name: EnemyWizard
   m_TagString: Enemy
@@ -177,21 +178,24 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   characterRenderer: {fileID: 0}
   timeShoot: 0
-  projectilePrefabs: []
+  projectilePrefabs:
+  - {fileID: 5532456158879859508, guid: cdd3c942424ac3740b489024f40c7c59, type: 3}
   meleeWeaponPrefabs: []
-  protectionsPrefab: []
+  protectionsPrefab:
+  - {fileID: 4702574543090416057, guid: b125a2f191d355b47bab0129cde43af1, type: 3}
   immunityList: 
-  hp: 0
-  _attackCooldown: 1
-  _protectionCooldown: 2
+  maxHp: 11
+  hp: 11
+  attackCooldown: 2
+  protectionCooldown: 3
   isKnockBack: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}
   attackController: {fileID: 7155828901931649450}
-  protectionController: {fileID: 0}
+  protectionController: {fileID: -4279362271572686577}
   isCanAttack: 1
-  isCanProtection: 0
-  coinCount: 10
+  isCanProtection: 1
+  coinCount: 20
 --- !u!114 &7155828901931649450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,5 +230,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf86e7cd90c8d24b8e665d3d4a03df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4279362271572686577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138474615367253612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3d072334c273d47b50e99c1b9c35c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +21,7 @@ namespace Gameplay.Character
         [SerializeField] private AttackController protection;
         [SerializeField] private Animator playerAnim;
         [SerializeField] public float timeInvulnerability;
+        private CinemachineVirtualCamera _virtualCamera;
 
         private int _blockInputCount = 0;
         private bool _isTakeDamage;
@@ -45,9 +48,15 @@ namespace Gameplay.Character
         {
             attack.action.performed += Attack;
             strongAttack.action.performed += Protection;
-        
+            DontDestroyOnLoad(gameObject);
+        }
+
+        private void Start()
+        {
             _plane = new Plane(Vector3.up, Vector3.zero);
             _camera = Camera.main;
+            _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+            _virtualCamera.Follow = transform;
         }
 
         private void OnEnable()

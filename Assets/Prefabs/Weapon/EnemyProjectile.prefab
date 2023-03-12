@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2321819990513803673, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cc40f1b9a8fbd6642ad5b1f7b08366e7, type: 2}
+      objectReference: {fileID: 2100000, guid: b56ee68f36d76a648a742b6874f4d4a4, type: 2}
     - target: {fileID: 2385851995619288845, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: EnemyProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 4158859069586017440, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7723336686044868276, guid: eb5ab4410d3bf724aa1d5fd2463c6c44, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}
@@ -85,10 +89,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
-  timeToDestroy: 0
   lifeTime: 10
+  endValue: 0
+  duration: 0
   speed: 10
-  speedLimit: 10
+  timeToDestroy: 0
   visual: {fileID: 6036485196868958009}
   isShootThroughWall: 0
   forceKnockBack: 10
