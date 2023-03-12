@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay.Character;
+using Gameplay.Weapon;
 using UnityEngine;
 
 public class BossGhost : EnemyController
 {
     [SerializeField] private float timeToCast;
+    [SerializeField] private float rad;
     private int _maxHp;
 
     protected override void Awake()
@@ -37,6 +39,7 @@ public class BossGhost : EnemyController
 
     private void Attack()
     {
+        transform.LookAt(LevelManager.Instance.GetPlayerPos());
         CreateVampireCircle();
         var inVal = 0f;
         DOTween.To(() => inVal, x => inVal = x, 1, timeToCast).OnComplete(() =>
@@ -54,7 +57,9 @@ public class BossGhost : EnemyController
 
     private void MoveToRandomPoint()
     {
-        characterMovement.MovementToTheSelectionPosition(GetRandomPos(), 0, navMeshAgent);
+        var a = GetRandomPos();
+        characterMovement.MovementOnDirection(a, navMeshAgent);
+        transform.LookAt(a);
     }
 
     protected override void EnemyMoveToPlayer()
@@ -79,10 +84,14 @@ public class BossGhost : EnemyController
 
     private Vector3 GetRandomPos()
     {
-        return new Vector3(Random.insideUnitCircle.x * 10, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * 10);
+        return new Vector3(Random.insideUnitCircle.x * rad, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * rad);
     }
-    
-    
+
+    public override void TakeDamage(int amount, DamageType type, Weapon source)
+    {
+        base.TakeDamage(amount, type, source);
+        EventGameManager.Instance.OnBossHpChange?.Invoke(this);
+    }
 
     private void Laser(Vector3 pos)
     {

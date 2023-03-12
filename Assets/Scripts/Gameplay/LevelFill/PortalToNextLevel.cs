@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class PortalToNextLevel : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public void Update()
     {
-        var lm = LevelManager.Instance;
-        lm.currentLevel++;
-        SceneManager.LoadScene(lm.currentLevel);
+        if(!transform.gameObject.activeSelf) return;
+        
+        if (Vector3.Distance(transform.position, LevelManager.Instance.GetPlayerPos()) < 2f)
+        {
+            var lm = LevelManager.Instance;
+            lm.currentLevel++;
+            SceneManager.LoadScene(lm.currentLevel);
+        }
     }
 }

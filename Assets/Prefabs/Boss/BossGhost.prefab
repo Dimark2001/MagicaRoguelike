@@ -175,7 +175,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   characterRenderer: {fileID: 0}
   timeShoot: 0
-  projectilePrefabs: []
+  projectilePrefabs:
+  - {fileID: 5532456158879859508, guid: b8cb033f827985e41b58f94e469e8d75, type: 3}
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 

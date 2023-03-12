@@ -11,12 +11,18 @@ public abstract class ProjectileWeapon : Weapon
     protected float speedLimit;
 
     protected Rigidbody Rb;
+    private Sequence _sequence;
     
     private void Awake()
     {
-        speedLimit = speed;
+            speedLimit = speed;
         Rb = GetComponent<Rigidbody>();
         Invoke(nameof(DestroyProjectile), lifeTime);
+    }
+
+    private void OnDestroy()
+    {
+        _sequence.Kill();
     }
 
     private void Update()
@@ -45,9 +51,10 @@ public abstract class ProjectileWeapon : Weapon
         transform.GetComponent<Collider>().enabled = false;
         Rb.isKinematic = true;
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, timeToDestroy).OnComplete(() =>
+        _sequence = DOTween.Sequence();
+        _sequence.Append(DOTween.To(() => inVal, x => inVal = x, 1, timeToDestroy).OnComplete(() =>
         {
             Destroy(gameObject);
-        });
+        }));
     }
 }

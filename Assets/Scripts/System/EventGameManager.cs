@@ -12,4 +12,7 @@ public class EventGameManager : Singleton<EventGameManager>
     public Action<GameObject> OnProtected;
     public Action OnCoinChange;
     public Action OnPlayerHpChange;
+    public Action OnBossSpawn;
+    public Action<EnemyController> OnBossHpChange;
+    public Action OnBossDead;
 }
