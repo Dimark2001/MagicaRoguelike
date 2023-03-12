@@ -20,7 +20,7 @@ public class AuraNegativeGravity : MonoBehaviour
         var selectedRb = findAddProjectile.Select(rb => rb.GetComponent<Rigidbody>()).ToList();
         foreach (var rb in selectedRb)
         {
-            //rb.AddForce((rb.transform.position - transform.position) * power, ForceMode.Force);
+            rb.AddForce((rb.transform.position - transform.position) * power, ForceMode.Force);
             rb.transform.rotation = Quaternion.Euler(rb.transform.rotation.x, Random.Range(-2, 1) * 90, rb.transform.rotation.z);
         }
     }
