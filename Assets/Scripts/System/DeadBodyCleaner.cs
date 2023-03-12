@@ -15,6 +15,8 @@ public class DeadBodyCleaner : Singleton<DeadBodyCleaner>
     protected override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
+
         enemyBody = new List<GameObject>();
         _currentCountBody = enemyBody.Count;
         _lastCountBody = _currentCountBody;

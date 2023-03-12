@@ -16,6 +16,8 @@ public class LevelFiller : Singleton<LevelFiller>
     public void Start()
     {
         chestSpawnPositions = new List<Transform>();
+        DontDestroyOnLoad(gameObject);
+
         var points = FindObjectsOfType<Point>().Select(point => point.transform).ToList();
         chestSpawnPositions.AddRange(points);
         SpawnChest(countRare, rareChestTemplate);

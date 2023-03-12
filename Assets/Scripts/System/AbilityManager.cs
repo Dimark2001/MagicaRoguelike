@@ -34,6 +34,13 @@ public class AbilityManager : Singleton<AbilityManager>
     public GameObject vfxLightningAura;
     public GameObject vfxLightningTouch;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+
+    }
+
     public void GiveRandomItem(ChestType chestType)
     {
         switch (chestType)

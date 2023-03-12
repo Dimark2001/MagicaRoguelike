@@ -6,6 +6,13 @@ using UnityEngine.PlayerLoop;
 
 public class EventGameManager : Singleton<EventGameManager>
 {
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+
+    }
+
     public Action<GameObject> OnProjectileCollision;
     public Action<GameObject> OnProjectileSpawn;
     // public Action<GameObject> OnPickUpItem;

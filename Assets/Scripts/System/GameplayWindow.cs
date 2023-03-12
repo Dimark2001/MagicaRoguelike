@@ -20,6 +20,8 @@ public class GameplayWindow : Singleton<GameplayWindow>
         eventGameManager.OnBossDead += BossHpDeActive;
         UpdateCoin();
         UpdateHp();
+        DontDestroyOnLoad(gameObject);
+
     }
 
     private void UpdateHp()

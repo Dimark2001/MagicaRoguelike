@@ -31,6 +31,8 @@ public class LevelManager : Singleton<LevelManager>
         {
             player = FindObjectOfType<Player>();
         }
+        DontDestroyOnLoad(gameObject);
+
     }
 
     public Vector3 GetPlayerPos()

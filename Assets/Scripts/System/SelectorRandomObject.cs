@@ -12,6 +12,7 @@ public class SelectorRandomObject : MonoBehaviour
         if(transform.childCount > 0)
             Destroy(transform.GetChild(0).gameObject);
         
+        DontDestroyOnLoad(gameObject);
         var length = prefabs.Count;
         if (noObject) length++;
 
