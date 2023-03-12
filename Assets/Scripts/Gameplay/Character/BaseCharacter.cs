@@ -17,7 +17,17 @@ public abstract class BaseCharacter : MonoBehaviour
     public List<ImmunityType> immunityList;
 
     public int maxHp;
-    public int hp;
+    [SerializeField] private int hp;
+
+    public int Hp
+    {
+        get { return hp; }
+        set
+        {
+            if (value <= maxHp) hp = value;
+            else hp = maxHp;
+        }
+    }
     [SerializeField] private float attackCooldown = 2;
     [SerializeField] private float protectionCooldown = 3;
     

@@ -201,10 +201,10 @@ public class EnemyController : BaseCharacter
         if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
             LevelManager.Instance.player.VampireHeal(source.dmg);
         IsTakeDamage = true;
-        hp -= amount;
+        Hp -= amount;
         BlockMove();
 
-        if (hp <= 0)
+        if (Hp <= 0)
         {
             DestroyEnemy();
         }

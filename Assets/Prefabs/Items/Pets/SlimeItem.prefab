@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376087d21c6c4824fa270a033df376ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Slime Pet
   iconItem: {fileID: 0}
   description: 
   type: 

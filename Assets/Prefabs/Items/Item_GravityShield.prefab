@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d281eed7ac7ec4181bcb661420b336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Gravity Shield
   iconItem: {fileID: 0}
   description: 
   type: 

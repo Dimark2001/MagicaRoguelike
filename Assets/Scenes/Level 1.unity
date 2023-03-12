@@ -2350,6 +2350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6553638821770941362, guid: 1a6d91d1ea793294e8e25f381f9b948d, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a6d91d1ea793294e8e25f381f9b948d, type: 3}
@@ -11490,6 +11494,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 955336689}
     m_Modifications:
+    - target: {fileID: 171315267873698576, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
+      propertyPath: bossList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 171315267873698576, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
+      propertyPath: bossList.Array.data[0]
+      value: 
+      objectReference: {fileID: 3135775950503462610, guid: be9bd58de9050794285536ced0253bc4, type: 3}
+    - target: {fileID: 171315267873698576, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
+      propertyPath: bossList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8479533055995551512, guid: 87b3822e2a6fe1345b4d16d25de62651, type: 3}
     - target: {fileID: 4782783137032808809, guid: 0ca690ab384d19e4bba593115b18361b, type: 3}
       propertyPath: m_Name
       value: BossLocation
@@ -11654,6 +11670,7 @@ MonoBehaviour:
   - {fileID: 4254832945375033354, guid: fb27bf26cfb550e4ba385f83cdc096dd, type: 3}
   - {fileID: 454535655090885833, guid: a796ef50de313554086acaddea76d74d, type: 3}
   - {fileID: 454535655090885833, guid: d3739667eef044e41a56bcfadcea5565, type: 3}
+  - {fileID: 4158365213384275419, guid: 3c13282ea2fa30242b4cc8cb89f0d2c8, type: 3}
   petsList: []
   explotano: {fileID: 2377666424703624547, guid: af660f83ab9147e42b0d8300e0f78498, type: 3}
   meteoriteRain: {fileID: 2377666424703624547, guid: 69486b8c588e79448a8b3e34448f8384, type: 3}

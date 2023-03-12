@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5837848ca680cf2468d76eedd7aa5f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Projectile Repulsion Aura
   iconItem: {fileID: 0}
   description: 
   type: 
