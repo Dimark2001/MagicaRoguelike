@@ -16,7 +16,6 @@ public class GameplayWindow : Singleton<GameplayWindow>
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private Scrollbar hpScrollbar;
     [SerializeField] private Scrollbar bossHpScrollbar;
-    [SerializeField] private InputActionReference pauseInput;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject gameOver;
@@ -35,25 +34,29 @@ public class GameplayWindow : Singleton<GameplayWindow>
         UpdateCoin();
         UpdateHp();
         UpdateBossHp(null);
-        pauseInput.action.performed += Pause;
+        
+        eventGameManager.OnPause += Pause;
         if(LevelManager.Instance.currentLevel == 0)
             EnterGame();
 
         eventGameManager.OnPlayerDead += () => { gameOver.SetActive(true);};
     }
+    private void OnDisable()
+    {
+        //pauseInput.action.Disable();
+        var eventGameManager = EventGameManager.Instance;
+        eventGameManager.OnCoinChange -= UpdateCoin;
+        eventGameManager.OnPlayerHpChange -= UpdateHp;
+        eventGameManager.OnBossSpawn -= BossHpActive;
+        eventGameManager.OnBossHpChange -= UpdateBossHp;
+        eventGameManager.OnBossDead -= BossHpDeActive;
+        eventGameManager.OnGetItem -= ShowGetItem;
+        eventGameManager.OnPause -= Pause;
+    }
 
-    private void OnEnable()
+    private void Pause()
     {
-        pauseInput.action.Enable();
-    }
-    
-    private void OnDestroy()
-    {
-        pauseInput.action.Disable();
-    }
-    
-    private void Pause(InputAction.CallbackContext obj)
-    {
+        print("pasue");
         if (_isPause)
         {
             pauseMenu.gameObject.SetActive(false);
@@ -70,6 +73,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
 
     public void EnterGame()
     {
+        print("EnterGame");
         pauseMenu.SetActive(false);
         gameOver.SetActive(false);
         menu.SetActive(true);
@@ -78,6 +82,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     
     public void StartGame()
     {
+        print("StartGame");
         pauseMenu.SetActive(false);
         menu.SetActive(false);
         Time.timeScale = 1;
@@ -97,16 +102,6 @@ public class GameplayWindow : Singleton<GameplayWindow>
         EnterGame();
     }
     
-    private void OnDisable()
-    {
-        var eventGameManager = EventGameManager.Instance;
-        eventGameManager.OnCoinChange -= UpdateCoin;
-        eventGameManager.OnPlayerHpChange -= UpdateHp;
-        eventGameManager.OnBossSpawn -= BossHpActive;
-        eventGameManager.OnBossHpChange -= UpdateBossHp;
-        eventGameManager.OnBossDead -= BossHpDeActive;
-        eventGameManager.OnGetItem -= ShowGetItem;
-    }
 
     private void ShowGetItem(string itemName)
     {
