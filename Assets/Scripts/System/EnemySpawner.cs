@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<BaseCharacter> enemyPrefabs;
+    [SerializeField] private List<BaseCharacter> enemyChallenge;
     [SerializeField] private float range = 100.0f;
     [SerializeField] private float timeToSpawn;
 

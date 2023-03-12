@@ -193,6 +193,7 @@ MonoBehaviour:
   isCanProtection: 0
   coinCount: 50
   timeToCast: 2
+  rad: 3
 --- !u!1001 &4758259871197777691
 PrefabInstance:
   m_ObjectHideFlags: 0
