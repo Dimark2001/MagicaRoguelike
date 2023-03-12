@@ -9,6 +9,13 @@ public class TeslaCoil : Pets
     protected override void Update()
     {
         if(LevelManager.Instance.player == null) return;
+
+        if (Vector3.Distance(transform.position, LevelManager.Instance.GetPlayerPos()) >= 20)
+        {
+            navMeshAgent.enabled = false;
+            transform.position = LevelManager.Instance.GetPlayerPos();
+            navMeshAgent.enabled = true;
+        }
         
         if (_isCanAttack)
         {

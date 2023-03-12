@@ -20,16 +20,10 @@ public class Pets : BaseCharacter
         transform.parent = AbilityManager.Instance.transform;
     }
 
-    private void OnEnable()
-    {
-        var inVal = 0f;
-        navMeshAgent.enabled = false;
-        DOTween.To(() => inVal, x => inVal = x, 1, 0.2f).OnComplete(() =>
-        {
-            transform.position = LevelManager.Instance.GetPlayerPos();
-            navMeshAgent.enabled = true;
-        });
-    }
+    
+        
+        
+    
 
     public override void TakeDamage(int dmg, DamageType type, Weapon source)
     {
@@ -43,6 +37,13 @@ public class Pets : BaseCharacter
 
     protected virtual void Update()
     {
+        if (Vector3.Distance(transform.position, LevelManager.Instance.GetPlayerPos()) <= 10)
+        {
+            navMeshAgent.enabled = false;
+            transform.position = LevelManager.Instance.GetPlayerPos();
+            navMeshAgent.enabled = true;
+        }
+        
         if(LevelManager.Instance.player == null) return;
         
         characterMovement.MovementToTheSelectionPosition(LevelManager.Instance.player.transform.position, navMeshAgent.stoppingDistance, navMeshAgent);

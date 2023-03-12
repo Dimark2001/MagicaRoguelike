@@ -8,6 +8,13 @@ public class Slime : Pets
     protected override void Update()
     {
         if(LevelManager.Instance.player == null) return;
+
+        if (Vector3.Distance(transform.position, LevelManager.Instance.GetPlayerPos()) >= 20)
+        {
+            navMeshAgent.enabled = false;
+            transform.position = LevelManager.Instance.GetPlayerPos();
+            navMeshAgent.enabled = true;
+        }
         
         characterMovement.MovementToTheSelectionPosition(LevelManager.Instance.player.transform.position, navMeshAgent.stoppingDistance, navMeshAgent);
         if (_isCanAttack)
