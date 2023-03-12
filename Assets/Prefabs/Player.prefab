@@ -115,8 +115,8 @@ MonoBehaviour:
   - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
   immunityList: 
   hp: 100
-  attackCooldown: 2
-  protectionCooldown: 3
+  _attackCooldown: 2
+  _protectionCooldown: 3
   isKnockBack: 0
   blockProtection: 0
   blockAttack: 0
@@ -130,6 +130,9 @@ MonoBehaviour:
   playerAnim: {fileID: 2041083499697086223}
   timeInvulnerability: 0.2
   isVampireAbility: 0
+  increaseDmg: 0
+  increaseSpeedProjectile: 0
+  increaseLifeTime: 0
 --- !u!114 &758057948014679385
 MonoBehaviour:
   m_ObjectHideFlags: 0

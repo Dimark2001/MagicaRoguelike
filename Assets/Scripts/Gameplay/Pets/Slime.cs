@@ -20,12 +20,12 @@ public class Slime : Pets
     {
         base.UseAbility(enemy);
         var puddle = Instantiate(AbilityManager.Instance.toxicPuddle, transform.position, Quaternion.identity);
-        puddle.GetComponent<ToxicPuddle>().CreateToxicPuddle(20, rad, attackCooldown*4);
+        puddle.GetComponent<ToxicPuddle>().CreateToxicPuddle(20, rad, AttackCooldown*4);
         var vfx = Instantiate(AbilityManager.Instance.vfxPoisonPuddle);
         vfx.transform.position = transform.position;
         vfx.transform.localScale = new Vector3(rad, rad, rad)/4;
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, attackCooldown*4).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown*4).OnComplete(() =>
         {
             Destroy(puddle);
             Destroy(vfx);

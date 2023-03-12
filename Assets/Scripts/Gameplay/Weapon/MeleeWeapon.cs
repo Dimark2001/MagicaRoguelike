@@ -6,8 +6,7 @@ using UnityEngine;
 public class MeleeWeapon : Weapon
 {
     [SerializeField] private float angleRot;
-    [SerializeField] private float duration;
-
+    
     private float rotY;
     private void OnEnable()
     {

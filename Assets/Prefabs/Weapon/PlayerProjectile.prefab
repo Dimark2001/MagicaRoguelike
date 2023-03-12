@@ -77,10 +77,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
-  timeToDestroy: 0.2
   lifeTime: 10
+  endValue: 0
+  duration: 0
   speed: 10
-  speedLimit: 10
+  timeToDestroy: 0.2
   visual: {fileID: 6491144515007559947}
   isShootThroughWall: 0
   forceKnockBack: 10

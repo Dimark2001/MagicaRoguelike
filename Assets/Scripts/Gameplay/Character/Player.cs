@@ -26,6 +26,18 @@ namespace Gameplay.Character
         private Plane _plane;
         private Camera _camera;
         [HideInInspector] public bool isVampireAbility = false;
+        //attack
+        [HideInInspector] public int increaseDmg;
+        [HideInInspector] public float increaseSpeedProjectile;
+        //protect
+        [HideInInspector] public float increaseLifeTime;
+        
+        // projectilePrefabs.First().dmg += 100;
+        // projectilePrefabs.First().speed += 100;
+        //
+        // projectilePrefabs.First().lifeTime += 100;
+        // projectilePrefabs.First().speed += 100;
+        // projectilePrefabs.First().duration -= 100;
 
 
         private void Awake()
@@ -100,18 +112,31 @@ namespace Gameplay.Character
             blockAttack = true;
             playerAnim.SetBool("Attack", true);
             SetWeaponPrefab(projectilePrefabs);
+
+            IncreaseAttack();
+
             rangeAttack.PerformAttack();
-            
+
             var inVal = 0f;
             DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>
             {
                 playerAnim.SetBool("Attack", false);
             });
 
-            DOTween.To(() => inVal, x => inVal = x, 1, attackCooldown).OnComplete(() =>
+            DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown).OnComplete(() =>
             {
                 blockAttack = false;
             });
+        }
+
+        void IncreaseAttack()
+        {
+            projectilePrefabs.First().dmg += increaseDmg;
+            projectilePrefabs.First().speed += increaseSpeedProjectile;
+        }
+        void IncreaseProtection()
+        {
+            protectionsPrefab.First().lifeTime += increaseLifeTime;
         }
     
         private void Protection(InputAction.CallbackContext obj)
@@ -119,12 +144,13 @@ namespace Gameplay.Character
             if(_blockInputCount != 0) return;
             if(blockProtection) return;
             blockProtection = true;
-            Debug.Log("Protection");
             SetWeaponPrefab(protectionsPrefab);
             protection.PerformProtection();
             
+            IncreaseProtection();
+            
             var inVal = 0f;
-            DOTween.To(() => inVal, x => inVal = x, 1, protectionCooldown).OnComplete(() =>
+            DOTween.To(() => inVal, x => inVal = x, 1, ProtectionCooldown).OnComplete(() =>
             {
                 blockProtection = false;
             });
@@ -163,6 +189,8 @@ namespace Gameplay.Character
                 GetHp(count);
             }
         }
+
+        
         
         public override void KnockBack(Vector3 dir, float force)
         {

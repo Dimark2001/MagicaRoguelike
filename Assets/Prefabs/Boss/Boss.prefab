@@ -185,8 +185,8 @@ MonoBehaviour:
   - {fileID: 4702574543090416057, guid: 3d7e9193c5c9c404a8021862db930125, type: 3}
   immunityList: 060000000300000007000000
   hp: 100
-  attackCooldown: 1
-  protectionCooldown: 5
+  _attackCooldown: 2
+  _protectionCooldown: 3
   isKnockBack: 0
   enemy: {fileID: 6608127202779258271}
   characterMovement: {fileID: 7058451688877590743}

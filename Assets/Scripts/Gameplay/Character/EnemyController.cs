@@ -57,7 +57,7 @@ public class EnemyController : BaseCharacter
         {
             if (CheckPlayerInRadius())
             {
-                timeShoot = attackCooldown;
+                timeShoot = AttackCooldown;
                 if (isCanAttack)
                 {
                     if(projectilePrefabs.Count != 0)
@@ -167,7 +167,7 @@ public class EnemyController : BaseCharacter
         isCanProtection = false;
         protectionController.PerformProtection();
         var inVal = 0f;
-        DOTween.To(() => inVal, x => inVal = x, 1, protectionCooldown).OnComplete(() =>
+        DOTween.To(() => inVal, x => inVal = x, 1, ProtectionCooldown).OnComplete(() =>
         {
             isCanProtection = true;
         });
