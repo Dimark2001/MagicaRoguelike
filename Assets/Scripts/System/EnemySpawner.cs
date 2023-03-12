@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Singleton<EnemySpawner>
 {
     [SerializeField] private List<BaseCharacter> enemyToSpawn;
     [SerializeField] private List<EnemyController> availableEnemy;
@@ -26,6 +26,14 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         Spawn();
+    }
+
+    public void ResetTime()
+    {
+        globalTime = 0;
+        lvlDifficulty = 100;
+        timeToSpawn = 4;
+        enemyToSpawn = new List<BaseCharacter>();
     }
 
     private void Update()

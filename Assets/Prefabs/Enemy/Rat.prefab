@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusAgro: 20
   force: 3
-  stoppingDistance: 5
+  stoppingDistance: 0
   dmg: 2
   timeToDeath: 1
   timeKnockBack: 0.2

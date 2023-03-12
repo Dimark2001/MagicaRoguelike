@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Gameplay.Character;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -79,6 +80,10 @@ public class GameplayWindow : Singleton<GameplayWindow>
     
     public void RestartGame()
     {
+        AbilityManager.Instance.ResetItem();
+        Player.Instance.Hp = Player.Instance.maxHp;
+        EnemySpawner.Instance.ResetTime();
+        DeadBodyCleaner.Instance.Clear();
         var lm = LevelManager.Instance;
         lm.currentLevel = 6;
         SceneManager.LoadScene(lm.currentLevel);

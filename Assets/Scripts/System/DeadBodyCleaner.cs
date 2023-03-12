@@ -20,6 +20,18 @@ public class DeadBodyCleaner : Singleton<DeadBodyCleaner>
         _lastCountBody = _currentCountBody;
     }
 
+    public void Clear()
+    {
+        if(transform.childCount == 0) return;
+
+        var a = transform.GetComponentsInChildren<GameObject>();
+        for (var index = 0; index < a.Length; index++)
+        {
+            var g = a[index];
+            Destroy(g);
+        }
+    }
+    
     private void Update()
     {
         if(enemyBody.Count == 0) return;

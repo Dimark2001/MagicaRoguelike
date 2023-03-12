@@ -44,6 +44,7 @@ public class AbilityManager : Singleton<AbilityManager>
     {
         itemsList = defaultList;
         playerItemsList = new List<Items>();
+        if(transform.childCount == 0) return;
         var objs = transform.GetComponentsInChildren<GameObject>();
         for (var i = 0; i < objs.Length; i++)
         {
