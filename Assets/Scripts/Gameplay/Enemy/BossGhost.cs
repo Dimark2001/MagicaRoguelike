@@ -11,7 +11,7 @@ public class BossGhost : EnemyController
 
     protected override void Awake()
     {
-        _maxHp = hp;
+        _maxHp = Hp;
         base.Awake();
     }
 

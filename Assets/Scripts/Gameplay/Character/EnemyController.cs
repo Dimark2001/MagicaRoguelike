@@ -80,8 +80,8 @@ public class EnemyController : BaseCharacter
             }
         }
     }
-    
-    private void RotateEnemy(Vector3 angle)
+
+    protected virtual void RotateEnemy(Vector3 angle)
     {
         transform.LookAt(angle);
     }
@@ -115,7 +115,7 @@ public class EnemyController : BaseCharacter
         return false;
     }
 
-    protected void EnemyMoveToPlayer()
+    protected virtual void EnemyMoveToPlayer()
     {
         if (LevelManager.Instance.player == null)
         {
