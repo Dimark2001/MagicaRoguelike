@@ -84,7 +84,7 @@ MonoBehaviour:
   timeToDestroy: 0.2
   visual: {fileID: 6491144515007559947}
   isShootThroughWall: 0
-  forceKnockBack: 10
+  forceKnockBack: 3
 --- !u!1 &6491144515007559947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7058678934453544554, guid: 267ed8576bdffa949bfcbc02d7b64135, type: 3}

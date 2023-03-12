@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,9 +39,12 @@ public class GameplayWindow : Singleton<GameplayWindow>
 
     private void ShowGetItem(string itemName)
     {
-        // DOTween.To(() => inVal, x => inVal = x, dmg, duration).OnUpdate(() =>
-        // {
+        var inVal = 0f;
         itemText.text = itemName;
+        DOTween.To(() => inVal, x => inVal = x, 1, 2).OnComplete(() =>
+        {
+            itemText.text = "";
+        });
     }
     private void UpdateHp()
     {
