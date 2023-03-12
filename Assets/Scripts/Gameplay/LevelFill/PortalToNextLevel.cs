@@ -20,6 +20,7 @@ public class PortalToNextLevel : MonoBehaviour
             {
                 lm.currentLevel = 1;
                 LevelManager.Instance.Coins = 0;
+                EventGameManager.Instance.OnCoinChange?.Invoke();
                 SceneManager.LoadScene(lm.currentLevel);
                 return;
             }
@@ -30,6 +31,7 @@ public class PortalToNextLevel : MonoBehaviour
             else
                 lm.currentLevel++;
             LevelManager.Instance.Coins = 0;
+            EventGameManager.Instance.OnCoinChange?.Invoke();
             SceneManager.LoadScene(lm.currentLevel);
         }
     }

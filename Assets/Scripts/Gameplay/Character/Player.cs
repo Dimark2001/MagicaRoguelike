@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 namespace Gameplay.Character
@@ -31,20 +27,10 @@ namespace Gameplay.Character
         private Plane _plane;
         private Camera _camera;
         [HideInInspector] public bool isVampireAbility = false;
-        //attack
         [HideInInspector] public int increaseDmg;
         [HideInInspector] public float increaseSpeedProjectile;
-        //protect
         [HideInInspector] public float increaseLifeTime;
         
-        // projectilePrefabs.First().dmg += 100;
-        // projectilePrefabs.First().speed += 100;
-        //
-        // projectilePrefabs.First().lifeTime += 100;
-        // projectilePrefabs.First().speed += 100;
-        // projectilePrefabs.First().duration -= 100;
-
-
         private void Awake()
         {
             if(Instance != null)
@@ -207,8 +193,6 @@ namespace Gameplay.Character
             }
         }
 
-        
-        
         public override void KnockBack(Vector3 dir, float force)
         {
             if(isKnockBack)

@@ -86,6 +86,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
     public void RestartGame()
     {
         LevelManager.Instance.Coins = 0;
+        EventGameManager.Instance.OnCoinChange?.Invoke();
         AbilityManager.Instance.ResetItem();
         Player.Instance.Hp = Player.Instance.maxHp;
         EnemySpawner.Instance.ResetTime();
@@ -136,7 +137,10 @@ public class GameplayWindow : Singleton<GameplayWindow>
     private void UpdateBossHp(EnemyController enemyController)
     {
         if (enemyController == null)
+        {
             bossHpScrollbar.size = 1;
+            return;
+        }
         bossHpScrollbar.size = (float)enemyController.Hp / (float)enemyController.maxHp;
     }
     
