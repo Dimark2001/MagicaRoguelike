@@ -7,21 +7,21 @@ public class LevelManager : Singleton<LevelManager>
 {
     public Player player;
     public Transform dynamicContainer;
-    public GameObject portal;
     public int currentLevel = 0;
 
-    [SerializeField] private int _coins;
+    [SerializeField] private int coins;
 
     public int Coins
     {
         get
         {
-            return _coins;
+            return coins;
         }
         set
         {
-            if (value >= 0) _coins = value;
-            else _coins = 0;
+            EventGameManager.Instance.OnCoinChange?.Invoke();
+            if (value >= 0) coins = value;
+            else coins = 0;
         }
     }
     protected override void Awake()

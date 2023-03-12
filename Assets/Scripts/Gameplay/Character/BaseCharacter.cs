@@ -16,21 +16,22 @@ public abstract class BaseCharacter : MonoBehaviour
     public List<Weapon> protectionsPrefab;
     public List<ImmunityType> immunityList;
 
+    public int maxHp;
     public int hp;
-    [SerializeField] private float _attackCooldown = 2;
-    [SerializeField] private float _protectionCooldown = 3;
+    [SerializeField] private float attackCooldown = 2;
+    [SerializeField] private float protectionCooldown = 3;
     
     public float AttackCooldown
     {
         get
         {
-            if(_attackCooldown > 0.5) return _attackCooldown;
+            if(attackCooldown > 0.5) return attackCooldown;
             return 0.5f;
         } 
         set
         {
-            if (value > 0.5f) _attackCooldown = value;
-            else _attackCooldown = 0.5f;
+            if (value > 0.5f) attackCooldown = value;
+            else attackCooldown = 0.5f;
         }
     }
 
@@ -38,13 +39,13 @@ public abstract class BaseCharacter : MonoBehaviour
     {
         get
         {
-            if(_protectionCooldown > 0.5) return _protectionCooldown;
+            if(protectionCooldown > 0.5) return protectionCooldown;
             return 0.5f;
         } 
         set
         {
-            if (value > 0.5f) _protectionCooldown = value;
-            else _protectionCooldown = 0.5f;
+            if (value > 0.5f) protectionCooldown = value;
+            else protectionCooldown = 0.5f;
         }
     }
 
@@ -53,8 +54,8 @@ public abstract class BaseCharacter : MonoBehaviour
     private Weapon _weaponPrefab;
     private void OnValidate()
     {
-        AttackCooldown = _attackCooldown;
-        ProtectionCooldown = _protectionCooldown;
+        AttackCooldown = attackCooldown;
+        ProtectionCooldown = protectionCooldown;
     }
 
     public void SetWeaponPrefab(List<Weapon> weapons, int index)

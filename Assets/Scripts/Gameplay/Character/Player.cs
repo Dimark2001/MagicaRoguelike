@@ -166,7 +166,7 @@ namespace Gameplay.Character
                 GetHp(source.dmg);
             _isTakeDamage = true;
             hp -= amount;
-        
+            EventGameManager.Instance.OnPlayerHpChange?.Invoke();
             if (hp <= 0)
             {
                 KillPlayer();
@@ -180,6 +180,7 @@ namespace Gameplay.Character
         public void GetHp(int count)
         {
             hp += count;
+            EventGameManager.Instance.OnPlayerHpChange?.Invoke();
         }
 
         public void VampireHeal(int count)
