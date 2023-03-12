@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 2092295723179225549}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &758057948014679366
 Rigidbody:
@@ -80,7 +80,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   look: {fileID: -5834991259008968540, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
   attack: {fileID: 3900299500062929689, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
   strongAttack: {fileID: -4171904369386454140, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
+  pauseInput: {fileID: 6323112569972906297, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
   characterMovement: {fileID: 758057948014679385}
   rangeAttack: {fileID: 7418840785907523280}
   protection: {fileID: 1729228732110796470}

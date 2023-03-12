@@ -1418,7 +1418,6 @@ MonoBehaviour:
   itemText: {fileID: 4272013651328946260}
   hpScrollbar: {fileID: 1322033886}
   bossHpScrollbar: {fileID: 5007527345291094615}
-  pauseInput: {fileID: 6323112569972906297, guid: 6abccba22b95ed94492a8d1e37c7e651, type: 3}
   pauseMenu: {fileID: 6991831927958161852}
   menu: {fileID: 5106602547078384683}
   gameOver: {fileID: 1834807649030277760}
@@ -2358,7 +2357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &273354676759250808
