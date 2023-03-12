@@ -2,6 +2,9 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Composites;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameplayWindow : Singleton<GameplayWindow>
@@ -12,6 +15,11 @@ public class GameplayWindow : Singleton<GameplayWindow>
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private Scrollbar hpScrollbar;
     [SerializeField] private Scrollbar bossHpScrollbar;
+    [SerializeField] private InputActionReference pauseInput;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject menu;
+    
+    private bool _isPause = false;
     private void Start()
     {
         canvas.worldCamera = Camera.main;
@@ -24,8 +32,59 @@ public class GameplayWindow : Singleton<GameplayWindow>
         eventGameManager.OnGetItem += ShowGetItem;
         UpdateCoin();
         UpdateHp();
+        pauseInput.action.performed += Pause;
+        if(LevelManager.Instance.currentLevel == 0)
+            EnterGame();
     }
 
+    private void OnEnable()
+    {
+        pauseInput.action.Enable();
+    }
+    
+    private void OnDestroy()
+    {
+        pauseInput.action.Disable();
+    }
+    
+    private void Pause(InputAction.CallbackContext obj)
+    {
+        if (_isPause)
+        {
+            pauseMenu.gameObject.SetActive(false);
+            Time.timeScale = 1;
+            _isPause = false;
+        }
+        else
+        {
+            pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            _isPause = true;
+        }
+    }
+
+    public void EnterGame()
+    {
+        pauseMenu.SetActive(false);
+        menu.SetActive(true);
+        Time.timeScale = 0;
+    }
+    
+    public void StartGame()
+    {
+        pauseMenu.SetActive(false);
+        menu.SetActive(false);
+        Time.timeScale = 1;
+    }
+    
+    public void RestartGame()
+    {
+        var lm = LevelManager.Instance;
+        lm.currentLevel = 6;
+        SceneManager.LoadScene(lm.currentLevel);
+        EnterGame();
+    }
+    
     private void OnDisable()
     {
         var eventGameManager = EventGameManager.Instance;

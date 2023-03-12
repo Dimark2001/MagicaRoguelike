@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class ToxicPuddle : MonoBehaviour
+public class ToxicPuddle : Ability
 {
     public void CreateToxicPuddle(int dmg, float rad, float duration)
     {

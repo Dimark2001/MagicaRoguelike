@@ -10,7 +10,7 @@ public abstract class Items : MonoBehaviour
     public string type;
 
     protected abstract void Start();
-    protected abstract void OnDisable();
+    protected abstract void OnDestroy();
 
     protected abstract void ActivateItem(GameObject obj);
 }

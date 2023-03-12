@@ -12,6 +12,7 @@ namespace Gameplay.Character
 {
     public class Player : BaseCharacter
     {
+        public static Player Instance;
         public bool blockProtection;
         public bool blockAttack;
         
@@ -46,6 +47,9 @@ namespace Gameplay.Character
 
         private void Awake()
         {
+            if(Instance != null)
+                Destroy(Player.Instance.gameObject);
+            Instance = this;
             attack.action.performed += Attack;
             strongAttack.action.performed += Protection;
             DontDestroyOnLoad(gameObject);

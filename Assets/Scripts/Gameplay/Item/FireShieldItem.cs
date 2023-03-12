@@ -12,7 +12,7 @@ public class FireShieldItem : Items
         EventGameManager.Instance.OnProjectileSpawn += ActivateItem;
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
         EventGameManager.Instance.OnProjectileSpawn -= ActivateItem;
     }

@@ -15,6 +15,12 @@ public class PortalToNextLevel : MonoBehaviour
         if (Vector3.Distance(transform.position, LevelManager.Instance.GetPlayerPos()) < 2f)
         {
             var lm = LevelManager.Instance;
+            if (lm.currentLevel == 6)
+            {
+                lm.currentLevel = 1;
+                SceneManager.LoadScene(lm.currentLevel);
+                return;
+            }
             if (lm.currentLevel == 5)
                 _isLastStage = true;
             if(_isLastStage)            

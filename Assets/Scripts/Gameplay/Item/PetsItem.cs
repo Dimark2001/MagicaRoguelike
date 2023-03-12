@@ -11,7 +11,7 @@ public class PetsItem : Items
         ActivateItem(pet);
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
         
     }

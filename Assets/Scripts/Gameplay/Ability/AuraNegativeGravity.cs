@@ -3,7 +3,7 @@ using Gameplay.Weapon;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class AuraNegativeGravity : MonoBehaviour
+public class AuraNegativeGravity : Ability
 {
     [SerializeField] private float rad;
     [SerializeField] private float power;

@@ -8,7 +8,7 @@ public class AuraNegativeGravityItem : Items
         ActivateItem(LevelManager.Instance.player.gameObject);
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
         
     }

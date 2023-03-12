@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Aim : MonoBehaviour
+public class Aim : Ability
 {
     [SerializeField] private float radAim;
 

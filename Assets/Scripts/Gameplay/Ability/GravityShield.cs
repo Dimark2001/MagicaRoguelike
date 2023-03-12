@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class GravityShield : MonoBehaviour
+public class GravityShield : Ability
 {
     [SerializeField] private float rad;
     private void Update()

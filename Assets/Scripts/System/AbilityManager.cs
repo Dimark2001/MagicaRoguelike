@@ -13,7 +13,7 @@ public class AbilityManager : Singleton<AbilityManager>
     [Header("Items")]
     public List<Items> playerItemsList;
     public List<Items> itemsList;
-    public List<Pets> petsList;
+    public List<Items> defaultList;
 
     [Header("AbilityEffect")]
     public GameObject explotano;
@@ -37,6 +37,26 @@ public class AbilityManager : Singleton<AbilityManager>
     protected override void Awake()
     {
         base.Awake();
+        defaultList = itemsList;
+    }
+
+    public void ResetItem()
+    {
+        itemsList = defaultList;
+        playerItemsList = new List<Items>();
+        var objs = transform.GetComponentsInChildren<GameObject>();
+        for (var i = 0; i < objs.Length; i++)
+        {
+            var gameObj = objs[i];
+            Destroy(gameObj);
+        }
+
+        var playerItems = LevelManager.Instance.player.transform.GetComponentsInChildren<Ability>();
+        for (var i = 0; i < playerItems.Length; i++)
+        {
+            var item = playerItems[i];
+            Destroy(item.gameObject);
+        }
     }
 
     public void GiveRandomItem(ChestType chestType)
