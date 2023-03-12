@@ -83,6 +83,7 @@ public class AbilityManager : Singleton<AbilityManager>
                 break;
             case CommonReward.Hp:
                 pl.player.maxHp += 10;
+                pl.player.GetHp(100);
                 break;
             case CommonReward.HpRegen:
                 break;

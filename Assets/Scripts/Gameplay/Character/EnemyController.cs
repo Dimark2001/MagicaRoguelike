@@ -12,6 +12,7 @@ public class EnemyController : BaseCharacter
     [SerializeField] protected CharacterMovement characterMovement;
     [SerializeField] protected AttackController attackController;
     [SerializeField] protected AttackController protectionController;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected bool isCanAttack;
     [SerializeField] private bool isCanProtection;
     [SerializeField] private int coinCount;
@@ -37,6 +38,7 @@ public class EnemyController : BaseCharacter
 
     protected virtual void Update()
     {
+        if(animator != null) animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         if(IsMoveBlock != 0) return;
         if(LevelManager.Instance.player == null) return;
         RotateEnemy(LevelManager.Instance.player.transform.position);
@@ -135,6 +137,15 @@ public class EnemyController : BaseCharacter
         
         if (CheckRaycast())
         {
+            if (animator != null)
+            {
+                animator.SetBool("Attack", true);
+                var inVal = 0f;
+                DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>
+                {
+                    animator.SetBool("Attack", false);
+                });
+            }
             attackController.PerformAttack();
         }
         
@@ -168,6 +179,14 @@ public class EnemyController : BaseCharacter
         isCanProtection = false;
         protectionController.PerformProtection();
         var inVal = 0f;
+        if (animator != null)
+        {
+            animator.SetBool("Attack", true);
+            DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>
+            {
+                animator.SetBool("Attack", false);
+            });
+        }
         DOTween.To(() => inVal, x => inVal = x, 1, ProtectionCooldown).OnComplete(() =>
         {
             isCanProtection = true;
@@ -249,6 +268,8 @@ public class EnemyController : BaseCharacter
     protected virtual void DestroyEnemy()
     {
         LevelManager.Instance.Coins += coinCount;
+        if (animator != null)
+            animator.SetTrigger("Dead");
         
         BlockMove();
         EnemyStay();
