@@ -24,11 +24,11 @@ public class DeadBodyCleaner : Singleton<DeadBodyCleaner>
     {
         if(transform.childCount == 0) return;
 
-        var a = transform.GetComponentsInChildren<GameObject>();
+        var a = transform.GetComponentsInChildren<Enemy>();
         for (var index = 0; index < a.Length; index++)
         {
             var g = a[index];
-            Destroy(g);
+            Destroy(g.gameObject);
         }
     }
     

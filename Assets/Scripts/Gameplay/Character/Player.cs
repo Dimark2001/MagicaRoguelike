@@ -110,7 +110,7 @@ namespace Gameplay.Character
         public Vector3 GetMouseAngle()
         {
             var rayCam = _camera.ScreenPointToRay(new Vector3(look.action.ReadValue<Vector2>().x, look.action.ReadValue<Vector2>().y , 0));
-
+            _plane = new Plane(Vector3.up, transform.position);
             if (_plane.Raycast(rayCam, out var enter))
             {
                 var hitPoint = rayCam.GetPoint(enter);

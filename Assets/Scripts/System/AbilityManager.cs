@@ -45,11 +45,11 @@ public class AbilityManager : Singleton<AbilityManager>
         itemsList = defaultList;
         playerItemsList = new List<Items>();
         if(transform.childCount == 0) return;
-        var objs = transform.GetComponentsInChildren<GameObject>();
+        var objs = transform.GetComponentsInChildren<Items>();
         for (var i = 0; i < objs.Length; i++)
         {
             var gameObj = objs[i];
-            Destroy(gameObj);
+            Destroy(gameObj.gameObject);
         }
 
         var playerItems = LevelManager.Instance.player.transform.GetComponentsInChildren<Ability>();

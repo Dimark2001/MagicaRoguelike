@@ -33,6 +33,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
         eventGameManager.OnGetItem += ShowGetItem;
         UpdateCoin();
         UpdateHp();
+        UpdateBossHp(null);
         pauseInput.action.performed += Pause;
         if(LevelManager.Instance.currentLevel == 0)
             EnterGame();
@@ -129,6 +130,8 @@ public class GameplayWindow : Singleton<GameplayWindow>
     
     private void UpdateBossHp(EnemyController enemyController)
     {
+        if (enemyController == null)
+            bossHpScrollbar.size = 1;
         bossHpScrollbar.size = (float)enemyController.Hp / (float)enemyController.maxHp;
     }
     
