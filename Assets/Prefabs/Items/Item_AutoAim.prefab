@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba9f9de8040427458a448b8288b8b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Auto Aim
   iconItem: {fileID: 0}
   description: 
   type: 

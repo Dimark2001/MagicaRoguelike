@@ -167,9 +167,9 @@ namespace Gameplay.Character
             if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
                 GetHp(source.dmg);
             _isTakeDamage = true;
-            hp -= amount;
+            Hp -= amount;
             EventGameManager.Instance.OnPlayerHpChange?.Invoke();
-            if (hp <= 0)
+            if (Hp <= 0)
             {
                 KillPlayer();
             }
@@ -181,7 +181,7 @@ namespace Gameplay.Character
 
         public void GetHp(int count)
         {
-            hp += count;
+            Hp += count;
             EventGameManager.Instance.OnPlayerHpChange?.Invoke();
         }
 

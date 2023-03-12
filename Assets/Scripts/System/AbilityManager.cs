@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using NaughtyAttributes;
 using UnityEditorInternal;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -48,7 +49,7 @@ public class AbilityManager : Singleton<AbilityManager>
                 break;
         }
     }
-
+    [Button("GetRareItem")]
     private void GetRareItem()
     {
         var l = itemsList.Count;
@@ -60,7 +61,7 @@ public class AbilityManager : Singleton<AbilityManager>
             Instantiate(playerItemsList[playerItemsList.Count() - 1], transform);
         }
     }
-
+    [Button("GetCommonItem")]
     private void GetCommonItem()
     {
         var val = Enum.GetValues(typeof(CommonReward));

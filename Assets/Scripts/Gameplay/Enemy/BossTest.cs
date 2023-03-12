@@ -18,7 +18,7 @@ public class BossTest : EnemyController
 
     protected override void Awake()
     {
-        _maxHp = hp;
+        _maxHp = Hp;
         base.Awake();
     }
 
@@ -34,7 +34,7 @@ public class BossTest : EnemyController
         {
             if (CheckPlayerInRadius())
             {
-                if (hp > _maxHp / 2)
+                if (Hp > _maxHp / 2)
                 {
                     timeShoot = AttackCooldown;
                     SetWeaponPrefab(projectilePrefabs);

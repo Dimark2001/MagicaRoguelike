@@ -21,8 +21,8 @@ public class GameplayWindow : Singleton<GameplayWindow>
     private void UpdateHp()
     {
         var lm = LevelManager.Instance;
-        hpText.text = lm.player.hp.ToString();
-        hpScrollbar.size = (float)lm.player.hp / (float)lm.player.maxHp;
+        hpText.text = lm.player.Hp.ToString();
+        hpScrollbar.size = (float)lm.player.Hp / (float)lm.player.maxHp;
     }
     
     private void UpdateCoin()

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d191379d84884641a0bf99b0af53a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Explosion!
   iconItem: {fileID: 0}
   description: 
   type: 
