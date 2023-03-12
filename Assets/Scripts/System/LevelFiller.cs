@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,9 @@ public class LevelFiller : Singleton<LevelFiller>
 
     public void Start()
     {
+        chestSpawnPositions = new List<Transform>();
+        var points = FindObjectsOfType<Point>().Select(point => point.transform).ToList();
+        chestSpawnPositions.AddRange(points);
         SpawnChest(countRare, rareChestTemplate);
         SpawnChest(countCommon, commonChestTemplate);
     }
