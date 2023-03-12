@@ -10,6 +10,8 @@ public class LevelManager : Singleton<LevelManager>
     public GameObject portal;
     public int currentLevel = 0;
 
+    public int coins;
+
     protected override void Awake()
     {
         base.Awake();

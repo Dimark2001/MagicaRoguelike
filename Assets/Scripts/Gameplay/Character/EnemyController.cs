@@ -14,6 +14,7 @@ public class EnemyController : BaseCharacter
     [SerializeField] protected AttackController protectionController;
     [SerializeField] protected bool isCanAttack;
     [SerializeField] private bool isCanProtection;
+    [SerializeField] private int coinCount;
 
     protected int IsMoveBlock = 0;
     protected bool IsTakeDamage = false;
@@ -198,7 +199,7 @@ public class EnemyController : BaseCharacter
         if (immunityList.Any(immunity => type.ToString() == immunity.ToString())) 
             return;
         if (source != null && source.gameObject.CompareTag("PlayerProjectile"))
-            LevelManager.Instance.player.GetHp(source.dmg);
+            LevelManager.Instance.player.VampireHeal(source.dmg);
         IsTakeDamage = true;
         hp -= amount;
         BlockMove();

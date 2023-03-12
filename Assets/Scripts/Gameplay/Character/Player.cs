@@ -182,7 +182,7 @@ namespace Gameplay.Character
             hp += count;
         }
 
-        public void VimpaireHeal(int count)
+        public void VampireHeal(int count)
         {
             if (isVampireAbility)
             {
