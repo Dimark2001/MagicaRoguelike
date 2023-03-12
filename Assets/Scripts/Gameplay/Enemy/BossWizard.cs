@@ -44,7 +44,7 @@ public class BossWizard : EnemyController
                 else
                 {
                     timeShoot = meteoriteCooldown;
-                    for (var i = 0; i < 5; i++)
+                    for (var i = 0; i < 3; i++)
                     {
                         MeteoriteRain(GetRandomPos() + LevelManager.Instance.player.transform.position);
                     }
@@ -87,7 +87,7 @@ public class BossWizard : EnemyController
 
     private Vector3 GetRandomPos()
     {
-        return new Vector3(Random.insideUnitCircle.x * 10, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * 10);
+        return new Vector3(Random.insideUnitCircle.x * 11, LevelManager.Instance.player.transform.position.y-1, Random.insideUnitCircle.y * 11);
     }
 
     private void MeteoriteRain(Vector3 pos)

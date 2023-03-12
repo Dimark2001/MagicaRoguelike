@@ -197,10 +197,10 @@ MonoBehaviour:
   animator: {fileID: 592399949425415783}
   isCanAttack: 1
   isCanProtection: 1
-  coinCount: 0
+  coinCount: 50
   timeToCastRain: 5
-  meteoriteRainDmg: 100
-  meteoriteRainRad: 5
+  meteoriteRainDmg: 40
+  meteoriteRainRad: 3
   meteoriteRainDuration: 2
   meteoriteCooldown: 5
 --- !u!114 &7058451688877590743
