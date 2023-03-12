@@ -29,9 +29,9 @@ public class Chest : MonoBehaviour
 
     private void Update()
     {
-        if (!isOpen && isActive && price <= LevelManager.Instance.Coins)
+        if (!isOpen && isActive )
         {
-            if(priceType == PriceType.Gold)
+            if(priceType == PriceType.Gold && price <= LevelManager.Instance.Coins)
                 LevelManager.Instance.Coins -= price;
             if(priceType == PriceType.Blood)
                 LevelManager.Instance.player.Hp -= price;
