@@ -3,6 +3,7 @@ using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Gameplay.Character
 {
@@ -11,7 +12,7 @@ namespace Gameplay.Character
         public static Player Instance;
         public bool blockProtection;
         public bool blockAttack;
-        
+
         [SerializeField] private InputActionReference moveInput, look, attack, strongAttack, pauseInput;
         [SerializeField] private CharacterMovement characterMovement;
         [SerializeField] private AttackController rangeAttack;
@@ -23,17 +24,17 @@ namespace Gameplay.Character
         private int _blockInputCount = 0;
         private bool _isTakeDamage;
         private bool _isAnim = true;
-        
+
         private Plane _plane;
         private Camera _camera;
         [HideInInspector] public bool isVampireAbility = false;
         [HideInInspector] public int increaseDmg;
         [HideInInspector] public float increaseSpeedProjectile;
         [HideInInspector] public float increaseLifeTime;
-        
+
         private void Awake()
         {
-            if(Instance != null)
+            if (Instance != null)
                 Destroy(Player.Instance.gameObject);
             Instance = this;
             attack.action.performed += Attack;
@@ -72,14 +73,14 @@ namespace Gameplay.Character
             strongAttack.action.Disable();
             pauseInput.action.Disable();
         }
-        
+
 
         private void Update()
         {
-            if(!_isAnim) return;
+            if (!_isAnim) return;
             playerAnim.SetInteger("Speed", (int)navMeshAgent.velocity.magnitude);
-            if(_blockInputCount != 0) return;
-        
+            if (_blockInputCount != 0) return;
+
             RotatePlayer(GetMouseAngle());
             Move();
         }
@@ -88,12 +89,12 @@ namespace Gameplay.Character
         {
             characterMovement.MovementOnDirection(GetDirectionMovement(), navMeshAgent);
         }
-    
+
         private void RotatePlayer(Vector3 angle)
         {
             transform.LookAt(angle);
         }
-    
+
         private Vector3 GetDirectionMovement()
         {
             var xRaw = moveInput.action.ReadValue<Vector2>().x;
@@ -101,10 +102,11 @@ namespace Gameplay.Character
             var moveDir = new Vector3(xRaw, 0, zRaw);
             return moveDir;
         }
-    
+
         public Vector3 GetMouseAngle()
         {
-            var rayCam = _camera.ScreenPointToRay(new Vector3(look.action.ReadValue<Vector2>().x, look.action.ReadValue<Vector2>().y , 0));
+            var rayCam = _camera.ScreenPointToRay(new Vector3(look.action.ReadValue<Vector2>().x,
+                look.action.ReadValue<Vector2>().y, 0));
             _plane = new Plane(Vector3.up, transform.position);
             if (_plane.Raycast(rayCam, out var enter))
             {
@@ -112,13 +114,14 @@ namespace Gameplay.Character
                 var hitPointWithCharY = new Vector3(hitPoint.x, transform.position.y, hitPoint.z);
                 return hitPointWithCharY;
             }
+
             return Vector3.zero;
         }
-    
+
         private void Attack(InputAction.CallbackContext obj)
         {
-            if(_blockInputCount != 0) return;
-            if(blockAttack) return;
+            if (_blockInputCount != 0) return;
+            if (blockAttack) return;
             blockAttack = true;
             playerAnim.SetBool("Attack", true);
             SetWeaponPrefab(projectilePrefabs);
@@ -128,15 +131,9 @@ namespace Gameplay.Character
             rangeAttack.PerformAttack();
 
             var inVal = 0f;
-            DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() =>
-            {
-                playerAnim.SetBool("Attack", false);
-            });
+            DOTween.To(() => inVal, x => inVal = x, 1, 0.3f).OnComplete(() => { playerAnim.SetBool("Attack", false); });
 
-            DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown).OnComplete(() =>
-            {
-                blockAttack = false;
-            });
+            DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown).OnComplete(() => { blockAttack = false; });
         }
 
         void IncreaseAttack()
@@ -146,32 +143,31 @@ namespace Gameplay.Character
             increaseDmg = 0;
             increaseSpeedProjectile = 0;
         }
+
         void IncreaseProtection()
         {
             protectionsPrefab.First().lifeTime += increaseLifeTime;
             increaseLifeTime = 0;
         }
-    
+
         private void Protection(InputAction.CallbackContext obj)
         {
-            if(_blockInputCount != 0) return;
-            if(blockProtection) return;
+            if (_blockInputCount != 0) return;
+            if (blockProtection) return;
             blockProtection = true;
             SetWeaponPrefab(protectionsPrefab);
             protection.PerformProtection();
-            
+
             IncreaseProtection();
-            
+
             var inVal = 0f;
-            DOTween.To(() => inVal, x => inVal = x, 1, ProtectionCooldown).OnComplete(() =>
-            {
-                blockProtection = false;
-            });
+            DOTween.To(() => inVal, x => inVal = x, 1, ProtectionCooldown)
+                .OnComplete(() => { blockProtection = false; });
         }
-        
+
         public override void TakeDamage(int amount, DamageType type, Weapon.Weapon source)
         {
-            if(_isTakeDamage)
+            if (_isTakeDamage)
                 return;
             if (immunityList.Any(immunity => type.ToString() == immunity.ToString()))
                 return;
@@ -198,15 +194,15 @@ namespace Gameplay.Character
         {
             if (isVampireAbility)
             {
-                GetHp((int)count/10);
+                GetHp((int)count / 10);
             }
         }
 
         public override void KnockBack(Vector3 dir, float force)
         {
-            if(isKnockBack)
+            if (isKnockBack)
                 return;
-            if(immunityList.Contains(ImmunityType.KnockBack))
+            if (immunityList.Contains(ImmunityType.KnockBack))
                 return;
             BlockInput();
             isKnockBack = true;
@@ -214,17 +210,50 @@ namespace Gameplay.Character
             rb.AddForce(dir.normalized * force, ForceMode.Impulse);
             ReturnNormalState();
         }
-        
+
         private void KillPlayer()
         {
             EventGameManager.Instance.OnPlayerDead?.Invoke();
             _isAnim = false;
-            playerAnim.SetTrigger("Dead");
+            playerAnim.SetTrigger("DeadTrigger");
+            playerAnim.SetBool("Dead", true);
+
             BlockInput();
             GetComponent<Collider>().enabled = false;
-            Destroy(navMeshAgent);
+            navMeshAgent.enabled = false; // из-за навмеша крашилась игра
         }
 
+        public void ResurrectPlayer()
+        {
+            Hp = maxHp;
+            EventGameManager.Instance.OnPlayerHpChange?.Invoke();
+            LevelManager.Instance.Coins = 0;
+            EventGameManager.Instance.OnCoinChange?.Invoke();
+            playerAnim.SetBool("Dead", false);
+            _isAnim = true;
+            UnBlockInput();
+            ReturnNormalState();
+            GetComponent<Collider>().enabled = true;
+            navMeshAgent.enabled = true;
+            ResetStats();
+        }
+
+        public void ResetStats()
+        {
+            maxHp = 100;
+            Hp = maxHp;
+            navMeshAgent.speed = 8;
+            var projectile = projectilePrefabs.First();
+            projectile.dmg = 10;
+            projectile.duration = 0;
+            projectile.speed = 10;
+            projectile.lifeTime = 2;
+            var protection = protectionsPrefab.First();
+            protection.lifeTime = 1;
+            AttackCooldown = 1.5f;
+            ProtectionCooldown = 3;
+        }
+        
         private void BlockInput()
         {
             _blockInputCount++;

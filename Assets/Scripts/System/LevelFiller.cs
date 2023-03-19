@@ -15,7 +15,6 @@ public class LevelFiller : Singleton<LevelFiller>
     void Start()
     {
         if(chestSpawnPositions.Count == 0) return;
-        print("chest spawn");
         Begin();
     }
 

@@ -73,7 +73,6 @@ public class Pets : BaseCharacter
 
     protected virtual void UseAbility(Transform enemy)
     {
-        print(enemy.name);
         _isCanAttack = false;
         var inVal = 0f;
         DOTween.To(() => inVal, x => inVal = x, 1, AttackCooldown).OnComplete(() =>

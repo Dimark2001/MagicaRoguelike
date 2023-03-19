@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
-  lifeTime: 10
+  lifeTime: 2
   endValue: 0
   duration: 0
   speed: 10

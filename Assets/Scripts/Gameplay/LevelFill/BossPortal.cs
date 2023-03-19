@@ -35,14 +35,21 @@ public class BossPortal : MonoBehaviour
         if (_boss != null)
         {
             _isBoss = true;
-            if(_boss.Hp <= 0)
+            if (_boss.Hp <= 0)
+            {
                 SpawnPortal();
+                _boss = null;
+                _isBoss = false;
+            }
         }
 
         if (_isBoss)
         {
-            if(_boss == null)
+            if (_boss == null)
+            {
                 SpawnPortal();
+                _isBoss = false;
+            }
         }
     }
 

@@ -33,15 +33,26 @@ public class AbilityManager : Singleton<AbilityManager>
     protected override void Awake()
     {
         base.Awake();
-        defaultList = itemsList;
+        defaultList = new List<Items>(itemsList);
     }
 
     public void ResetItem()
     {
-        itemsList = defaultList;
+        itemsList = new List<Items>(defaultList);
         playerItemsList = new List<Items>();
         if(transform.childCount == 0) return;
-        var objs = transform.GetComponentsInChildren<Items>();
+        for (int i = transform.childCount-1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        /*var objs = transform.GetComponentsInChildren<Items>();
+        for (var i = 0; i < objs.Length; i++)
+        {
+            var gameObj = objs[i];
+            Destroy(gameObj.gameObject);
+        }
+        
+        var pets = transform.GetComponentsInChildren<Pets>();
         for (var i = 0; i < objs.Length; i++)
         {
             var gameObj = objs[i];
@@ -53,7 +64,7 @@ public class AbilityManager : Singleton<AbilityManager>
         {
             var item = playerItems[i];
             Destroy(item.gameObject);
-        }
+        }*/
     }
 
     public void GiveRandomItem(ChestType chestType)
@@ -95,7 +106,6 @@ public class AbilityManager : Singleton<AbilityManager>
     [Button("GetCommonItem")]
     private void GetCommonItem()
     {
-        print("count");
         EventGameManager.Instance.OnGetItem?.Invoke("Increase base characteristic");
         var pl = LevelManager.Instance;
         pl.player.navMeshAgent.speed += 0.3f;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -13,7 +14,8 @@ public class EnemySpawner : Singleton<EnemySpawner>
     [SerializeField] private float timeToSpawn;
     [SerializeField] private float globalTime;
     [SerializeField] private bool pause;
-    [SerializeField] private int lvlDifficulty = 100;
+    [SerializeField] private bool isBoss;
+    [SerializeField] public int lvlDifficulty = 100;
     [SerializeField] private int dif0;
     [SerializeField] private int dif1;
     [SerializeField] private int dif2;
@@ -28,6 +30,14 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private void Start()
     {
         Spawn();
+        EventGameManager.Instance.OnBossSpawn += () => { isBoss = true; };
+        EventGameManager.Instance.OnBossDead += () => { isBoss = false; Spawn();};
+    }
+
+    private void OnDestroy()
+    {
+        EventGameManager.Instance.OnBossSpawn -= () => { isBoss = true; };
+        EventGameManager.Instance.OnBossDead -= () => { isBoss = false; Spawn();};
     }
 
     public void ResetTime()
@@ -42,6 +52,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     {
         if(LevelManager.Instance.currentLevel == 0) return;
         if(pause) return;
+        if(isBoss) return;
         
         globalTime += Time.deltaTime;
 
@@ -75,8 +86,8 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
         if (globalTime >= dif4 && globalTime < dif5 && lvlDifficulty != 9)
         {
-            _sequence.Kill();
             lvlDifficulty = 8;
+            _sequence.Kill();
             Spawn();
         }
     }
@@ -84,6 +95,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private void Spawn()
     {
         if(LevelManager.Instance.GetPlayerPos() == Vector3.zero) return;
+        if(isBoss) return;
 
         switch (lvlDifficulty)
         {
@@ -99,22 +111,21 @@ public class EnemySpawner : Singleton<EnemySpawner>
                 AddEnemyInList(1, 1);
                 break;
             case 4:
-                timeToSpawn = 12;
+                timeToSpawn = 14;
                 lvlDifficulty++;
-                AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);
                 AddEnemyInList(2, 1);
                 break;
             case 6:
-                timeToSpawn = 17;
+                timeToSpawn = 20;
                 lvlDifficulty++;
                 AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);
                 AddEnemyInList(2, 1);
-                AddEnemyInList(3, 1);
+                AddEnemyInList(3, 2);
                 break;
             case 8:
-                timeToSpawn = 22;
+                timeToSpawn = 30;
                 lvlDifficulty++;
                 AddEnemyInList(0, 1);
                 AddEnemyInList(1, 1);
@@ -126,9 +137,9 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
         _sequence = DOTween.Sequence();
         var inVal = 0f;
+        SpawnEnemy(LevelManager.Instance.GetPlayerPos());
         _sequence.Append(DOTween.To(() => inVal, x => inVal = x, 1, timeToSpawn).OnComplete(() =>
         {
-            SpawnEnemy(LevelManager.Instance.GetPlayerPos());
             Spawn();
         }));
     }

@@ -1,10 +1,7 @@
-using System;
 using DG.Tweening;
 using Gameplay.Character;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Composites;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -34,6 +31,7 @@ public class GameplayWindow : Singleton<GameplayWindow>
         UpdateCoin();
         UpdateHp();
         UpdateBossHp(null);
+        bossHpScrollbar.size = 1;
         
         eventGameManager.OnPause += Pause;
         if(LevelManager.Instance.currentLevel == 0)
@@ -73,16 +71,15 @@ public class GameplayWindow : Singleton<GameplayWindow>
 
     public void EnterGame()
     {
-        print("EnterGame");
         pauseMenu.SetActive(false);
         gameOver.SetActive(false);
         menu.SetActive(true);
         Time.timeScale = 0;
+        Player.Instance.ResetStats();
     }
     
     public void StartGame()
     {
-        print("StartGame");
         pauseMenu.SetActive(false);
         menu.SetActive(false);
         Time.timeScale = 1;
@@ -97,9 +94,12 @@ public class GameplayWindow : Singleton<GameplayWindow>
         EnemySpawner.Instance.ResetTime();
         DeadBodyCleaner.Instance.Clear();
         var lm = LevelManager.Instance;
-        lm.currentLevel = 6;
+        EventGameManager.Instance.OnBossDead?.Invoke();
+        lm.currentLevel = 5;
+        lm.countLevel = 0;
         SceneManager.LoadScene(lm.currentLevel);
         EnterGame();
+        Player.Instance.ResurrectPlayer();
     }
     
 

@@ -28,7 +28,8 @@ public abstract class BaseCharacter : MonoBehaviour
             else hp = maxHp;
         }
     }
-    [SerializeField] private float attackCooldown = 2;
+
+    [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private float protectionCooldown = 3;
     
     public float AttackCooldown

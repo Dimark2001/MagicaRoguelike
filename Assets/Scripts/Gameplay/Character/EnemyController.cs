@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using DG.Tweening;
@@ -20,6 +21,8 @@ public class EnemyController : BaseCharacter
     protected int IsMoveBlock = 0;
     protected bool IsTakeDamage = false;
 
+    private Sequence _sequence;
+    
     protected virtual void Awake()
     {
         characterMovement = GetComponent<CharacterMovement>();
@@ -34,6 +37,15 @@ public class EnemyController : BaseCharacter
             else if(meleeWeaponPrefabs.Count != 0)
                 SetWeaponPrefab(meleeWeaponPrefabs);
         }
+        var sp = EnemySpawner.Instance;
+        
+        maxHp *= LevelManager.Instance.countLevel + 1;
+        Hp = maxHp;
+    }
+
+    private void OnDestroy()
+    {
+        _sequence.Kill();
     }
 
     protected virtual void Update()
@@ -268,6 +280,7 @@ public class EnemyController : BaseCharacter
     protected virtual void DestroyEnemy()
     {
         LevelManager.Instance.Coins += coinCount;
+        EventGameManager.Instance.OnCoinChange?.Invoke();
         if (animator != null)
             animator.SetTrigger("Dead");
         
@@ -275,11 +288,13 @@ public class EnemyController : BaseCharacter
         EnemyStay();
         var inVal = 0f;
         Destroy(enemy);
-        DOTween.To(() => inVal, x => inVal = x, 1, enemy.timeToDeath).OnComplete(() =>
+        Destroy(gameObject.GetComponent<Collider>());
+        _sequence = DOTween.Sequence();
+        _sequence.Append(DOTween.To(() => inVal, x => inVal = x, 1, enemy.timeToDeath).OnComplete(() =>
         {
             BlockMove();
             DeadBodyCleaner.Instance.enemyBody.Add(gameObject);
-        });
+        }));
     }
 
     public override void KnockBack(Vector3 dir, float force)

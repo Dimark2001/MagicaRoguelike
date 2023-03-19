@@ -9,6 +9,7 @@ public class LevelManager : Singleton<LevelManager>
     public Transform dynamicContainer;
     public Camera thisCamera;
     public int currentLevel = 0;
+    public int countLevel = 0;
 
     [SerializeField] private int coins;
 

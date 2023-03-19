@@ -15,13 +15,12 @@ public class ToxicPuddle : Ability
             if ((perSecond*count) <= (int)inVal)
             {
                 count++;
-                print(1);
                 var others = Physics.OverlapSphere(transform.position, rad);
                 foreach (var other in others)
                 {
                     if (other.TryGetComponent(out BaseCharacter baseCharacter))
                     {
-                        baseCharacter.TakeDamage((int)perSecond, DamageType.Poison, null);
+                        baseCharacter.TakeDamage(2, DamageType.Poison, null);
                     }
                 }
             }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay.Character;
+using Gameplay.Weapon;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,12 +15,10 @@ public class BossWizard : EnemyController
     [SerializeField] private float meteoriteRainDuration;
     [SerializeField] private float meteoriteCooldown;
 
-    private int _maxHp;
-
     protected override void Awake()
     {
-        _maxHp = Hp;
         base.Awake();
+        EventGameManager.Instance.OnBossHpChange?.Invoke(this);
     }
 
     protected override void Update()
@@ -35,7 +34,7 @@ public class BossWizard : EnemyController
         {
             if (CheckPlayerInRadius())
             {
-                if (Hp > _maxHp / 1.5f)
+                if (Hp > maxHp / 1.5f)
                 {
                     timeShoot = AttackCooldown;
                     SetWeaponPrefab(projectilePrefabs);
@@ -99,5 +98,11 @@ public class BossWizard : EnemyController
         var vfx = Instantiate(AbilityManager.Instance.vfxMeteoriteRain);
         vfx.transform.position = playerPos;
         vfx.transform.localScale = new Vector3(1, 1, 1) * meteoriteRainRad / 4;
+    }
+
+    public override void TakeDamage(int amount, DamageType type, Weapon source)
+    {
+        base.TakeDamage(amount, type, source);
+        EventGameManager.Instance.OnBossHpChange?.Invoke(this);
     }
 }

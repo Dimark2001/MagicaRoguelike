@@ -12,10 +12,11 @@ public class PlayerProjectile : ProjectileWeapon
         base.OnTriggerEnter(other);
         if (other.CompareTag("Enemy"))
         {
-            if (other.TryGetComponent(out EnemyController enemy))
+            if (other.TryGetComponent(out Enemy enemy))
             {
-                enemy.KnockBack(transform.forward, forceKnockBack);
-                enemy.TakeDamage(dmg, DamageType.Magical, this);
+                var enemyController = enemy.GetComponent<EnemyController>();
+                enemyController.KnockBack(transform.forward, forceKnockBack);
+                enemyController.TakeDamage(dmg, DamageType.Magical, this);
                 DestroyProjectile();
             }
         }

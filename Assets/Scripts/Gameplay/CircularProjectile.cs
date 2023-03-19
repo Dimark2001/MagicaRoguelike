@@ -33,7 +33,7 @@ public class CircularProjectile : PlayerProjectile
             if (other.TryGetComponent(out Player player))
             {
                 player.KnockBack(transform.forward, forceKnock);
-                player.TakeDamage(dmg, DamageType.Physical, this);
+                player.TakeDamage(5, DamageType.Physical, this);
             }
             
             DestroyProjectile();//вызывает событие, которого здесь не должно быть

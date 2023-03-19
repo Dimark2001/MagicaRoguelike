@@ -116,7 +116,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 0
@@ -183,8 +183,8 @@ MonoBehaviour:
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 
-  maxHp: 11
-  hp: 11
+  maxHp: 6
+  hp: 6
   attackCooldown: 3
   protectionCooldown: 1000
   isKnockBack: 0

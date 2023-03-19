@@ -183,8 +183,8 @@ MonoBehaviour:
   meleeWeaponPrefabs: []
   protectionsPrefab: []
   immunityList: 
-  maxHp: 100
-  hp: 100
+  maxHp: 75
+  hp: 75
   attackCooldown: 2
   protectionCooldown: 3
   isKnockBack: 0

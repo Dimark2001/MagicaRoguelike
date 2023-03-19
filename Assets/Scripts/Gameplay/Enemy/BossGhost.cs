@@ -9,12 +9,11 @@ public class BossGhost : EnemyController
 {
     [SerializeField] private float timeToCast;
     [SerializeField] private float rad;
-    private int _maxHp;
 
     protected override void Awake()
     {
-        _maxHp = Hp;
         base.Awake();
+        EventGameManager.Instance.OnBossHpChange?.Invoke(this);
     }
 
     protected override void Update()
@@ -46,6 +45,8 @@ public class BossGhost : EnemyController
             PerformAttack();
             Invoke(nameof(PerformAttack), 0.2f);
             Invoke(nameof(PerformAttack), 0.4f);
+            Invoke(nameof(PerformAttack), 0.6f);
+            Invoke(nameof(PerformAttack), 0.8f);
         });
     }
 

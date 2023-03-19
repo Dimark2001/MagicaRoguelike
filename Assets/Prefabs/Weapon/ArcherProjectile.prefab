@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 15
-  lifeTime: 10
+  lifeTime: 3
   endValue: 0
   duration: 0
   speed: 40

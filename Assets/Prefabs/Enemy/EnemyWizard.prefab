@@ -185,8 +185,8 @@ MonoBehaviour:
   protectionsPrefab:
   - {fileID: 4702574543090416057, guid: b125a2f191d355b47bab0129cde43af1, type: 3}
   immunityList: 
-  maxHp: 11
-  hp: 11
+  maxHp: 4
+  hp: 4
   attackCooldown: 3
   protectionCooldown: 5
   isKnockBack: 0

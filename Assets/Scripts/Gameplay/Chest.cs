@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using DG.Tweening;
+using Gameplay.Character;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -19,11 +20,20 @@ public class Chest : MonoBehaviour
 
     private void Start()
     {
-        priceText.text = price.ToString();
-        if(priceType == PriceType.Gold)
+        if (priceType == PriceType.Gold)
+        {
             priceText.color = Color.yellow;
-        else 
+            price *= LevelManager.Instance.countLevel;
+        }
+        else
+        {
             priceText.color = Color.red;
+            if (LevelManager.Instance.countLevel <= 9)
+                price = (int)(Player.Instance.maxHp * 0.1f * (LevelManager.Instance.countLevel));
+            else
+                price = (int)(Player.Instance.maxHp * 0.9f);
+        }
+        priceText.text = price.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
